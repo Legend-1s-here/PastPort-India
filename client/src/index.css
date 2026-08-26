@@ -176,6 +176,24 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
+/* 3D Transform Utilities for Codex Page Turns */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.origin-left-center {
+  transform-origin: left center;
+}
+
+.origin-right-center {
+  transform-origin: right center;
+}
+
 /* Page Transitions & Skeletons */
 @keyframes pageEnter {
   0% {

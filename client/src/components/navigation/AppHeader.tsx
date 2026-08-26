@@ -4,11 +4,22 @@ import { Compass, Sparkles, BookOpen, Menu, X, Landmark } from 'lucide-react';
 
 export const AppHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
 
   const isHome = currentPath === '/';
   const isExplore = currentPath === '/explore' || currentPath.startsWith('/monuments');
+
+  // Scroll listener for dynamic glassmorphism header
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close on Escape key
   useEffect(() => {
@@ -26,7 +37,13 @@ export const AppHeader: React.FC = () => {
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-charcoal-950/90 backdrop-blur-md border-b border-brass-500/20 px-4 sm:px-6 py-3 transition-colors">
+    <header
+      className={`sticky top-0 z-50 px-4 sm:px-6 py-3 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-charcoal-950/92 backdrop-blur-md border-b border-brass-500/20 shadow-xl shadow-charcoal-950/50'
+          : 'bg-charcoal-950/50 backdrop-blur-sm border-b border-brass-500/10'
+      }`}
+    >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Brand Logo & Name */}
         <Link
@@ -70,7 +87,7 @@ export const AppHeader: React.FC = () => {
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            <span>Explore</span>
+            <span>Explore Catalogue</span>
           </Link>
         </nav>
 
