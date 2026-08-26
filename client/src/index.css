@@ -1,32 +1,189 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: 'Cinzel', serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Charcoal / Deep primary heritage tones */
+  --color-charcoal-950: #0c0a09;
+  --color-charcoal-900: #14110f;
+  --color-charcoal-850: #1a1614;
+  --color-charcoal-800: #221d19;
+  --color-charcoal-700: #2d2621;
+  --color-charcoal-600: #3b322c;
+
+  /* Sandstone heritage tones */
+  --color-sandstone-100: #fbf8f3;
+  --color-sandstone-200: #f4ecdf;
+  --color-sandstone-300: #e5d6be;
+  --color-sandstone-400: #cbb493;
+  --color-sandstone-500: #b39772;
+  --color-sandstone-600: #937854;
+
+  /* Aged Parchment */
+  --color-parchment-100: #fcf9f2;
+  --color-parchment-200: #f7f1e7;
+  --color-parchment-300: #ede2cf;
+  --color-parchment-400: #decbb0;
+  --color-parchment-500: #caaF8f;
+
+  /* Antique Brass / Gold Accents */
+  --color-brass-300: #f0d68a;
+  --color-brass-400: #e2c170;
+  --color-brass-500: #c9a44c;
+  --color-brass-600: #a98332;
+  --color-brass-700: #806120;
+
+  /* Terracotta */
+  --color-terracotta-300: #ec9e84;
+  --color-terracotta-400: #de886d;
+  --color-terracotta-500: #c46849;
+  --color-terracotta-600: #9e4a2e;
+  --color-terracotta-700: #7a321a;
+
+  /* Muted Burgundy */
+  --color-burgundy-400: #8b3441;
+  --color-burgundy-500: #6b212c;
+  --color-burgundy-600: #541620;
+  --color-burgundy-700: #3a0b12;
+  --color-burgundy-900: #24050a;
+}
+
 :root {
-  --font-heritage: 'Cinzel', serif;
+  --font-display: 'Cinzel', serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Base semantic background colors */
+  --bg-deep: #0c0a09;
+  --bg-surface: #14110f;
+  --bg-surface-elevated: #1e1916;
+  --bg-surface-highlight: #28221d;
+
+  /* Base semantic text colors */
+  --text-primary: #f7f1e7;
+  --text-secondary: #cbbca9;
+  --text-muted: #8e8071;
+  --text-accent: #e2c170;
+
+  /* Border tokens */
+  --border-subtle: rgba(201, 164, 76, 0.12);
+  --border-medium: rgba(201, 164, 76, 0.24);
+  --border-strong: rgba(201, 164, 76, 0.45);
+  --border-stone: rgba(203, 180, 147, 0.15);
+
+  /* Motion tokens */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-cinematic: 800ms;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #0f172a;
-  color: #f8fafc;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Custom Heritage Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #0c0a09;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #2d2621;
   border-radius: 4px;
+  border: 1px solid rgba(201, 164, 76, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #463b33;
+}
+
+/* Subtle gold & brass typography accents */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #f7f1e7 0%, #e2c170 50%, #c9a44c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-sandstone-gradient {
+  background: linear-gradient(135deg, #fdfbf7 0%, #e5d6be 50%, #b39772 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Surface Primitives */
+.surface-museum {
+  background-color: #14110f;
+  border: 1px solid rgba(201, 164, 76, 0.18);
+  box-shadow: inset 0 1px 0 rgba(226, 193, 112, 0.08), 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.surface-museum-hover {
+  transition: border-color var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out);
+}
+
+.surface-museum-hover:hover {
+  border-color: rgba(201, 164, 76, 0.38);
+  box-shadow: inset 0 1px 0 rgba(226, 193, 112, 0.16), 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.surface-cinematic {
+  background: radial-gradient(circle at 50% 0%, rgba(34, 29, 25, 0.9) 0%, rgba(12, 10, 9, 0.98) 100%);
+  border: 1px solid rgba(201, 164, 76, 0.15);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8);
+}
+
+.surface-subtle {
+  background-color: rgba(20, 17, 15, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 164, 76, 0.12);
+}
+
+.surface-parchment {
+  background-color: #f7f1e7;
+  color: #1c1815;
+  border: 1px solid rgba(179, 151, 114, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

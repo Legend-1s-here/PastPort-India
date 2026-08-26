@@ -2,42 +2,47 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Search, Compass, ShieldCheck, ArrowRight, Layers, Sparkles } from 'lucide-react';
 import { MONUMENTS } from '@/data/monuments';
+import { Button, Badge, Surface } from '@/components/ui';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const flagshipMonument = MONUMENTS[0];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {/* Hero Section */}
-      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border border-amber-500/20 p-6 md:p-12 shadow-2xl">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative rounded-3xl overflow-hidden surface-cinematic p-6 sm:p-10 md:p-14">
+        {/* Warm Ambient Heritage Glow */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-brass-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-terracotta-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-full">
+          <Badge variant="brass">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>SIH26195 — Student Innovation: Heritage & Culture</span>
-          </div>
+            <span>SIH26195 &bull; Heritage &amp; Culture Prototype</span>
+          </Badge>
 
-          <h1 className="text-3xl md:text-5xl font-black text-slate-100 tracking-tight leading-tight">
-            Step Into India's Rich Heritage in <span className="bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500 bg-clip-text text-transparent">3D, AR & VR</span>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-parchment-100 tracking-tight leading-[1.15]">
+            Step Into India&apos;s Rich Heritage in{' '}
+            <span className="text-gold-gradient">3D, AR &amp; VR</span>
           </h1>
 
-          <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-            Experience source-backed historical monuments with 3D reconstructions, interactive hotspots, chronological timelines, and mobile AR/VR views.
+          <p className="font-editorial text-base sm:text-lg md:text-xl text-sandstone-300 leading-relaxed max-w-2xl">
+            Experience source-backed historical monuments with 3D reconstructions, interactive
+            hotspots, chronological timelines, and mobile AR/VR views.
           </p>
 
           {/* Quick Action Button */}
           <div className="pt-2">
-            <button
-              type="button"
+            <Button
+              size="lg"
               onClick={() => navigate(`/monuments/${flagshipMonument.slug}`)}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+              leftIcon={<Search className="w-5 h-5" />}
+              rightIcon={<ArrowRight className="w-4 h-4" />}
+              className="w-full sm:w-auto"
             >
-              <Search className="w-5 h-5" />
-              <span>Explore Flagship Monument: {flagshipMonument.name}</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              Explore Flagship Monument: {flagshipMonument.name}
+            </Button>
           </div>
         </div>
       </section>
@@ -45,94 +50,100 @@ export const Home: React.FC = () => {
       {/* Flagship Monument Highlight Card */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-slate-100 flex items-center space-x-2">
-            <Compass className="w-5 h-5 text-amber-400" />
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-parchment-100 flex items-center space-x-2.5">
+            <Compass className="w-5 h-5 text-brass-400" />
             <span>Featured Heritage Monument</span>
           </h2>
-          <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">
-            Flagship MVP
-          </span>
+          <Badge variant="terracotta">Flagship MVP</Badge>
         </div>
 
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/40 transition duration-300 shadow-xl grid md:grid-cols-2">
+        <Surface variant="museum" interactive className="grid md:grid-cols-2">
           {/* Image Thumbnail */}
-          <div className="relative h-64 md:h-full min-h-[240px]">
+          <div className="relative h-64 md:h-full min-h-[260px] overflow-hidden">
             <img
               src={flagshipMonument.heroImage}
               alt={flagshipMonument.heroImageAlt || flagshipMonument.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4">
-              <span className="text-xs font-semibold text-amber-300 bg-slate-900/80 px-2 py-1 rounded border border-amber-500/30">
-                {flagshipMonument.period}
-              </span>
-              <h3 className="text-2xl font-bold text-white mt-1">{flagshipMonument.name}</h3>
-              <p className="text-xs text-slate-300">{flagshipMonument.location}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/40 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 space-y-1">
+              <Badge variant="brass">{flagshipMonument.period}</Badge>
+              <h3 className="font-display text-2xl font-bold text-parchment-100 mt-1">
+                {flagshipMonument.name}
+              </h3>
+              <p className="text-xs text-sandstone-300 font-sans">{flagshipMonument.location}</p>
             </div>
           </div>
 
           {/* Details & Actions */}
-          <div className="p-6 flex flex-col justify-between space-y-4">
-            <div className="space-y-3">
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <p className="text-sandstone-300 text-xs sm:text-sm leading-relaxed">
                 {flagshipMonument.shortDescription}
               </p>
 
-              <div className="grid grid-cols-2 gap-2 pt-2 text-xs">
-                <div className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/60">
-                  <span className="text-slate-400 block text-[10px]">Commissioned By</span>
-                  <span className="font-semibold text-amber-200">{flagshipMonument.builtBy}</span>
+              <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
+                <div className="bg-charcoal-900/80 p-3 rounded-xl border border-charcoal-700/60">
+                  <span className="text-sandstone-400 block text-[10px] uppercase tracking-wider font-semibold">
+                    Commissioned By
+                  </span>
+                  <span className="font-semibold text-brass-300 mt-0.5 block">
+                    {flagshipMonument.builtBy}
+                  </span>
                 </div>
-                <div className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/60">
-                  <span className="text-slate-400 block text-[10px]">3D Hotspots</span>
-                  <span className="font-semibold text-amber-200">{flagshipMonument.hotspots.length} Verified Spots</span>
+                <div className="bg-charcoal-900/80 p-3 rounded-xl border border-charcoal-700/60">
+                  <span className="text-sandstone-400 block text-[10px] uppercase tracking-wider font-semibold">
+                    3D Hotspots
+                  </span>
+                  <span className="font-semibold text-brass-300 mt-0.5 block">
+                    {flagshipMonument.hotspots.length} Verified Spots
+                  </span>
                 </div>
               </div>
             </div>
 
             <Link
               to={`/monuments/${flagshipMonument.slug}`}
-              className="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/30 font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center space-x-2 text-xs sm:text-sm cursor-pointer"
+              className="w-full bg-charcoal-850 hover:bg-brass-500 hover:text-charcoal-950 text-brass-300 border border-brass-500/35 font-semibold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 text-xs sm:text-sm cursor-pointer shadow-md hover:shadow-brass-500/20"
             >
               <span>Open {flagshipMonument.name} Experience</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
+        </Surface>
       </section>
 
       {/* Product Architecture Pillars */}
-      <section className="grid sm:grid-cols-3 gap-4 pt-4">
-        <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
-            <Layers className="w-4 h-4" />
+      <section className="grid sm:grid-cols-3 gap-4 pt-2">
+        <Surface variant="subtle" className="p-5 space-y-2.5">
+          <div className="w-9 h-9 rounded-xl bg-brass-500/15 flex items-center justify-center text-brass-400 border border-brass-500/30">
+            <Layers className="w-4.5 h-4.5" />
           </div>
-          <h4 className="text-sm font-bold text-slate-100">Shared 3D Core</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="font-display text-sm font-bold text-parchment-100">Shared 3D Core</h4>
+          <p className="text-xs text-sandstone-400 leading-relaxed">
             One 3D model definition powers standard 3D viewer, marker-based AR, and optional VR mode.
           </p>
-        </div>
+        </Surface>
 
-        <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
-            <ShieldCheck className="w-4 h-4" />
+        <Surface variant="subtle" className="p-5 space-y-2.5">
+          <div className="w-9 h-9 rounded-xl bg-brass-500/15 flex items-center justify-center text-brass-400 border border-brass-500/30">
+            <ShieldCheck className="w-4.5 h-4.5" />
           </div>
-          <h4 className="text-sm font-bold text-slate-100">Source Ledger</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="font-display text-sm font-bold text-parchment-100">Source Ledger</h4>
+          <p className="text-xs text-sandstone-400 leading-relaxed">
             All facts, hotspots, and dates cite institutional sources (ASI, UNESCO, Research).
           </p>
-        </div>
+        </Surface>
 
-        <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
-            <Sparkles className="w-4 h-4" />
+        <Surface variant="subtle" className="p-5 space-y-2.5">
+          <div className="w-9 h-9 rounded-xl bg-brass-500/15 flex items-center justify-center text-brass-400 border border-brass-500/30">
+            <Sparkles className="w-4.5 h-4.5" />
           </div>
-          <h4 className="text-sm font-bold text-slate-100">Fallback Protection</h4>
-          <p className="text-xs text-slate-400 leading-relaxed">
+          <h4 className="font-display text-sm font-bold text-parchment-100">Fallback Protection</h4>
+          <p className="text-xs text-sandstone-400 leading-relaxed">
             If AR or VR is unsupported on a device, the app cleanly falls back to Web 3D mode.
           </p>
-        </div>
+        </Surface>
       </section>
     </div>
   );

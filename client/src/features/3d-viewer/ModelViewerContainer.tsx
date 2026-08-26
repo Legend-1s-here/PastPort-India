@@ -25,18 +25,18 @@ export const ModelViewerContainer: React.FC<ModelViewerContainerProps> = ({
   };
 
   return (
-    <div className="relative min-h-[520px] w-full bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 rounded-2xl overflow-hidden border border-amber-500/20 shadow-2xl flex flex-col justify-between p-4 sm:p-6">
+    <div className="relative min-h-[520px] w-full surface-cinematic rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between p-4 sm:p-6">
       {/* Top Controls Overlay */}
-      <div className="flex items-center justify-between bg-slate-900/80 backdrop-blur-md p-3.5 rounded-xl border border-slate-800 z-10">
-        <div className="flex items-center space-x-2">
-          <Sparkles className="w-5 h-5 text-amber-400" />
-          <span className="font-semibold text-slate-100 text-sm">
+      <div className="flex items-center justify-between bg-charcoal-900/85 backdrop-blur-md p-3.5 rounded-xl border border-brass-500/20 z-10">
+        <div className="flex items-center space-x-2.5">
+          <Sparkles className="w-5 h-5 text-brass-400" />
+          <span className="font-display font-bold text-parchment-100 text-sm tracking-wide">
             3D Interactive Monument Viewer
           </span>
         </div>
         <div className="flex items-center space-x-2">
-          <span className="text-xs text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">
-            Rotate & Zoom Active
+          <span className="text-xs text-sandstone-300 bg-charcoal-800/90 px-3 py-1 rounded-md border border-charcoal-700 font-sans">
+            Rotate &amp; Zoom Active
           </span>
         </div>
       </div>
@@ -45,7 +45,7 @@ export const ModelViewerContainer: React.FC<ModelViewerContainerProps> = ({
       <div className="relative my-4 flex-1 flex flex-col items-center justify-center min-h-[380px]">
         <Suspense
           fallback={
-            <div className="h-[420px] w-full flex items-center justify-center bg-slate-950/60 rounded-xl border border-slate-800/60">
+            <div className="h-[420px] w-full flex items-center justify-center bg-charcoal-950/80 rounded-xl border border-charcoal-800">
               <LoadingSpinner message="Initializing Web 3D viewport..." />
             </div>
           }
@@ -57,15 +57,15 @@ export const ModelViewerContainer: React.FC<ModelViewerContainerProps> = ({
           />
         </Suspense>
 
-        <p className="mt-3 text-xs text-slate-400 flex items-center space-x-1">
-          <RotateCcw className="w-3.5 h-3.5 text-amber-400" />
-          <span>Drag to orbit • Scroll to zoom • Click numbered hotspots for historical facts</span>
+        <p className="mt-3 text-xs text-sandstone-400 flex items-center space-x-1.5 font-sans">
+          <RotateCcw className="w-3.5 h-3.5 text-brass-400" />
+          <span>Drag to orbit &bull; Scroll to zoom &bull; Click numbered hotspots for historical facts</span>
         </p>
       </div>
 
       {/* Hotspots Quick Switch Bar */}
-      <div className="bg-slate-900/90 backdrop-blur-md p-3 rounded-xl border border-slate-800 z-10">
-        <div className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2 flex items-center space-x-1">
+      <div className="bg-charcoal-900/90 backdrop-blur-md p-3.5 rounded-xl border border-brass-500/20 z-10">
+        <div className="text-xs font-semibold text-brass-400 uppercase tracking-wider mb-2.5 flex items-center space-x-1.5 font-sans">
           <Info className="w-3.5 h-3.5" />
           <span>Interactive Hotspots ({hotspots.length})</span>
         </div>
@@ -75,13 +75,13 @@ export const ModelViewerContainer: React.FC<ModelViewerContainerProps> = ({
               type="button"
               key={spot.id}
               onClick={() => handleHotspotClick(spot)}
-              className={`text-left p-2 rounded-lg text-xs border transition ${
+              className={`text-left p-2.5 rounded-lg text-xs border transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
                 activeHotspotId === spot.id
-                  ? 'bg-amber-500/20 border-amber-500 text-amber-200'
-                  : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800 hover:text-slate-100'
+                  ? 'bg-brass-500/20 border-brass-500/60 text-brass-300 shadow-sm'
+                  : 'bg-charcoal-850/70 border-charcoal-700/60 text-sandstone-300 hover:bg-charcoal-800 hover:text-parchment-100 hover:border-brass-500/30'
               }`}
             >
-              <div className="font-bold truncate text-amber-300">
+              <div className="font-bold truncate text-brass-300 font-display">
                 {idx + 1}. {spot.title}
               </div>
             </button>

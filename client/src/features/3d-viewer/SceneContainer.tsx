@@ -19,28 +19,28 @@ const MonumentMesh: React.FC = () => {
 
   return (
     <group ref={meshRef} position={[0, -0.5, 0]}>
-      {/* Base Plinth */}
+      {/* Base Plinth - Sandstone & Marble */}
       <mesh position={[0, 0.1, 0]}>
         <boxGeometry args={[4.5, 0.2, 4.5]} />
-        <meshStandardMaterial color="#cbd5e1" roughness={0.4} metalness={0.1} />
+        <meshStandardMaterial color="#cbb493" roughness={0.5} metalness={0.05} />
       </mesh>
 
-      {/* Main Arch Base */}
+      {/* Main Arch Base - White Marble */}
       <mesh position={[0, 1.0, 0]}>
         <boxGeometry args={[2.6, 1.6, 2.6]} />
-        <meshStandardMaterial color="#f8fafc" roughness={0.3} metalness={0.1} />
+        <meshStandardMaterial color="#f7f1e7" roughness={0.3} metalness={0.05} />
       </mesh>
 
       {/* Central Onion Dome (Amrud) */}
       <mesh position={[0, 2.3, 0]}>
         <sphereGeometry args={[0.9, 32, 32]} />
-        <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
+        <meshStandardMaterial color="#fcf9f2" roughness={0.2} metalness={0.05} />
       </mesh>
 
-      {/* Finial / Spire */}
+      {/* Finial / Spire - Antique Brass */}
       <mesh position={[0, 3.4, 0]}>
         <cylinderGeometry args={[0.04, 0.08, 0.8, 16]} />
-        <meshStandardMaterial color="#f59e0b" roughness={0.2} metalness={0.8} />
+        <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.8} />
       </mesh>
 
       {/* 4 Corner Minarets */}
@@ -53,11 +53,11 @@ const MonumentMesh: React.FC = () => {
         <group key={idx} position={[x, 0.2, z]}>
           <mesh position={[0, 1.1, 0]}>
             <cylinderGeometry args={[0.15, 0.2, 2.2, 16]} />
-            <meshStandardMaterial color="#f1f5f9" roughness={0.4} />
+            <meshStandardMaterial color="#ede2cf" roughness={0.4} />
           </mesh>
           <mesh position={[0, 2.3, 0]}>
             <sphereGeometry args={[0.2, 16, 16]} />
-            <meshStandardMaterial color="#ffffff" roughness={0.3} />
+            <meshStandardMaterial color="#fcf9f2" roughness={0.3} />
           </mesh>
         </group>
       ))}
@@ -71,16 +71,16 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
   onSelectHotspot,
 }) => {
   return (
-    <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-charcoal-950">
       <Canvas
         camera={{ position: [0, 2.5, 6], fov: 45 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
-        <color attach="background" args={['#020617']} />
-        <ambientLight intensity={0.8} />
-        <directionalLight position={[10, 15, 10]} intensity={1.5} color="#fffbeb" />
-        <directionalLight position={[-10, 10, -10]} intensity={0.5} color="#93c5fd" />
-        <pointLight position={[0, 4, 0]} intensity={0.8} color="#fef3c7" />
+        <color attach="background" args={['#0c0a09']} />
+        <ambientLight intensity={0.85} color="#f7f1e7" />
+        <directionalLight position={[10, 15, 10]} intensity={1.4} color="#fffbeb" />
+        <directionalLight position={[-10, 10, -10]} intensity={0.4} color="#cbb493" />
+        <pointLight position={[0, 4, 0]} intensity={0.7} color="#fef3c7" />
 
         {/* Monument Geometry */}
         <MonumentMesh />
@@ -100,15 +100,15 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
                   <span className="relative flex h-7 w-7 items-center justify-center">
                     <span
                       className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
-                        isActive ? 'bg-amber-400 opacity-75' : 'bg-amber-500 opacity-40'
+                        isActive ? 'bg-brass-400 opacity-75' : 'bg-brass-500 opacity-40'
                       }`}
                     />
                     <span
                       className={`relative inline-flex rounded-full h-6 w-6 border-2 ${
                         isActive
-                          ? 'bg-amber-500 border-white text-slate-950 scale-110'
-                          : 'bg-slate-900 border-amber-400 text-amber-300'
-                      } text-xs font-bold items-center justify-center shadow-lg`}
+                          ? 'bg-brass-500 border-parchment-100 text-charcoal-950 scale-110'
+                          : 'bg-charcoal-900 border-brass-400 text-brass-300'
+                      } text-xs font-bold items-center justify-center shadow-lg font-sans`}
                     >
                       {idx + 1}
                     </span>
