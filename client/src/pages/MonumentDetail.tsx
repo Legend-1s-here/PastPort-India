@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, ShieldCheck, Sparkles, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Clock, ShieldCheck, Sparkles, Landmark } from 'lucide-react';
 import type { Hotspot } from '@/types/monument';
 import type { ExperienceType } from '@/types/experience';
 import { getMonumentBySlug } from '@/data/monuments';
@@ -8,7 +8,7 @@ import { ExperienceButtons } from '@/features/experience/ExperienceButtons';
 import { ModelViewerContainer } from '@/features/3d-viewer/ModelViewerContainer';
 import { ARContainer } from '@/features/ar/ARContainer';
 import { VRContainer } from '@/features/vr/VRContainer';
-import { Badge, Surface } from '@/components/ui';
+import { Badge, Surface, EmptyState } from '@/components/ui';
 
 export const MonumentDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -22,21 +22,16 @@ export const MonumentDetail: React.FC = () => {
 
   if (!monument) {
     return (
-      <div className="text-center py-16 space-y-4">
-        <div className="w-16 h-16 rounded-full bg-terracotta-500/15 flex items-center justify-center mx-auto border border-terracotta-500/30">
-          <AlertCircle className="w-8 h-8 text-terracotta-400" />
-        </div>
-        <h2 className="font-display text-2xl font-bold text-parchment-100">Monument Not Found</h2>
-        <p className="text-xs text-sandstone-400 max-w-sm mx-auto">
-          The requested historical monument could not be located in our archives.
-        </p>
-        <Link
-          to="/explore"
-          className="inline-flex items-center space-x-2 text-xs font-semibold bg-brass-500 hover:bg-brass-400 text-charcoal-950 px-4 py-2.5 rounded-xl transition cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Catalogue</span>
-        </Link>
+      <div className="py-12">
+        <EmptyState
+          icon={<Landmark className="w-8 h-8 text-terracotta-400" />}
+          badgeText="Archive Reference Notice"
+          badgeVariant="terracotta"
+          title="Monument Record Not Found"
+          description="The requested historical monument could not be located in our verified archives."
+          actionText="Back to Catalogue"
+          actionTo="/explore"
+        />
       </div>
     );
   }
@@ -47,7 +42,7 @@ export const MonumentDetail: React.FC = () => {
       <div className="flex items-center justify-between">
         <Link
           to="/explore"
-          className="flex items-center space-x-2 text-xs font-semibold bg-charcoal-900 hover:bg-charcoal-800 text-sandstone-300 px-3.5 py-2 rounded-xl border border-brass-500/20 transition-all duration-200"
+          className="flex items-center space-x-2 text-xs font-semibold bg-charcoal-900 hover:bg-charcoal-800 text-sandstone-300 px-3.5 py-2 rounded-xl border border-brass-500/20 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Explore</span>
@@ -68,6 +63,7 @@ export const MonumentDetail: React.FC = () => {
       <ExperienceButtons
         currentMode={experienceMode}
         onModeChange={setExperienceMode}
+        availability={monument.experience}
       />
 
       {/* Main Experience Viewport */}
@@ -95,7 +91,7 @@ export const MonumentDetail: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('hotspots')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'hotspots'
                 ? 'border-brass-400 text-brass-300'
                 : 'border-transparent text-sandstone-400 hover:text-parchment-100'
@@ -108,7 +104,7 @@ export const MonumentDetail: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('timeline')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'timeline'
                 ? 'border-brass-400 text-brass-300'
                 : 'border-transparent text-sandstone-400 hover:text-parchment-100'
@@ -121,7 +117,7 @@ export const MonumentDetail: React.FC = () => {
           <button
             type="button"
             onClick={() => setActiveTab('sources')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'sources'
                 ? 'border-brass-400 text-brass-300'
                 : 'border-transparent text-sandstone-400 hover:text-parchment-100'

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Compass, MapPin } from 'lucide-react';
 import { MONUMENTS } from '@/data/monuments';
-import { Badge, Surface } from '@/components/ui';
+import { Badge, Surface, EmptyState } from '@/components/ui';
 
 export const Explore: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,53 +39,65 @@ export const Explore: React.FC = () => {
       </div>
 
       {/* Monuments Catalogue Grid */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        {filteredMonuments.map((monument) => (
-          <Link
-            key={monument.id}
-            to={`/monuments/${monument.slug}`}
-            className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 rounded-2xl"
-          >
-            <Surface variant="museum" interactive className="h-full flex flex-col justify-between">
-              <div>
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={monument.heroImage}
-                    alt={monument.heroImageAlt || monument.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <Badge variant="brass">{monument.period}</Badge>
+      {filteredMonuments.length > 0 ? (
+        <div className="grid gap-6 sm:grid-cols-2">
+          {filteredMonuments.map((monument) => (
+            <Link
+              key={monument.id}
+              to={`/monuments/${monument.slug}`}
+              className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 rounded-2xl"
+            >
+              <Surface variant="museum" interactive className="h-full flex flex-col justify-between">
+                <div>
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={monument.heroImage}
+                      alt={monument.heroImageAlt || monument.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                      <Badge variant="brass">{monument.period}</Badge>
+                    </div>
+                  </div>
+
+                  <div className="p-5 space-y-2.5">
+                    <h3 className="font-display text-xl font-bold text-parchment-100 group-hover:text-brass-300 transition-colors duration-200">
+                      {monument.name}
+                    </h3>
+                    <p className="text-xs text-sandstone-400 flex items-center space-x-1.5 font-sans">
+                      <MapPin className="w-3.5 h-3.5 text-terracotta-400" />
+                      <span>{monument.location}</span>
+                    </p>
+                    <p className="text-xs text-sandstone-300 line-clamp-2 leading-relaxed">
+                      {monument.shortDescription}
+                    </p>
                   </div>
                 </div>
 
-                <div className="p-5 space-y-2.5">
-                  <h3 className="font-display text-xl font-bold text-parchment-100 group-hover:text-brass-300 transition-colors duration-200">
-                    {monument.name}
-                  </h3>
-                  <p className="text-xs text-sandstone-400 flex items-center space-x-1.5 font-sans">
-                    <MapPin className="w-3.5 h-3.5 text-terracotta-400" />
-                    <span>{monument.location}</span>
-                  </p>
-                  <p className="text-xs text-sandstone-300 line-clamp-2 leading-relaxed">
-                    {monument.shortDescription}
-                  </p>
+                <div className="px-5 pb-5 pt-2 flex items-center justify-between text-xs text-brass-400 font-semibold border-t border-charcoal-800/80">
+                  <span className="group-hover:translate-x-1 transition-transform duration-200">
+                    Launch 3D &bull; AR &bull; VR &rarr;
+                  </span>
+                  <span className="text-[10px] text-sandstone-500 font-normal">
+                    {monument.hotspots.length} Hotspots
+                  </span>
                 </div>
-              </div>
-
-              <div className="px-5 pb-5 pt-2 flex items-center justify-between text-xs text-brass-400 font-semibold border-t border-charcoal-800/80">
-                <span className="group-hover:translate-x-1 transition-transform duration-200">
-                  Launch 3D &bull; AR &bull; VR &rarr;
-                </span>
-                <span className="text-[10px] text-sandstone-500 font-normal">
-                  {monument.hotspots.length} Hotspots
-                </span>
-              </div>
-            </Surface>
-          </Link>
-        ))}
-      </div>
+              </Surface>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <EmptyState
+          icon={<Search className="w-8 h-8 text-brass-400" />}
+          badgeText="Search Result"
+          badgeVariant="brass"
+          title="No Monuments Found"
+          description={`No archival monument matches "${searchQuery}". Try searching for "Taj Mahal" or "Agra".`}
+          actionText="Clear Search"
+          onAction={() => setSearchQuery('')}
+        />
+      )}
     </div>
   );
 };
