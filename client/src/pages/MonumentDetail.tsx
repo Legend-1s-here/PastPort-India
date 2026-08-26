@@ -1,56 +1,74 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Clock, ShieldCheck, Sparkles } from 'lucide-react';
-import type { Monument, Hotspot } from '../types/monument';
-import { ExperienceButtons } from '../components/ExperienceButtons';
-import type { ExperienceMode } from '../components/ExperienceButtons';
-import { ModelViewerContainer } from '../features/model-viewer/ModelViewerContainer';
-import { ARContainer } from '../features/ar/ARContainer';
-import { VRContainer } from '../features/vr/VRContainer';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, Clock, ShieldCheck, Sparkles, Landmark } from 'lucide-react';
+import type { Hotspot } from '@/types/monument';
+import type { ExperienceType } from '@/types/experience';
+import { getMonumentBySlug } from '@/data/monuments';
+import { ExperienceButtons } from '@/features/experience/ExperienceButtons';
+import { ModelViewerContainer } from '@/features/3d-viewer/ModelViewerContainer';
+import { ARContainer } from '@/features/ar/ARContainer';
+import { VRContainer } from '@/features/vr/VRContainer';
+import { Badge, Surface, EmptyState } from '@/components/ui';
 
-interface MonumentDetailProps {
-  monument: Monument;
-  onBack: () => void;
-}
+export const MonumentDetail: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const monument = slug ? getMonumentBySlug(slug) : undefined;
 
-export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack }) => {
-  const [experienceMode, setExperienceMode] = useState<ExperienceMode>('3d');
+  const [experienceMode, setExperienceMode] = useState<ExperienceType>('web3d');
   const [selectedHotspot, setSelectedHotspot] = useState<Hotspot | null>(
-    monument.hotspots[0] || null
+    monument?.hotspots[0] || null,
   );
   const [activeTab, setActiveTab] = useState<'hotspots' | 'timeline' | 'sources'>('hotspots');
 
+  if (!monument) {
+    return (
+      <div className="py-12">
+        <EmptyState
+          icon={<Landmark className="w-8 h-8 text-terracotta-400" />}
+          badgeText="Archive Reference Notice"
+          badgeVariant="terracotta"
+          title="Monument Record Not Found"
+          description="The requested historical monument could not be located in our verified archives."
+          actionText="Back to Catalogue"
+          actionTo="/explore"
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className="space-y-6 pb-16">
+    <div className="space-y-6">
       {/* Top Navigation */}
       <div className="flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="flex items-center space-x-2 text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 px-3 py-2 rounded-xl border border-slate-800 transition"
+        <Link
+          to="/explore"
+          className="flex items-center space-x-2 text-xs font-semibold bg-charcoal-900 hover:bg-charcoal-800 text-sandstone-300 px-3.5 py-2 rounded-xl border border-brass-500/20 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Explore</span>
-        </button>
+        </Link>
 
-        <span className="text-xs font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30">
-          {monument.period}
-        </span>
+        <Badge variant="brass">{monument.period}</Badge>
       </div>
 
       {/* Monument Title Header */}
       <div>
-        <h1 className="text-3xl font-black text-slate-100">{monument.name}</h1>
-        <p className="text-xs text-slate-400 mt-1">{monument.location}</p>
+        <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-parchment-100 tracking-wide">
+          {monument.name}
+        </h1>
+        <p className="text-xs sm:text-sm text-sandstone-400 mt-1">{monument.location}</p>
       </div>
 
       {/* Experience Mode Toggle Buttons (3D / AR / VR) */}
       <ExperienceButtons
         currentMode={experienceMode}
         onModeChange={setExperienceMode}
+        availability={monument.experience}
       />
 
       {/* Main Experience Viewport */}
       <div>
-        {experienceMode === '3d' && (
+        {experienceMode === 'web3d' && (
           <ModelViewerContainer
             hotspots={monument.hotspots}
             onSelectHotspot={setSelectedHotspot}
@@ -58,24 +76,25 @@ export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack
         )}
 
         {experienceMode === 'ar' && (
-          <ARContainer onBackTo3D={() => setExperienceMode('3d')} />
+          <ARContainer onBackTo3D={() => setExperienceMode('web3d')} />
         )}
 
         {experienceMode === 'vr' && (
-          <VRContainer onBackTo3D={() => setExperienceMode('3d')} />
+          <VRContainer onBackTo3D={() => setExperienceMode('web3d')} />
         )}
       </div>
 
       {/* Interactive Information Drawer & Tabs */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 md:p-6 space-y-4">
+      <Surface variant="museum" className="p-4 sm:p-6 space-y-6">
         {/* Tab Selector */}
-        <div className="flex border-b border-slate-800 pb-3 space-x-4">
+        <div className="flex border-b border-charcoal-700/80 pb-3 space-x-6">
           <button
+            type="button"
             onClick={() => setActiveTab('hotspots')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'hotspots'
-                ? 'border-amber-400 text-amber-300'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-brass-400 text-brass-300'
+                : 'border-transparent text-sandstone-400 hover:text-parchment-100'
             }`}
           >
             <Sparkles className="w-4 h-4" />
@@ -83,11 +102,12 @@ export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack
           </button>
 
           <button
+            type="button"
             onClick={() => setActiveTab('timeline')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'timeline'
-                ? 'border-amber-400 text-amber-300'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-brass-400 text-brass-300'
+                : 'border-transparent text-sandstone-400 hover:text-parchment-100'
             }`}
           >
             <Clock className="w-4 h-4" />
@@ -95,15 +115,16 @@ export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack
           </button>
 
           <button
+            type="button"
             onClick={() => setActiveTab('sources')}
-            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition ${
+            className={`flex items-center space-x-2 text-xs font-bold pb-2 border-b-2 transition cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brass-400 ${
               activeTab === 'sources'
-                ? 'border-amber-400 text-amber-300'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-brass-400 text-brass-300'
+                : 'border-transparent text-sandstone-400 hover:text-parchment-100'
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
-            <span>Sources & Attribution</span>
+            <span>Sources &amp; Attribution</span>
           </button>
         </div>
 
@@ -111,33 +132,41 @@ export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack
         {activeTab === 'hotspots' && (
           <div className="space-y-3">
             {selectedHotspot ? (
-              <div className="bg-slate-950 p-4 rounded-xl border border-amber-500/30 space-y-2">
+              <div className="bg-charcoal-950/80 p-4 sm:p-5 rounded-xl border border-brass-500/30 space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-amber-300">{selectedHotspot.title}</h3>
-                  <span className="text-[10px] text-slate-400 bg-slate-900 px-2 py-0.5 rounded">
+                  <h3 className="font-display text-sm sm:text-base font-bold text-brass-300">
+                    {selectedHotspot.title}
+                  </h3>
+                  <span className="text-[10px] text-sandstone-400 bg-charcoal-900 px-2 py-0.5 rounded border border-charcoal-700">
                     Source: {selectedHotspot.sourceIds.join(', ')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="font-editorial text-sm sm:text-base text-sandstone-200 leading-relaxed">
                   {selectedHotspot.description}
                 </p>
               </div>
             ) : (
-              <p className="text-xs text-slate-400">Select a hotspot on the 3D model above.</p>
+              <p className="text-xs text-sandstone-400">Select a hotspot on the 3D model above.</p>
             )}
           </div>
         )}
 
         {/* Tab Content 2: Timeline */}
         {activeTab === 'timeline' && (
-          <div className="space-y-3 relative pl-4 border-l-2 border-slate-800">
+          <div className="space-y-4 relative pl-5 border-l-2 border-brass-500/20 my-2">
             {monument.timeline.map((event) => (
               <div key={event.id} className="relative group">
-                <div className="absolute -left-[21px] top-1.5 w-3 h-3 rounded-full bg-amber-500 border-2 border-slate-900" />
-                <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
-                  <span className="text-xs font-extrabold text-amber-400">{event.year}</span>
-                  <h4 className="text-xs font-bold text-slate-200">{event.title}</h4>
-                  <p className="text-[11px] text-slate-400 leading-relaxed">{event.description}</p>
+                <div className="absolute -left-[27px] top-1.5 w-3.5 h-3.5 rounded-full bg-brass-500 border-2 border-charcoal-950 shadow-sm" />
+                <div className="bg-charcoal-950/80 p-4 rounded-xl border border-charcoal-700/80 space-y-1">
+                  <span className="text-xs font-black text-brass-400 font-display tracking-wider">
+                    {event.year}
+                  </span>
+                  <h4 className="font-display text-xs sm:text-sm font-bold text-parchment-100">
+                    {event.title}
+                  </h4>
+                  <p className="font-editorial text-xs sm:text-sm text-sandstone-300 leading-relaxed">
+                    {event.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -146,24 +175,27 @@ export const MonumentDetail: React.FC<MonumentDetailProps> = ({ monument, onBack
 
         {/* Tab Content 3: Sources & Attribution */}
         {activeTab === 'sources' && (
-          <div className="space-y-3 text-xs text-slate-300">
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-              <h4 className="font-bold text-amber-300 flex items-center space-x-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-400" />
+          <div className="space-y-3 text-xs text-sandstone-300">
+            <div className="bg-charcoal-950/80 p-4 sm:p-5 rounded-xl border border-charcoal-700/80 space-y-2.5">
+              <h4 className="font-display font-bold text-brass-300 flex items-center space-x-2 text-sm">
+                <ShieldCheck className="w-4.5 h-4.5 text-brass-400" />
                 <span>Historical Source Ledger</span>
               </h4>
-              <p className="text-[11px] text-slate-400">
-                Prepared by Research Lead (Manmath). Factual statements cite Archaeological Survey of India (ASI) and UNESCO documentation.
+              <p className="text-xs text-sandstone-400">
+                Factual statements and archaeological records cite Archaeological Survey of India (ASI) and UNESCO documentation.
               </p>
-              <ul className="space-y-1 text-[11px] text-slate-300 list-disc list-inside pt-1">
-                <li><strong className="text-amber-200">TM-001:</strong> Archaeological Survey of India (ASI) Agra Circle Records</li>
-                <li><strong className="text-amber-200">TM-002:</strong> UNESCO World Heritage Inscription Document (1983)</li>
-                <li><strong className="text-amber-200">TM-003:</strong> Ebba Koch, "The Complete Taj Mahal" (Thames & Hudson)</li>
+              <ul className="space-y-1.5 text-xs text-sandstone-300 list-disc list-inside pt-1 font-sans">
+                <li><strong className="text-brass-300">TM-001:</strong> Archaeological Survey of India (ASI) Agra Circle Records</li>
+                <li><strong className="text-brass-300">TM-002:</strong> UNESCO World Heritage Inscription Document (1983)</li>
+                <li><strong className="text-brass-300">TM-003:</strong> Ebba Koch, &quot;The Complete Taj Mahal&quot; (Thames &amp; Hudson)</li>
+                <li><strong className="text-brass-300">TM-004:</strong> ASI National Monument Archival Database</li>
               </ul>
             </div>
           </div>
         )}
-      </div>
+      </Surface>
     </div>
   );
 };
+
+export default MonumentDetail;
