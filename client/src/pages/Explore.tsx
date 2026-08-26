@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Search, Compass, MapPin } from 'lucide-react';
-import { TAJ_MAHAL_DATA } from '../data/tajMahal';
+import { MONUMENTS } from '@/data/monuments';
 
-interface ExploreProps {
-  onSelectMonument: () => void;
-}
-
-export const Explore: React.FC<ExploreProps> = ({ onSelectMonument }) => {
+export const Explore: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const monuments = [TAJ_MAHAL_DATA];
-  const filteredMonuments = monuments.filter(
+  const filteredMonuments = MONUMENTS.filter(
     (m) =>
       m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       m.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.alternateNames.some((alt) => alt.toLowerCase().includes(searchQuery.toLowerCase()))
+      m.alternateNames.some((alt) => alt.toLowerCase().includes(searchQuery.toLowerCase())),
   );
 
   return (
-    <div className="space-y-6 pb-16">
+    <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-black text-slate-100 flex items-center space-x-2">
           <Compass className="w-6 h-6 text-amber-400" />
@@ -44,15 +40,15 @@ export const Explore: React.FC<ExploreProps> = ({ onSelectMonument }) => {
       {/* Monuments Catalogue Grid */}
       <div className="grid gap-4 sm:grid-cols-2">
         {filteredMonuments.map((monument) => (
-          <div
+          <Link
             key={monument.id}
-            onClick={onSelectMonument}
-            className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition duration-200 cursor-pointer group shadow-xl"
+            to={`/monuments/${monument.slug}`}
+            className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition duration-200 cursor-pointer group shadow-xl block"
           >
             <div className="relative h-48 overflow-hidden">
               <img
                 src={monument.heroImage}
-                alt={monument.name}
+                alt={monument.heroImageAlt || monument.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
@@ -79,9 +75,11 @@ export const Explore: React.FC<ExploreProps> = ({ onSelectMonument }) => {
                 <span className="text-[10px] text-slate-400">{monument.hotspots.length} Hotspots</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
   );
 };
+
+export default Explore;

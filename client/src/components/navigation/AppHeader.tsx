@@ -1,18 +1,20 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Compass, Sparkles, BookOpen } from 'lucide-react';
 
-interface AppHeaderProps {
-  activeTab: 'home' | 'explore' | 'detail';
-  onNavigate: (tab: 'home' | 'explore' | 'detail') => void;
-}
+export const AppHeader: React.FC = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
 
-export const AppHeader: React.FC<AppHeaderProps> = ({ activeTab, onNavigate }) => {
+  const isHome = currentPath === '/';
+  const isExplore = currentPath === '/explore' || currentPath.startsWith('/monuments');
+
   return (
     <header className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-amber-500/20 px-4 py-3">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Brand Logo & Name */}
-        <button
-          onClick={() => onNavigate('home')}
+        <Link
+          to="/"
           className="flex items-center space-x-2.5 text-left group focus:outline-none"
         >
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-600 via-amber-500 to-amber-300 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
@@ -26,33 +28,33 @@ export const AppHeader: React.FC<AppHeaderProps> = ({ activeTab, onNavigate }) =
               Heritage & Culture MVP
             </p>
           </div>
-        </button>
+        </Link>
 
-        {/* Mobile Navigation Navigation */}
+        {/* Navigation Links */}
         <nav className="flex items-center space-x-1 sm:space-x-2">
-          <button
-            onClick={() => onNavigate('home')}
+          <Link
+            to="/"
             className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-              activeTab === 'home'
+              isHome
                 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Home</span>
-          </button>
+          </Link>
 
-          <button
-            onClick={() => onNavigate('explore')}
+          <Link
+            to="/explore"
             className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
-              activeTab === 'explore' || activeTab === 'detail'
+              isExplore
                 ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
                 : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
             <span>Explore</span>
-          </button>
+          </Link>
         </nav>
       </div>
     </header>

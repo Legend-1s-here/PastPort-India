@@ -1,14 +1,14 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Search, Compass, ShieldCheck, ArrowRight, Layers, Sparkles } from 'lucide-react';
-import { TAJ_MAHAL_DATA } from '../data/tajMahal';
+import { MONUMENTS } from '@/data/monuments';
 
-interface HomeProps {
-  onExploreMonument: () => void;
-}
+export const Home: React.FC = () => {
+  const navigate = useNavigate();
+  const flagshipMonument = MONUMENTS[0];
 
-export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
   return (
-    <div className="space-y-8 pb-12">
+    <div className="space-y-8">
       {/* Hero Section */}
       <section className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border border-amber-500/20 p-6 md:p-12 shadow-2xl">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -27,14 +27,15 @@ export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
             Experience source-backed historical monuments with 3D reconstructions, interactive hotspots, chronological timelines, and mobile AR/VR views.
           </p>
 
-          {/* Quick Search Action Bar */}
+          {/* Quick Action Button */}
           <div className="pt-2">
             <button
-              onClick={onExploreMonument}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5"
+              type="button"
+              onClick={() => navigate(`/monuments/${flagshipMonument.slug}`)}
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
               <Search className="w-5 h-5" />
-              <span>Explore Flagship Monument: Taj Mahal</span>
+              <span>Explore Flagship Monument: {flagshipMonument.name}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -57,17 +58,17 @@ export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
           {/* Image Thumbnail */}
           <div className="relative h-64 md:h-full min-h-[240px]">
             <img
-              src={TAJ_MAHAL_DATA.heroImage}
-              alt={TAJ_MAHAL_DATA.name}
+              src={flagshipMonument.heroImage}
+              alt={flagshipMonument.heroImageAlt || flagshipMonument.name}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <span className="text-xs font-semibold text-amber-300 bg-slate-900/80 px-2 py-1 rounded border border-amber-500/30">
-                {TAJ_MAHAL_DATA.period}
+                {flagshipMonument.period}
               </span>
-              <h3 className="text-2xl font-bold text-white mt-1">{TAJ_MAHAL_DATA.name}</h3>
-              <p className="text-xs text-slate-300">{TAJ_MAHAL_DATA.location}</p>
+              <h3 className="text-2xl font-bold text-white mt-1">{flagshipMonument.name}</h3>
+              <p className="text-xs text-slate-300">{flagshipMonument.location}</p>
             </div>
           </div>
 
@@ -75,28 +76,28 @@ export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
           <div className="p-6 flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                {TAJ_MAHAL_DATA.shortDescription}
+                {flagshipMonument.shortDescription}
               </p>
 
               <div className="grid grid-cols-2 gap-2 pt-2 text-xs">
                 <div className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/60">
                   <span className="text-slate-400 block text-[10px]">Commissioned By</span>
-                  <span className="font-semibold text-amber-200">{TAJ_MAHAL_DATA.builtBy}</span>
+                  <span className="font-semibold text-amber-200">{flagshipMonument.builtBy}</span>
                 </div>
                 <div className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/60">
                   <span className="text-slate-400 block text-[10px]">3D Hotspots</span>
-                  <span className="font-semibold text-amber-200">{TAJ_MAHAL_DATA.hotspots.length} Verified Spots</span>
+                  <span className="font-semibold text-amber-200">{flagshipMonument.hotspots.length} Verified Spots</span>
                 </div>
               </div>
             </div>
 
-            <button
-              onClick={onExploreMonument}
-              className="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/30 font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center space-x-2 text-xs sm:text-sm"
+            <Link
+              to={`/monuments/${flagshipMonument.slug}`}
+              className="w-full bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/30 font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center space-x-2 text-xs sm:text-sm cursor-pointer"
             >
-              <span>Open Taj Mahal Experience</span>
+              <span>Open {flagshipMonument.name} Experience</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -109,7 +110,7 @@ export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
           </div>
           <h4 className="text-sm font-bold text-slate-100">Shared 3D Core</h4>
           <p className="text-xs text-slate-400 leading-relaxed">
-            One GLB model powers standard 3D viewer, marker-based AR, and optional VR mode.
+            One 3D model definition powers standard 3D viewer, marker-based AR, and optional VR mode.
           </p>
         </div>
 
@@ -129,10 +130,12 @@ export const Home: React.FC<HomeProps> = ({ onExploreMonument }) => {
           </div>
           <h4 className="text-sm font-bold text-slate-100">Fallback Protection</h4>
           <p className="text-xs text-slate-400 leading-relaxed">
-            If AR or VR is unsupported on a device, the app cleanly falls back to 3D mode.
+            If AR or VR is unsupported on a device, the app cleanly falls back to Web 3D mode.
           </p>
         </div>
       </section>
     </div>
   );
 };
+
+export default Home;
