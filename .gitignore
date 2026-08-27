@@ -1,3 +1,20 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production build
+dist/
+build/
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
 # Unity generated files
 [Ll]ibrary/
 [Tt]emp/
@@ -28,3 +45,4 @@
 Thumbs.db
 __MACOSX/
 *.orig
+*.tmp
