@@ -1,0 +1,63 @@
+# Taj Mahal Authentic PBR Materials for WebAR
+
+newmtl Marbre_1
+Ka 0.2 0.2 0.2
+Kd 0.85 0.83 0.80
+Ks 0.15 0.15 0.15
+Ns 35.0
+d 1.0
+illum 2
+map_Kd tex/MarbleTilesWall0065_1_L.png
+
+newmtl Cuivre_verdi
+Ka 0.1 0.2 0.15
+Kd 0.35 0.55 0.45
+Ks 0.3 0.3 0.3
+Ns 45.0
+d 1.0
+illum 2
+
+newmtl Socle_rotonde
+Ka 0.2 0.2 0.2
+Kd 0.82 0.80 0.77
+Ks 0.1 0.1 0.1
+Ns 20.0
+d 1.0
+illum 2
+map_Kd tex/PlasterColoured0059_3_L.png
+
+newmtl frise_dome
+Ka 0.2 0.2 0.2
+Kd 0.85 0.83 0.80
+Ks 0.2 0.2 0.2
+Ns 30.0
+d 1.0
+illum 2
+map_Kd tex/Frise_dome.png
+
+newmtl Frise_socle
+Ka 0.2 0.2 0.2
+Kd 0.85 0.83 0.80
+Ks 0.2 0.2 0.2
+Ns 30.0
+d 1.0
+illum 2
+map_Kd tex/Frise_dome_socle.png
+
+newmtl BP
+Ka 0.2 0.2 0.2
+Kd 0.78 0.76 0.73
+Ks 0.1 0.1 0.1
+Ns 15.0
+d 1.0
+illum 2
+map_Kd tex/MarbleTilesWall0065_1_L.png
+
+newmtl facade_2
+Ka 0.2 0.2 0.2
+Kd 0.85 0.83 0.80
+Ks 0.2 0.2 0.2
+Ns 30.0
+d 1.0
+illum 2
+map_Kd tex/Taj_facade_2_tex.png
