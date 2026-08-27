@@ -71,4 +71,10 @@ export interface Monument {
   historicalHighlights: HistoricalHighlight[];
   /** Which experience modes are available for this monument. */
   experience: ExperienceAvailability;
+  /** Catalogue categorization tags for filtering. */
+  categories?: ('mughal' | 'maratha' | 'ancient' | 'temple' | 'fort' | 'unesco')[];
+  /** Whether the monument is an official UNESCO World Heritage Site. */
+  isUnesco?: boolean;
+  /** Whether the monument is a flagship interactive experience. */
+  isFlagship?: boolean;
 }
