@@ -230,6 +230,46 @@ body {
   animation: shimmer 1.8s infinite;
 }
 
+/* Minimal Premium Museum Scroll Indicator */
+.museum-scroll-pill {
+  width: 18px;
+  height: 28px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(201, 164, 76, 0.45);
+  background-color: rgba(12, 10, 9, 0.6);
+  backdrop-filter: blur(4px);
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 0 12px rgba(201, 164, 76, 0.15);
+}
+
+.museum-scroll-dot {
+  width: 3px;
+  height: 5px;
+  background: #e2c170;
+  border-radius: 2px;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollDotMove 1.9s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollDotMove {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+  65% {
+    opacity: 0.15;
+    transform: translate(-50%, 11px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 11px);
+  }
+}
+
 /* Reduced Motion Compliance */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -241,3 +281,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

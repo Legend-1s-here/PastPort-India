@@ -99,16 +99,14 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
                 >
                   <span className="relative flex h-7 w-7 items-center justify-center">
                     <span
-                      className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
-                        isActive ? 'bg-brass-400 opacity-75' : 'bg-brass-500 opacity-40'
-                      }`}
+                      className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isActive ? 'bg-brass-400 opacity-75' : 'bg-brass-500 opacity-40'
+                        }`}
                     />
                     <span
-                      className={`relative inline-flex rounded-full h-6 w-6 border-2 ${
-                        isActive
+                      className={`relative inline-flex rounded-full h-6 w-6 border-2 ${isActive
                           ? 'bg-brass-500 border-parchment-100 text-charcoal-950 scale-110'
                           : 'bg-charcoal-900 border-brass-400 text-brass-300'
-                      } text-xs font-bold items-center justify-center shadow-lg font-sans`}
+                        } text-xs font-bold items-center justify-center shadow-lg font-sans`}
                     >
                       {idx + 1}
                     </span>

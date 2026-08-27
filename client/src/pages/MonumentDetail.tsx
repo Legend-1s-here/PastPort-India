@@ -8,6 +8,7 @@ import { ExperienceButtons } from '@/features/experience/ExperienceButtons';
 import { ModelViewerContainer } from '@/features/3d-viewer/ModelViewerContainer';
 import { ARContainer } from '@/features/ar/ARContainer';
 import { VRContainer } from '@/features/vr/VRContainer';
+import { TajMahalDetail } from '@/features/taj-mahal/TajMahalDetail';
 import { Badge, Surface, EmptyState } from '@/components/ui';
 
 export const MonumentDetail: React.FC = () => {
@@ -20,6 +21,11 @@ export const MonumentDetail: React.FC = () => {
   );
   const [activeTab, setActiveTab] = useState<'hotspots' | 'timeline' | 'sources'>('hotspots');
 
+  // If viewing the flagship Taj Mahal experience
+  if (slug === 'taj-mahal' || slug === 'tajmahal') {
+    return <TajMahalDetail />;
+  }
+
   if (!monument) {
     return (
       <div className="py-12">
@@ -29,23 +35,24 @@ export const MonumentDetail: React.FC = () => {
           badgeVariant="terracotta"
           title="Monument Record Not Found"
           description="The requested historical monument could not be located in our verified archives."
-          actionText="Back to Catalogue"
-          actionTo="/explore"
+          actionText="Back to Home"
+          actionTo="/"
         />
       </div>
     );
   }
+
 
   return (
     <div className="space-y-6">
       {/* Top Navigation */}
       <div className="flex items-center justify-between">
         <Link
-          to="/explore"
+          to="/"
           className="flex items-center space-x-2 text-xs font-semibold bg-charcoal-900 hover:bg-charcoal-800 text-sandstone-300 px-3.5 py-2 rounded-xl border border-brass-500/20 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Back to Explore</span>
+          <span>Back to Home</span>
         </Link>
 
         <Badge variant="brass">{monument.period}</Badge>

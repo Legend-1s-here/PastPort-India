@@ -197,11 +197,11 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({ onScrollToDiscover
           <Button
             variant="secondary"
             size="md"
-            onClick={() => navigate('/explore')}
+            onClick={() => navigate('/monuments/taj-mahal')}
             leftIcon={<Compass className="w-4 h-4" />}
             className="w-full sm:w-auto"
           >
-            Explore All Monuments
+            Explore Flagship Monument
           </Button>
 
           {onScrollToDiscovery && (

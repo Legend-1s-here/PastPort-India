@@ -214,9 +214,7 @@ export const DiscoverySection: React.FC = () => {
 
               <div className="flex items-center justify-between text-[11px] text-sandstone-500 pt-1">
                 <span>ASI Agra Circle Certified</span>
-                <Link to="/explore" className="text-brass-400 hover:underline">
-                  Full Catalogue &rarr;
-                </Link>
+                <span className="text-brass-400 font-medium">UNESCO World Heritage</span>
               </div>
             </div>
           </div>
@@ -287,10 +285,10 @@ export const DiscoverySection: React.FC = () => {
 
           <div className="pt-2">
             <Link
-              to="/explore"
+              to="/monuments/taj-mahal"
               className="inline-flex items-center space-x-2 text-xs font-bold text-charcoal-950 bg-sandstone-300 hover:bg-brass-500 border border-charcoal-800/20 px-4 py-2.5 rounded-xl transition-colors shadow-sm"
             >
-              <span>Open Heritage Explorer</span>
+              <span>Explore Flagship Heritage</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
