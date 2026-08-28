@@ -5,94 +5,14 @@ import { isReducedMotion } from '@/lib/motion/motion';
 
 export interface HistoricalBookProps {
   /**
-   * Scroll progress from parent (0.0 to 1.0) controlling the book experience:
-   *
-   * 0.00 – 0.12: Closed book
-   * 0.12 – 0.28: Front cover opens (-180°)
-   * 0.28 – 0.45: Page 1 flips (The Story of India)
-   * 0.45 – 0.60: Page 2 flips (The Mughal Era)
-   * 0.60 – 0.75: Page 3 flips (Architecture & Culture)
-   * 0.75 – 0.88: Page 4 visible — Taj Mahal reveal
-   * 0.88 – 1.00: Final CTA spread
+   * Scroll progress from parent (0.0 to 1.0):
+   * 0.00 – 0.20: Closed book on tabletop
+   * 0.20 – 0.65: Book cover smoothly opens (-180°)
+   * 0.65 – 1.00: Opened book moves downwards as user scrolls
    */
   progress?: number;
   className?: string;
 }
-
-// --- Story Pages (4 meaningful pages matching the storyboard) ---
-interface StoryPage {
-  id: number;
-  turnStart: number;
-  turnEnd: number;
-  frontTitle: string;
-  frontSubtitle?: string;
-  frontBody: string;
-  frontStamp?: string;
-  backTitle?: string;
-  backBody?: string;
-  backStamp?: string;
-  isTajReveal?: boolean;
-}
-
-const STORY_PAGES: StoryPage[] = [
-  {
-    id: 1,
-    turnStart: 0.28,
-    turnEnd: 0.45,
-    frontTitle: 'THE STORY OF INDIA',
-    frontSubtitle: 'An Ancient Civilization',
-    frontBody:
-      'For over five millennia, the Indian subcontinent has been home to remarkable civilizations that shaped the course of human history. From the planned cities of the Indus Valley to the mathematical brilliance of Aryabhata, from the philosophical depths of the Upanishads to the architectural wonders that dot its landscape — India\'s story is one of extraordinary cultural achievement.',
-    frontStamp: 'ARCHIVAL SURVEY • VOLUME I',
-    backTitle: 'A Living Heritage',
-    backBody:
-      'Every monument, every temple, every fortress tells a story of the people who built them — their dreams, their devotions, their mastery of art and science. These structures are not mere relics; they are living chronicles in stone.',
-    backStamp: 'ARCHAEOLOGICAL SURVEY OF INDIA',
-  },
-  {
-    id: 2,
-    turnStart: 0.45,
-    turnEnd: 0.60,
-    frontTitle: 'THE MUGHAL ERA',
-    frontSubtitle: 'A Period of Remarkable Brilliance',
-    frontBody:
-      'The Mughal Empire (1526–1857 CE) ushered in an age of unparalleled artistic and architectural achievement. Persian aesthetics merged with Indian traditions to create a distinctive synthesis — visible in the intricate pietra dura inlays, geometric gardens, and soaring domed structures that define this period.',
-    frontStamp: 'MUGHAL EMPIRE • 1526–1857 CE',
-    backTitle: 'Imperial Architecture',
-    backBody:
-      'Under emperors like Akbar, Jahangir, and Shah Jahan, architecture became the supreme expression of imperial power and divine love. Each monument was designed with mathematical precision and built with materials sourced from across the known world.',
-    backStamp: 'COURT RECORDS • IMPERIAL ARCHIVE',
-  },
-  {
-    id: 3,
-    turnStart: 0.60,
-    turnEnd: 0.75,
-    frontTitle: 'ARCHITECTURE & CULTURE',
-    frontSubtitle: 'Monuments that Define Legacy',
-    frontBody:
-      'Indian architecture represents a dialogue between faith, power, and artistic expression. From the rock-cut caves of Ajanta and Ellora to the soaring gopurams of Dravidian temples, from the geometric precision of Fatehpur Sikri to the ethereal beauty of marble mausoleums — each structure embodies centuries of accumulated wisdom.',
-    frontStamp: 'UNESCO HERITAGE RECORDS',
-    backTitle: 'Sacred Geometry',
-    backBody:
-      'The principles of vastu shastra, Islamic geometric patterns, and Persian garden design converge in India\'s greatest monuments. Every proportion, every axis of symmetry, every play of light and shadow was deliberate — crafted to evoke wonder across centuries.',
-    backStamp: 'ARCHITECTURAL SURVEY • PLATE VII',
-  },
-  {
-    id: 4,
-    turnStart: 0.75,
-    turnEnd: 0.88,
-    frontTitle: 'THE TAJ MAHAL',
-    frontSubtitle: 'A Monument Built from Love',
-    frontBody:
-      'In 1631, Emperor Shah Jahan commissioned an eternal testament of love for his wife Mumtaz Mahal. Over twenty-two years, twenty thousand master artisans carved pure Makrana marble and inlaid semi-precious stones — lapis lazuli, turquoise, carnelian — into patterns of breathtaking beauty. The result is the Taj Mahal: the crown jewel of Mughal architecture and a UNESCO World Heritage Site.',
-    frontStamp: 'AGRA • 1631–1653 CE',
-    isTajReveal: true,
-    backTitle: 'Step Inside History',
-    backBody:
-      'Explore the Taj Mahal through an immersive 3D reconstruction. Walk through the Charbagh gardens, examine the pietra dura inlays up close, and discover the architectural secrets of this timeless wonder.',
-    backStamp: 'PASTPORT INDIA • INTERACTIVE ARCHIVE',
-  },
-];
 
 export const HistoricalBook: React.FC<HistoricalBookProps> = ({
   progress = 0,
@@ -111,32 +31,23 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
   if (isReduced) {
     openProgress = 1;
     coverAngle = -180;
-  } else if (progress < 0.12) {
+  } else if (progress < 0.15) {
     openProgress = 0;
     coverAngle = 0;
-  } else if (progress < 0.28) {
-    openProgress = (progress - 0.12) / 0.16;
-    coverAngle = -180 * Math.min(1, Math.max(0, openProgress));
+  } else if (progress < 0.60) {
+    openProgress = (progress - 0.15) / 0.45;
+    const eased = openProgress * openProgress * (3 - 2 * openProgress);
+    coverAngle = -180 * Math.min(1, Math.max(0, eased));
   } else {
     openProgress = 1;
     coverAngle = -180;
   }
 
-  // --- Individual page angles ---
-  const pageAngles = STORY_PAGES.map((page) => {
-    if (isReduced) return -180;
-    if (progress < page.turnStart) return 0;
-    if (progress >= page.turnEnd) return -180;
-    const p = (progress - page.turnStart) / (page.turnEnd - page.turnStart);
-    // Smoother easing for page turns
-    const eased = p * p * (3 - 2 * p);
-    return -180 * Math.min(1, Math.max(0, eased));
-  });
+  // --- Move down as scroll completes ---
+  const moveY = progress > 0.65 ? Math.min(140, ((progress - 0.65) / 0.35) * 140) : 0;
+  const moveOpacity = progress > 0.85 ? Math.max(0, 1 - ((progress - 0.85) / 0.15)) : 1;
 
   const isClosed = openProgress === 0;
-
-  // Taj Mahal reveal emphasis
-  const tajRevealActive = progress >= 0.75 && progress < 0.92;
 
   // --- Mouse parallax on closed book ---
   useEffect(() => {
@@ -176,15 +87,17 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
       className={`relative w-full mx-auto select-none flex items-center justify-center ${className}`}
       style={{
         maxWidth: openProgress === 0 ? '420px' : openProgress >= 0.95 ? '900px' : `${420 + openProgress * 480}px`,
-        transition: 'max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+        transform: `translateY(${moveY}px)`,
+        opacity: moveOpacity,
+        transition: 'max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease-out, opacity 0.2s ease-out',
       }}
     >
-      {/* Ambient glow */}
+      {/* Ambient gold glow */}
       <div
-        className="absolute -inset-12 bg-brass-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-700"
+        className="absolute -inset-12 bg-brass-500/15 rounded-full blur-3xl pointer-events-none transition-all duration-700"
         style={{
           transform: `translate(${activeTilt.y * 2}px, ${activeTilt.x * -2}px)`,
-          opacity: tajRevealActive ? 0.25 : 0.15,
+          opacity: openProgress > 0.5 ? 0.25 : 0.15,
         }}
       />
       {/* Shadow underneath */}
@@ -264,58 +177,58 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
             {/* Center spine shadow */}
             <div className="absolute left-1/2 inset-y-0 w-6 -translate-x-1/2 bg-gradient-to-r from-charcoal-950/70 via-charcoal-900/90 to-charcoal-950/70 z-35 pointer-events-none shadow-inner" />
 
-            {/* ===== BASE INNER SPREAD (always visible beneath flipping pages) ===== */}
+            {/* ===== OPEN SPREAD ===== */}
             <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[470px] md:min-h-[520px]">
-              {/* Left base page — Taj Mahal final content */}
-              <div className="surface-parchment p-5 sm:p-7 flex flex-col justify-center space-y-4 relative overflow-hidden border-r border-sandstone-400/50">
+              {/* Left page — Historical Chronicle */}
+              <div className="surface-parchment p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border-r border-sandstone-400/50">
                 {/* Corner decorations */}
                 <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-sandstone-600/40" />
                 <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-sandstone-600/40" />
                 <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-sandstone-600/40" />
                 <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-sandstone-600/40" />
 
-                <div className="space-y-3 relative z-10">
+                <div className="space-y-4 relative z-10">
                   <span className="text-[10px] font-display font-bold uppercase tracking-[0.2em] text-charcoal-700 block">
-                    The Crown Jewel
+                    Archival Survey • Volume I
                   </span>
 
                   <h3 className="font-display text-2xl sm:text-3xl font-black text-charcoal-950 leading-tight">
-                    TAJ MAHAL
+                    THE STORY OF INDIA
                   </h3>
 
                   <p className="font-editorial text-base sm:text-lg text-charcoal-800 leading-relaxed font-semibold italic">
-                    A monument built from love.
+                    Five Millennia of Architectural Brilliance.
                   </p>
 
                   <p className="font-editorial text-xs sm:text-sm text-charcoal-700 leading-relaxed">
-                    Discover the history, architecture and stories behind this timeless wonder.
-                    Walk through the Charbagh gardens, examine the pietra dura inlays, and witness
-                    the genius of Mughal architecture in stunning 3D.
+                    From the planned cities of the Indus Valley to the rock-cut caves of Ajanta,
+                    from soaring Dravidian gopurams to the ethereal marble mausoleums of the Mughal Era —
+                    India&apos;s heritage is a living chronicle carved in stone.
                   </p>
 
                   {/* CTA Button */}
                   <button
                     type="button"
                     onClick={() => navigate('/monuments/taj-mahal')}
-                    className="mt-3 inline-flex items-center space-x-2.5 text-sm font-display font-bold text-parchment-100 bg-charcoal-900 hover:bg-charcoal-800 px-6 py-3.5 rounded-xl border-2 border-brass-500/50 hover:border-brass-400 shadow-lg shadow-charcoal-950/40 transition-all duration-300 cursor-pointer group min-h-[48px] min-w-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment-200"
+                    className="mt-2 inline-flex items-center space-x-2.5 text-sm font-display font-bold text-parchment-100 bg-charcoal-900 hover:bg-charcoal-800 px-6 py-3.5 rounded-xl border-2 border-brass-500/50 hover:border-brass-400 shadow-lg shadow-charcoal-950/40 transition-all duration-300 cursor-pointer group min-h-[48px] min-w-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment-200"
                   >
-                    <span>EXPLORE TAJ MAHAL</span>
+                    <span>EXPLORE ARCHIVE</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 </div>
 
                 <div className="border-t border-sandstone-400/40 pt-2 text-[10px] text-charcoal-600 font-display tracking-wider relative z-10">
-                  PASTPORT INDIA • INTERACTIVE ARCHIVE
+                  PASTPORT INDIA • DIGITAL HERITAGE
                 </div>
               </div>
 
-              {/* Right base page — Taj Mahal visual */}
+              {/* Right page — Taj Mahal visual */}
               <div className="bg-charcoal-950 relative overflow-hidden flex items-center justify-center border-l border-brass-500/15">
                 {/* Taj Mahal background image */}
                 <img
                   src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop"
                   alt="The Taj Mahal at golden hour"
-                  className="absolute inset-0 w-full h-full object-cover opacity-70"
+                  className="absolute inset-0 w-full h-full object-cover opacity-75"
                   loading="lazy"
                 />
                 {/* Gradient overlay */}
@@ -325,14 +238,14 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
                 {/* Typography overlay */}
                 <div className="relative z-10 text-center space-y-3 p-6">
                   <span className="text-[10px] font-display tracking-[0.3em] text-brass-400/80 uppercase block">
-                    Agra, India • 1631–1653 CE
+                    Featured Heritage Site
                   </span>
                   <h4 className="font-display text-2xl sm:text-3xl font-black text-parchment-100 text-gold-gradient">
                     The Taj Mahal
                   </h4>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-brass-400/60 to-transparent mx-auto" />
                   <p className="font-editorial text-sm text-sandstone-300 max-w-[240px] mx-auto italic">
-                    UNESCO World Heritage Site since 1983
+                    Interactive 3D &amp; AR Experience
                   </p>
                 </div>
 
@@ -344,109 +257,6 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
                 </div>
               </div>
             </div>
-
-            {/* ===== FLIPPING PAGES (4 story pages) ===== */}
-            {STORY_PAGES.map((page, idx) => {
-              const angle = pageAngles[idx];
-              const isFlipped = angle < -90;
-              const zIndex = isFlipped ? 20 + idx : 30 - idx;
-
-              // Don't render fully flipped pages (performance)
-              if (angle <= -178) return null;
-
-              return (
-                <div
-                  key={page.id}
-                  className="absolute top-0 right-0 w-1/2 h-full origin-left-center transform-style-3d pointer-events-none"
-                  style={{
-                    transform: `rotateY(${angle}deg)`,
-                    zIndex,
-                    transition: isReduced ? 'none' : undefined,
-                  }}
-                >
-                  {/* FRONT FACE */}
-                  <div className="absolute inset-0 w-full h-full surface-parchment border-l border-sandstone-400/40 p-5 sm:p-7 flex flex-col justify-between backface-hidden shadow-2xl overflow-hidden">
-                    <div className="space-y-3 relative z-10">
-                      {/* Header */}
-                      <div className="flex items-center justify-between border-b border-sandstone-400/40 pb-2">
-                        <span className="text-[9px] font-display font-bold uppercase tracking-[0.2em] text-charcoal-700">
-                          Chapter {page.id}
-                        </span>
-                        {page.frontStamp && (
-                          <span className="text-[8px] font-display tracking-wider text-sandstone-600 bg-sandstone-200/80 px-2 py-0.5 rounded">
-                            {page.frontStamp}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Title */}
-                      <div className="space-y-1 pt-1">
-                        <h4 className="font-display text-xl sm:text-2xl font-black text-charcoal-950 leading-tight tracking-wide">
-                          {page.frontTitle}
-                        </h4>
-                        {page.frontSubtitle && (
-                          <p className="font-editorial text-sm sm:text-base text-charcoal-700 italic">
-                            {page.frontSubtitle}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Body */}
-                      <p className="font-editorial text-xs sm:text-sm text-charcoal-800 leading-relaxed">
-                        {page.frontBody}
-                      </p>
-
-                      {/* Decorative line */}
-                      <div className="w-16 h-0.5 bg-gradient-to-r from-brass-600/40 via-brass-500/60 to-transparent" />
-                    </div>
-
-                    {/* Footer */}
-                    <div className="border-t border-sandstone-400/40 pt-2 flex items-center justify-between text-[9px] text-charcoal-600 font-display tracking-wider">
-                      <span>PAGE {idx * 2 + 1}</span>
-                      <span>PASTPORT ARCHIVE</span>
-                    </div>
-                  </div>
-
-                  {/* BACK FACE */}
-                  <div
-                    className="absolute inset-0 w-full h-full surface-parchment border-r border-sandstone-400/40 p-5 sm:p-7 flex flex-col justify-between backface-hidden shadow-2xl overflow-hidden"
-                    style={{ transform: 'rotateY(180deg)' }}
-                  >
-                    <div className="space-y-3 relative z-10">
-                      <div className="flex items-center justify-between border-b border-sandstone-400/40 pb-2">
-                        <span className="text-[9px] font-display font-bold uppercase tracking-[0.2em] text-charcoal-700">
-                          Chapter {page.id} (continued)
-                        </span>
-                        {page.backStamp && (
-                          <span className="text-[8px] font-display tracking-wider text-sandstone-600 bg-sandstone-200/80 px-2 py-0.5 rounded">
-                            {page.backStamp}
-                          </span>
-                        )}
-                      </div>
-
-                      {page.backTitle && (
-                        <h4 className="font-display text-lg sm:text-xl font-bold text-charcoal-950 leading-tight pt-1">
-                          {page.backTitle}
-                        </h4>
-                      )}
-
-                      {page.backBody && (
-                        <p className="font-editorial text-xs sm:text-sm text-charcoal-800 leading-relaxed italic">
-                          &ldquo;{page.backBody}&rdquo;
-                        </p>
-                      )}
-
-                      <div className="w-12 h-0.5 bg-gradient-to-r from-brass-600/30 to-transparent" />
-                    </div>
-
-                    <div className="border-t border-sandstone-400/40 pt-2 flex items-center justify-between text-[9px] text-charcoal-600 font-display tracking-wider">
-                      <span>PAGE {idx * 2 + 2}</span>
-                      <span>CHRONICLES OF IND</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
 
             {/* ===== HARDCOVER FRONT COVER ===== */}
             <div

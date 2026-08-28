@@ -4,16 +4,16 @@ import { MuseumScene } from './MuseumScene';
 import { HistoricalBook } from './HistoricalBook';
 
 // ---------------------------------------------------------------------------
-// Progress Ranges — maps scroll (0.0 → 1.0) across the 7 cinematic scenes
+// Progress Ranges — maps scroll (0.0 → 1.0) across 3D gallery to book open
 // ---------------------------------------------------------------------------
-// Total scroll track: ~700vh
-// 0.00 – 0.40: Grand 3D Museum Gallery (camera travels down hall towards table & rises to top-down)
-// 0.36 – 0.44: Seamless crossfade into high-resolution tactile CSS 3D Codex
-// 0.44 – 1.00: Antique Codex opens, 4 archival folios turn, Taj Mahal reveal + Explore CTA
+// Total scroll track: ~350vh
+// 0.00 – 0.45: Grand 3D Museum Gallery (camera travels down hall towards table & statues)
+// 0.38 – 0.50: Crossfade into high-resolution tactile CSS 3D Codex
+// 0.50 – 1.00: Antique Codex opens, moves downwards, and hands off to homepage content
 
-const SCENE_3D_END = 0.42;
-const BOOK_FADE_START = 0.35;
-const BOOK_VISIBLE = 0.42;
+const SCENE_3D_END = 0.50;
+const BOOK_FADE_START = 0.38;
+const BOOK_VISIBLE = 0.46;
 
 export const MuseumExperience: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -48,13 +48,13 @@ export const MuseumExperience: React.FC = () => {
   // Title fades out as camera moves forward
   const titleOpacity = scrollProgress < 0.04
     ? 1
-    : scrollProgress > 0.12
+    : scrollProgress > 0.15
       ? 0
-      : 1 - ((scrollProgress - 0.04) / 0.08);
+      : 1 - ((scrollProgress - 0.04) / 0.11);
 
   // Minimal "Keep scrolling" prompt mid-travel
-  const keepScrollOpacity = scrollProgress > 0.14 && scrollProgress < 0.32
-    ? Math.min(1, (scrollProgress - 0.14) / 0.04) * (1 - Math.max(0, (scrollProgress - 0.28) / 0.04))
+  const keepScrollOpacity = scrollProgress > 0.18 && scrollProgress < 0.38
+    ? Math.min(1, (scrollProgress - 0.18) / 0.05) * (1 - Math.max(0, (scrollProgress - 0.32) / 0.06))
     : 0;
 
   // Initial scroll indicator visible at top
@@ -102,7 +102,7 @@ export const MuseumExperience: React.FC = () => {
     <div
       ref={trackRef}
       className="relative w-full"
-      style={{ minHeight: reduced ? '100vh' : '700vh' }}
+      style={{ minHeight: reduced ? '100vh' : '350vh' }}
     >
       {/* ===== STICKY FULL-SCREEN VIEWPORT ===== */}
       <div
