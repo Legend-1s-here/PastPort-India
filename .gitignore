@@ -15,34 +15,11 @@ build/
 .env.local
 .env.*.local
 
-# Unity generated files
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
-[Mm]emoryCaptures/
-[Rr]ecordings/
-
-# Visual Studio / VS Code / Rider cache
-.vs/
+# IDE & OS files
 .vscode/
 .idea/
-*.csproj
-*.unityproj
-*.sln
-*.slnx
-*.suo
-*.user
-*.userprefs
-*.pidb
-*.booproj
-
-# OS generated
 .DS_Store
 Thumbs.db
-__MACOSX/
-*.orig
+
+# Temp files
 *.tmp
