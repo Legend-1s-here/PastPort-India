@@ -1,9 +1,65 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Html } from '@react-three/drei';
+import React, { Suspense, useRef, useEffect, useState, useCallback } from 'react';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 import type { Hotspot } from '@/types/monument';
-import { TajMahalModel } from './TajMahalModel';
 
+// ── Real GLB bounds from inspect_glb_geo.mjs ──────────────────────────────────
+// Width 1.18 (X: -0.59→0.59) | Height 0.678 (Y: 0→0.678) | Depth 1.20 (Z: -0.60→0.60)
+// Model is already centred in X/Z and bottom is at Y=0 in native GLB space.
+// ──────────────────────────────────────────────────────────────────────────────
+
+// 3D positions of each hotspot locked directly onto the GLB model surface
+const HOTSPOT_3D: Array<[number, number, number]> = [
+  [0,      0.58,  0   ],   // 1 – Main Dome tip
+  [0.38,   0.38,  0.38],   // 2 – Top of Right Front Minaret pillar
+  [0,      0.22,  0.30],   // 3 – Grand Pishtaq main entrance arch facade
+  [0,      0.02,  0.55],   // 4 – Charbagh Garden terrace plinth
+];
+
+interface ScreenPt { x: number; y: number; visible: boolean }
+
+// ── Inner component: projects 3D hotspot positions to screen pixels ──────────
+const HotspotProjector: React.FC<{
+  onUpdate: (pts: ScreenPt[]) => void;
+}> = ({ onUpdate }) => {
+  const { camera, size } = useThree();
+  const _v = useRef(new THREE.Vector3());
+
+  useFrame(() => {
+    const pts: ScreenPt[] = HOTSPOT_3D.map(([x, y, z]) => {
+      _v.current.set(x, y, z);
+      _v.current.project(camera);
+      // NDC → pixel
+      const px = (_v.current.x * 0.5 + 0.5) * size.width;
+      const py = (-_v.current.y * 0.5 + 0.5) * size.height;
+      // Cull if behind camera
+      const visible = _v.current.z < 1;
+      return { x: px, y: py, visible };
+    });
+    onUpdate(pts);
+  });
+
+  return null;
+};
+
+// ── GLB model mesh ────────────────────────────────────────────────────────────
+const GLBModel: React.FC = () => {
+  const { scene } = useGLTF('/models/tajmahal.glb');
+
+  useEffect(() => {
+    scene.traverse((child: any) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }, [scene]);
+
+  return <primitive object={scene} />;
+};
+
+// ── Public component ──────────────────────────────────────────────────────────
 interface SceneContainerProps {
   hotspots: Hotspot[];
   activeHotspotId: string | null;
@@ -15,64 +71,79 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
   activeHotspotId,
   onSelectHotspot,
 }) => {
+  const [screenPts, setScreenPts] = useState<ScreenPt[]>([]);
+  const onUpdate = useCallback((pts: ScreenPt[]) => setScreenPts(pts), []);
+
   return (
     <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-charcoal-950">
+      {/* ── 3D Canvas ─────────────────────────────────────────────────── */}
       <Canvas
-        camera={{ position: [0, 2.5, 6], fov: 45 }}
+        camera={{ position: [0, 0.30, 2.6], fov: 40 }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
         <color attach="background" args={['#0c0a09']} />
-        <ambientLight intensity={0.85} color="#f7f1e7" />
-        <directionalLight position={[10, 15, 10]} intensity={1.4} color="#fffbeb" />
-        <directionalLight position={[-10, 10, -10]} intensity={0.4} color="#cbb493" />
-        <pointLight position={[0, 4, 0]} intensity={0.7} color="#fef3c7" />
+        <ambientLight intensity={1.1} color="#f7f1e7" />
+        <directionalLight position={[5, 8, 5]}  intensity={1.6} color="#fffbeb" />
+        <directionalLight position={[-5, 6, -5]} intensity={0.45} color="#cbb493" />
+        <pointLight position={[0, 1.0, 1.0]} intensity={0.6} color="#fef3c7" />
 
-        {/* Real GLB Monument Model — wrapped in Suspense since useGLTF is async */}
         <Suspense fallback={null}>
-          <TajMahalModel />
+          <GLBModel />
         </Suspense>
 
-        {/* Interactive 3D Hotspot Annotations */}
-        {hotspots.map((spot, idx) => {
-          const isActive = activeHotspotId === spot.id;
-          return (
-            <group key={spot.id} position={spot.position}>
-              <Html center distanceFactor={8}>
-                <button
-                  type="button"
-                  onClick={() => onSelectHotspot(spot)}
-                  className="group relative cursor-pointer focus:outline-none transition-transform transform hover:scale-125"
-                  title={spot.title}
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span
-                      className={`animate-ping absolute inline-flex h-full w-full rounded-full ${isActive ? 'bg-brass-400 opacity-75' : 'bg-brass-500 opacity-40'
-                        }`}
-                    />
-                    <span
-                      className={`relative inline-flex rounded-full h-6 w-6 border-2 ${isActive
-                          ? 'bg-brass-500 border-parchment-100 text-charcoal-950 scale-110'
-                          : 'bg-charcoal-900 border-brass-400 text-brass-300'
-                        } text-xs font-bold items-center justify-center shadow-lg font-sans`}
-                    >
-                      {idx + 1}
-                    </span>
-                  </span>
-                </button>
-              </Html>
-            </group>
-          );
-        })}
+        {/* Projects 3D positions → screen pixels every frame */}
+        <HotspotProjector onUpdate={onUpdate} />
 
-        {/* Orbit Controls with bounded angles */}
         <OrbitControls
+          target={[0, 0.27, 0]}
           enablePan={false}
-          minDistance={3}
-          maxDistance={12}
+          minDistance={0.9}
+          maxDistance={6.0}
           maxPolarAngle={Math.PI / 2 + 0.05}
-          autoRotate={false}
+          zoomSpeed={0.8}
+          rotateSpeed={0.6}
         />
       </Canvas>
+
+      {/* ── 2D Hotspot Overlays — pixel-perfect projected from 3D ─────── */}
+      {hotspots.map((spot, idx) => {
+        const pt = screenPts[idx];
+        if (!pt || !pt.visible) return null;
+        const isActive = activeHotspotId === spot.id;
+        return (
+          <button
+            key={spot.id}
+            type="button"
+            onClick={() => onSelectHotspot(spot)}
+            style={{
+              position: 'absolute',
+              left: pt.x,
+              top: pt.y,
+              transform: 'translate(-50%, -50%)',
+              pointerEvents: 'auto',
+            }}
+            className="group focus:outline-none z-20"
+            title={spot.title}
+          >
+            <span className="relative flex h-8 w-8 items-center justify-center">
+              <span
+                className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
+                  isActive ? 'bg-brass-400 opacity-75' : 'bg-brass-500 opacity-40'
+                }`}
+              />
+              <span
+                className={`relative inline-flex rounded-full h-7 w-7 border-2 ${
+                  isActive
+                    ? 'bg-brass-500 border-parchment-100 text-charcoal-950 scale-110'
+                    : 'bg-charcoal-900/90 border-brass-400 text-brass-300'
+                } text-xs font-bold items-center justify-center shadow-lg font-sans transition-transform group-hover:scale-125`}
+              >
+                {idx + 1}
+              </span>
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 };
