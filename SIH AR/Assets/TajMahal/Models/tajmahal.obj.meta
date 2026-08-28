@@ -1,0 +1,2170 @@
+fileFormatVersion: 2
+guid: f2c4135081dc4da194b03dfc3b0dc013
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_BaseMat
+    second: {fileID: 2100000, guid: adafa516301b16449b2fe61ed1647423, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Cylindre34Mat
+    second: {fileID: 2100000, guid: 044f1bff32c01804f9ddf8db8ab44261, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Cylindre35Mat
+    second: {fileID: 2100000, guid: e5468b8a09839bf4695945266f1fb641, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re53Mat
+    second: {fileID: 2100000, guid: 9c8c0f6a6b4b26f49956c21503ae439f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re54Mat
+    second: {fileID: 2100000, guid: f5002eb392971ba429b70eb462cb9786, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re55Mat
+    second: {fileID: 2100000, guid: a4168fe67f4daee4d9000d0e1ad2fcf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re56Mat
+    second: {fileID: 2100000, guid: 3d943ec574ab8d448b4fe70a97257cad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re57Mat
+    second: {fileID: 2100000, guid: e151ec695be5d2e479c0d0b79405b6ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Capuchon7_Sph_re58Mat
+    second: {fileID: 2100000, guid: 7d4e36198ea5fa14b8ed3fe61c64ed2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Cylindre144Mat
+    second: {fileID: 2100000, guid: 785588c81f56ef44086f91267fbf06f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_Sph_re61Mat
+    second: {fileID: 2100000, guid: 5aa88d675de1ce8409c843adbf99e20e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Dome_ToreMat
+    second: {fileID: 2100000, guid: 241da0867e6f2c743b38fcfe5507f682, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_1_Cylindre70Mat
+    second: {fileID: 2100000, guid: 52f53f885ebf2a74cb6857f447cc5761, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_1_Cylindre76Mat
+    second: {fileID: 2100000, guid: afbe9dc0994b9cf43a1f06ca607c138b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_1_Cylindre82Mat
+    second: {fileID: 2100000, guid: 8f822560b10301e4b8f29e65fcfac48f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_2_Cloneur_19Mat
+    second: {fileID: 2100000, guid: fb5f122598e79c44b824eda363754bf6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_2_Cylindre83Mat
+    second: {fileID: 2100000, guid: 60de9b1c159791444973c8cee7f08c5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_2_Cylindre84Mat
+    second: {fileID: 2100000, guid: ba6787de27f052d46b676a8e11ca6187, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_2_Cylindre86Mat
+    second: {fileID: 2100000, guid: 327ec6660e3fe374abe6a11cf85a1116, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_3_Cloneur_18Mat
+    second: {fileID: 2100000, guid: 8ef19e215aa5d3d4a8efc74c04eb056d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_3_Cylindre90Mat
+    second: {fileID: 2100000, guid: e9f014c2bd254c44295253d19e328daa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_3_Cylindre91Mat
+    second: {fileID: 2100000, guid: 8e0609e07d8f4204ea2340ffef6a0403, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_3_Cylindre92Mat
+    second: {fileID: 2100000, guid: 7a7cccf4fc8e36744b9eac195ac264ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_4_Cloneur_16Mat
+    second: {fileID: 2100000, guid: 87ae90f68226b4c46bd4d652337a19e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_4_Cylindre93Mat
+    second: {fileID: 2100000, guid: 568a5d11b72f847458368cd22f916af7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_4_Cylindre94Mat
+    second: {fileID: 2100000, guid: caf8bd799534e624798999a1bf7f6197, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_4_Cylindre95Mat
+    second: {fileID: 2100000, guid: 7a9433237959ac8478e69cb5cfd1df1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_5_Cloneur_15Mat
+    second: {fileID: 2100000, guid: 5f5a6e784a50f38478863f4132773f4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_5_Cylindre19Mat
+    second: {fileID: 2100000, guid: 6b900651583acb64aa70eb64f668b237, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_5_Cylindre20Mat
+    second: {fileID: 2100000, guid: 3c46f20aa359da344a23ff869f2a4592, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_5_Cylindre96Mat
+    second: {fileID: 2100000, guid: a1ad5cf8bb29f994e849348365a83418, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_6_Cloneur_14Mat
+    second: {fileID: 2100000, guid: 1e69fca03fc5f094bb7ccf4bce342621, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Frise_frise_7_Cloneur_12Mat
+    second: {fileID: 2100000, guid: fd9348fcc3e965845bddd6af0d3d715d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Base_toit4Mat
+    second: {fileID: 2100000, guid: 1ae7d1ea37c72fd40abcbdeb09ff68a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Cylindre153Mat
+    second: {fileID: 2100000, guid: 3709b01316e7eab49b107901cd479816, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Cylindre159Mat
+    second: {fileID: 2100000, guid: d302cbc57dd21174bb31b6739128011b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re2Mat
+    second: {fileID: 2100000, guid: e347b1866c480134299a0e68eaeea5ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re3Mat
+    second: {fileID: 2100000, guid: c1ada839db804b24dbbc64c50e150239, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re4Mat
+    second: {fileID: 2100000, guid: 0c5d31dec40cb5342af1714a91c954fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re5Mat
+    second: {fileID: 2100000, guid: e0b6d6b8052bb194eaed80b8226c2d98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re6Mat
+    second: {fileID: 2100000, guid: 7ecc58be045039f4aacd989e64ad341c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Capuchon2_Sph_re7Mat
+    second: {fileID: 2100000, guid: 00c4b039544b0fc4dbc4a2247f298c42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Socle7Mat
+    second: {fileID: 2100000, guid: 6ac5c43895951e342aae63c2b61e6b08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_Sph_reMat
+    second: {fileID: 2100000, guid: f83325fa46576974193c0e74c47f2d04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_1_arc1Mat
+    second: {fileID: 2100000, guid: c859994db6a39d148b6efe06296b7aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Base_toit5Mat
+    second: {fileID: 2100000, guid: 24a0e962969fcdf4d90ea960b693d1f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Cylindre44Mat
+    second: {fileID: 2100000, guid: 30387e955a4150241b0846da48f4fc28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Cylindre45Mat
+    second: {fileID: 2100000, guid: 2bd6225d4dbf02547a93e63703114628, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re16Mat
+    second: {fileID: 2100000, guid: 3d699abe886e17244b2fb8453b00cb10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re17Mat
+    second: {fileID: 2100000, guid: 847d9dc833864e345b0137a87145ee85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re18Mat
+    second: {fileID: 2100000, guid: 3d094930ccd89c844a774a64cfdf68d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re19Mat
+    second: {fileID: 2100000, guid: f09a821eab21cc04a864428bbfc815be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re20Mat
+    second: {fileID: 2100000, guid: 03befb1396127e04abcba23349532837, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Capuchon3_Sph_re21Mat
+    second: {fileID: 2100000, guid: ae25b8f7cd3f979479bc743153ca8342, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Socle8Mat
+    second: {fileID: 2100000, guid: c1dce89acf17dac4e8e0f693bb4d5c3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_Sph_re14Mat
+    second: {fileID: 2100000, guid: 599f6a9cadd7b434ab27b9a98ade10f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_2_arc4Mat
+    second: {fileID: 2100000, guid: e7fa76a7c6d7ba848a0c53019903ad5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Base_toit7Mat
+    second: {fileID: 2100000, guid: e47bfdebdcf2f9e478df570ed5e785e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Cylindre40Mat
+    second: {fileID: 2100000, guid: 236b316bd75acc343b8de1474fd24b67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Cylindre43Mat
+    second: {fileID: 2100000, guid: ce1293997962118419e56f02c8afa170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re28Mat
+    second: {fileID: 2100000, guid: 3d692d15b18b6cc449a263f4a534704d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re29Mat
+    second: {fileID: 2100000, guid: 0029a4fd4bc5be8499439efeadd68491, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re30Mat
+    second: {fileID: 2100000, guid: c1cda8287868b9d459798c3e7e512c91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re31Mat
+    second: {fileID: 2100000, guid: 8d4dc65dbeb02ad43b8ae0d038c9ec9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re32Mat
+    second: {fileID: 2100000, guid: fc5e4b7bac746df4ca690086c9805cd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Capuchon5_Sph_re33Mat
+    second: {fileID: 2100000, guid: b0061c4fa20df684b90247e1f04af0c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Socle9Mat
+    second: {fileID: 2100000, guid: 917b121c93daae847919127fff1e8c6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_Sph_re26Mat
+    second: {fileID: 2100000, guid: 869f8b6e2262d4a479db2883c71de647, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_3_arc5Mat
+    second: {fileID: 2100000, guid: 23eb77355985b434c9003240a7e933e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Base_toit6Mat
+    second: {fileID: 2100000, guid: 7e5e117c9a7e36049a841806b1bd195f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Cylindre37Mat
+    second: {fileID: 2100000, guid: acaa7e1ccae85bf4c84e97e1fcf243c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Cylindre39Mat
+    second: {fileID: 2100000, guid: a65f498cbd5923c468789d5ece685a00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re42Mat
+    second: {fileID: 2100000, guid: 90c68dd39e5a64840bf7219ec670cb0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re43Mat
+    second: {fileID: 2100000, guid: fd940f2a15f29f0498e6e35d2ae9eb72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re44Mat
+    second: {fileID: 2100000, guid: dc180c7a65c01c3499c5b9c4a7d8cd87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re45Mat
+    second: {fileID: 2100000, guid: 35b7103daed4ec842b33698c0d78b123, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re46Mat
+    second: {fileID: 2100000, guid: e79b4fb3fb9d2c040acca9c1c69d5e17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Capuchon6_Sph_re47Mat
+    second: {fileID: 2100000, guid: f05c246889e632342ab5f9aeaa976025, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Socle11Mat
+    second: {fileID: 2100000, guid: 033ffef4eed7d4d4e9856e17e11cde2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_Sph_re40Mat
+    second: {fileID: 2100000, guid: 5bde64862a692ac49988f0cc81c1caa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Rotonde_4_arc7Mat
+    second: {fileID: 2100000, guid: 305e18fd9e958e94ab3152eb10806a98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Taj_Mat
+    second: {fileID: 2100000, guid: 9351cb614ffc81648988928e60c62c26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Cercle_toit3Mat
+    second: {fileID: 2100000, guid: 59893ce9a6993c44d91d284d974fa153, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_01_Cylindre29Mat
+    second: {fileID: 2100000, guid: d1ef2a8ea7ec49340a5d32d961e02669, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_01_Cylindre30Mat
+    second: {fileID: 2100000, guid: ee9d41d3298a36841b2dfeb1cd6ea48a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_01_Cylindre31Mat
+    second: {fileID: 2100000, guid: 19c4eebc722048d4a90f573940577087, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_01_Cylindre32Mat
+    second: {fileID: 2100000, guid: 272fb955ffc94d14c93e3dd479948de6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_01_Cylindre33Mat
+    second: {fileID: 2100000, guid: f3d215ab360faec49896c77baf51fe01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_12_Cylindre139Mat
+    second: {fileID: 2100000, guid: 807db225982aeb34d9f089aae3109c4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_12_Cylindre140Mat
+    second: {fileID: 2100000, guid: aa7dbca7988a72b44a4d82d040c668bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_12_Cylindre141Mat
+    second: {fileID: 2100000, guid: 60cf27ecee417634f9569d20ac8299f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_12_Cylindre142Mat
+    second: {fileID: 2100000, guid: 1a75d779709cc4a409743c70ac10bdbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_12_Cylindre143Mat
+    second: {fileID: 2100000, guid: 5e1a07d6df37c9e4ea9edcb98895934b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_21_Cylindre134Mat
+    second: {fileID: 2100000, guid: e6f4fc07d8f14b140a6526100a597aa1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_21_Cylindre135Mat
+    second: {fileID: 2100000, guid: 5dc5a75a21d6ab940a6dc50f45edfd15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_21_Cylindre136Mat
+    second: {fileID: 2100000, guid: 9999a5756f9279841a28e04e34084ba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_21_Cylindre137Mat
+    second: {fileID: 2100000, guid: bac4484c79ab91444984ba7a9df35096, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_21_Cylindre138Mat
+    second: {fileID: 2100000, guid: 97268d5b60f1a0042afc032a1dedc6e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_32_Cylindre132Mat
+    second: {fileID: 2100000, guid: db016a32c6f4a5245a8facad876b02d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_32_Cylindre133Mat
+    second: {fileID: 2100000, guid: 09de1a5113a040b45b60238fd54cadeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_32_Cylindre174Mat
+    second: {fileID: 2100000, guid: fcfed5052c052ca4ca0f2c446c458099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_32_Cylindre175Mat
+    second: {fileID: 2100000, guid: e613c4074408fce4ab46145ed03894ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_32_Cylindre49Mat
+    second: {fileID: 2100000, guid: 0f2ba64e1ec5cb947bbe7430ca411ea8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_4_Cylindre18Mat
+    second: {fileID: 2100000, guid: 35ab41d50b348b34794669bc6e0ec890, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_4_Cylindre21Mat
+    second: {fileID: 2100000, guid: 7c2877b7f412a81408fb75a529f36946, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_4_Cylindre62Mat
+    second: {fileID: 2100000, guid: 187bbe0b08aa9a84d98cf56e635bf848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_4_Cylindre67Mat
+    second: {fileID: 2100000, guid: 8f7df1e15f83d7243aa2bcd005aa8174, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_4_Cylindre68Mat
+    second: {fileID: 2100000, guid: 286f8b34387f285429cfefc90784fbb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_51_Cylindre69Mat
+    second: {fileID: 2100000, guid: 5c3228b432645fe4eb832cb58938e72e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_51_Cylindre85Mat
+    second: {fileID: 2100000, guid: 3bb9b7d80861f864ca8f2cfa57769e60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_51_Cylindre87Mat
+    second: {fileID: 2100000, guid: f2d1ea8b1887acd4b8212f218699c3bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_51_Cylindre88Mat
+    second: {fileID: 2100000, guid: 082338c11760f9a4ba87f2003dc5329b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_51_Cylindre89Mat
+    second: {fileID: 2100000, guid: 921b71dd70feac44fbb9539fa440fdc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_62_Cylindre71Mat
+    second: {fileID: 2100000, guid: 8ade50763bad4d6418473ce0ff14441c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_62_Cylindre72Mat
+    second: {fileID: 2100000, guid: 58a711b0e46980c4290b20f3ff4b1cf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_62_Cylindre73Mat
+    second: {fileID: 2100000, guid: 71081cf0562eb4c45a0fd2ae10f6a9e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_62_Cylindre74Mat
+    second: {fileID: 2100000, guid: 167c826ae0c60aa42a9ad1b7e8a8ebfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_62_Cylindre75Mat
+    second: {fileID: 2100000, guid: 23b1fedd168b83e4fb0b0415a0424242, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_71_Cylindre77Mat
+    second: {fileID: 2100000, guid: c8922d004e3ebe046ade296fc126b281, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_71_Cylindre78Mat
+    second: {fileID: 2100000, guid: 69bb5a62b18eafe498223981318f2809, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_71_Cylindre79Mat
+    second: {fileID: 2100000, guid: 64e8792da4377bd4fa003343d90885a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_71_Cylindre80Mat
+    second: {fileID: 2100000, guid: 7360c19e1bf24264fbce4556eec05808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Frise_de_tour_Cloneur3_frise_tour_71_Cylindre81Mat
+    second: {fileID: 2100000, guid: d7413c6b5e3628e49aa32a661b0b13a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_13_Cloneur_17Mat
+    second: {fileID: 2100000, guid: 3e0be9db1e889ce42974ad8ff1561533, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_13_Palier10Mat
+    second: {fileID: 2100000, guid: 73cb2958570619845a7bee6eceb940a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_13_Tube8Mat
+    second: {fileID: 2100000, guid: 728d1375da355f242bf804812e50276f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_21_Cloneur_13Mat
+    second: {fileID: 2100000, guid: 8b72110c054b6c946b2ddca71e8f8dcc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_21_Palier1Mat
+    second: {fileID: 2100000, guid: 6e4ea73450d0c954d869f3ea75fb1635, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_21_Tube5Mat
+    second: {fileID: 2100000, guid: 12d1545ba259bc34e98f6c39fc20369f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_3_Cloneur_11Mat
+    second: {fileID: 2100000, guid: 38783e4088dc7854184fe47b68e911b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_3_Palier4Mat
+    second: {fileID: 2100000, guid: a6763f69e07fa274099f0cbfed156206, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Palier_3_Tube1Mat
+    second: {fileID: 2100000, guid: 8eaecf0a7e474754f8965447e22fe246, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Base_toit1Mat
+    second: {fileID: 2100000, guid: 1deaaa0784ca3f14b8dbdb653d512e5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Cylindre36Mat
+    second: {fileID: 2100000, guid: 79d4566b201cdab4aa30a78a8914b277, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Cylindre38Mat
+    second: {fileID: 2100000, guid: d5ce83fec29c3c945b5fd7c53ac246c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re10Mat
+    second: {fileID: 2100000, guid: e552caf4dc823ba4ab1bc1ebf4322686, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re15Mat
+    second: {fileID: 2100000, guid: 874d61b05d73d34429fbe8698861c07d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re1Mat
+    second: {fileID: 2100000, guid: bab87a0e534b5f842993da4aa97bf43c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re22Mat
+    second: {fileID: 2100000, guid: 3ea9096d4b46cf14c812ff881493384e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re23Mat
+    second: {fileID: 2100000, guid: 3b7a9aa45a1efac428e18c505da0b0e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Capuchon4_Sph_re34Mat
+    second: {fileID: 2100000, guid: 5199c227eeeddc74f953f9ab5fd59831, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Socle4Mat
+    second: {fileID: 2100000, guid: 2112f151c56cb7e40a6eb3be14322581, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_Sph_re27Mat
+    second: {fileID: 2100000, guid: 727a619b9ada41647bd77ff0a81f2112, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Rotonde2_arc6Mat
+    second: {fileID: 2100000, guid: 1cb51fab7f4bec94788c00201e2525e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_Socle6Mat
+    second: {fileID: 2100000, guid: fea503938b87c2247aa8bc932664841f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_1_tour2Mat
+    second: {fileID: 2100000, guid: 6c98c2cf1a348f54c8065728a2b2c1b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Cercle_toit2Mat
+    second: {fileID: 2100000, guid: 7ef1ecb89bdd33f4cb846d153a1f7cd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_02_Cylindre13Mat
+    second: {fileID: 2100000, guid: 128905e149342b64c86b7fd31555e1dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_02_Cylindre14Mat
+    second: {fileID: 2100000, guid: e90df1a4bebc52a47bc51cf9f57d36c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_02_Cylindre15Mat
+    second: {fileID: 2100000, guid: e2731d2b51466c74ebfbf419a6299ed6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_02_Cylindre16Mat
+    second: {fileID: 2100000, guid: 2f02e6f64faea5c4ca59ddbf9460101d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_02_Cylindre17Mat
+    second: {fileID: 2100000, guid: 347ed8d1f6193184c90132729b3340e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_11_Cylindre10Mat
+    second: {fileID: 2100000, guid: 494e994246b8edf4ca00930a281ac2ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_11_Cylindre11Mat
+    second: {fileID: 2100000, guid: a94ffab533779ad46a2f273379833109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_11_Cylindre12Mat
+    second: {fileID: 2100000, guid: 6a7e260758bd347459891b33ee75be5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_11_Cylindre8Mat
+    second: {fileID: 2100000, guid: d837ca3354f0e444bbd6aa0c4157bfcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_11_Cylindre9Mat
+    second: {fileID: 2100000, guid: 29c160e77a955e44e9a8bd97f865a7f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_22_Cylindre3Mat
+    second: {fileID: 2100000, guid: e4223b4eb3811024da4e9382b328a0d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_22_Cylindre4Mat
+    second: {fileID: 2100000, guid: 6d425ed3b60939b4ab064784d7823334, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_22_Cylindre5Mat
+    second: {fileID: 2100000, guid: d8d5dce85a822104687c029edadf6177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_22_Cylindre6Mat
+    second: {fileID: 2100000, guid: a83939bf0edca4244a87adf49cdba3e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_22_Cylindre7Mat
+    second: {fileID: 2100000, guid: 7f8567622c787ff4f98479e0fe253594, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_33_Cylindre1Mat
+    second: {fileID: 2100000, guid: 97e51e0bc1bdc754298df508728bfc34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_33_Cylindre24Mat
+    second: {fileID: 2100000, guid: 029032f44f4f32344b751c9b118ceaf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_33_Cylindre25Mat
+    second: {fileID: 2100000, guid: 51b502878a1bc1041bc2596b747f77db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_33_Cylindre2Mat
+    second: {fileID: 2100000, guid: 5c026c4d77c5eb24e93bf8b7c618d009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_33_CylindreMat
+    second: {fileID: 2100000, guid: 0b764fee3555f87479ba4882b374cc84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_43_Cylindre26Mat
+    second: {fileID: 2100000, guid: 35e55b594185e0049a607016cc1914c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_43_Cylindre27Mat
+    second: {fileID: 2100000, guid: f8da27063a9cf524ca85fa993e356913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_43_Cylindre28Mat
+    second: {fileID: 2100000, guid: 7291ba8b0bc0ad142938a1ff6ca12673, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_43_Cylindre61Mat
+    second: {fileID: 2100000, guid: 00c73ed9eae891a4facfa483927cd195, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_43_Cylindre63Mat
+    second: {fileID: 2100000, guid: 3f0ffa464ee05b2409770103f773901d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_53_Cylindre52Mat
+    second: {fileID: 2100000, guid: 2ba3508acf20dee489039f1768550090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_53_Cylindre53Mat
+    second: {fileID: 2100000, guid: e347470cfd4c34e49b4b1beefd8e1972, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_53_Cylindre55Mat
+    second: {fileID: 2100000, guid: 44bedf56176601048a51db706bc702ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_53_Cylindre57Mat
+    second: {fileID: 2100000, guid: f390e1a7d316ba2488b19062c7f8720a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_53_Cylindre58Mat
+    second: {fileID: 2100000, guid: 3767f0e528ecc1c41a4ec61e54955f34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_63_Cylindre48Mat
+    second: {fileID: 2100000, guid: 64f3bb5c84572c347bac7037c1d6b5bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_63_Cylindre50Mat
+    second: {fileID: 2100000, guid: a1dde361dc093ef469ff7d465e5711ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_63_Cylindre51Mat
+    second: {fileID: 2100000, guid: 33dde3c1f9fd76f4eaf22a302a7661c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_63_Cylindre54Mat
+    second: {fileID: 2100000, guid: 9c31c3e03c13e004f8387b04baaf7c05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_63_Cylindre56Mat
+    second: {fileID: 2100000, guid: f54f24bd4a6c1d643b2bbd7b8aaeb7d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_72_Cylindre59Mat
+    second: {fileID: 2100000, guid: f5eb1f0e8ca9f8940993594d47c9f2c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_72_Cylindre60Mat
+    second: {fileID: 2100000, guid: f5e0efbdc81654045952b88d53802624, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_72_Cylindre64Mat
+    second: {fileID: 2100000, guid: aca15a79d5963634186a8815532a2fac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_72_Cylindre65Mat
+    second: {fileID: 2100000, guid: 720b20c238b7c2f409b4f32d90dd955a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Frise_de_tour3_Cloneur_frise_tour_72_Cylindre66Mat
+    second: {fileID: 2100000, guid: 6bf87fec55e9fc94da178c025c1138cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_12_Cloneur_112Mat
+    second: {fileID: 2100000, guid: f98bd0be4e52a214f9e8e086fc17af14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_12_Palier3Mat
+    second: {fileID: 2100000, guid: 93fd163f24f5f57419d0e69d4707f842, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_12_Tube11Mat
+    second: {fileID: 2100000, guid: 915b3ae530e085f44b7cdbf6a07f7be8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_23_Cloneur_113Mat
+    second: {fileID: 2100000, guid: f88c8a31fefe5534d86734190975588b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_23_Palier2Mat
+    second: {fileID: 2100000, guid: a4a73a5d5c9ec8a40b6e76dae54b152b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_23_Tube10Mat
+    second: {fileID: 2100000, guid: 9b6e5beaf537dce46988da50d741086c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_33_Cloneur_114Mat
+    second: {fileID: 2100000, guid: 1058327bb8c896e448c0e373ea32373b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_33_Palier7Mat
+    second: {fileID: 2100000, guid: c4c6123cbe5095b468fa0bda1cc289e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Palier_33_Tube9Mat
+    second: {fileID: 2100000, guid: 1b0b1bf4029d775479545ccd30129e10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Base_toit3Mat
+    second: {fileID: 2100000, guid: dbc4e2ded4a38524e89ade7d03867190, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Cylindre22Mat
+    second: {fileID: 2100000, guid: b5231ce023747b5429e293d445589053, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Cylindre23Mat
+    second: {fileID: 2100000, guid: 34aded0ccc36b0c41aa210deddb0f4fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re11Mat
+    second: {fileID: 2100000, guid: 52fb3cc9b8f196a4d868f60160c47850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re12Mat
+    second: {fileID: 2100000, guid: bae640a64d8920e42a614bc808004fb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re13Mat
+    second: {fileID: 2100000, guid: 8b69463bcd4356046935f1d1ba78f170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re71Mat
+    second: {fileID: 2100000, guid: 492065587e600a74f8084dd8dd29a07b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re8Mat
+    second: {fileID: 2100000, guid: d0fee749605de3a4db513868a6c3a11d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Capuchon8_Sph_re9Mat
+    second: {fileID: 2100000, guid: 92516f6723bd20147b9c2a239545356a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_SocleMat
+    second: {fileID: 2100000, guid: bf7f7054553c06d4ea243b6f5fd1eed1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_Sph_re72Mat
+    second: {fileID: 2100000, guid: 44cd07ee2d1827544bc4628f7256b2a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Rotonde3_arc2Mat
+    second: {fileID: 2100000, guid: c2220686d1e5a574da46f60a5d8a7a1e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_Socle3Mat
+    second: {fileID: 2100000, guid: 51e3654d841c5e14e89fc845b281c0cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_2_tour1Mat
+    second: {fileID: 2100000, guid: 9e4e3da6bb4226e49b2ce096e10bc4b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Cercle_toitMat
+    second: {fileID: 2100000, guid: c99ae4ad0f80e12498e8cf2faffa823d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_0_Cylindre169Mat
+    second: {fileID: 2100000, guid: b471f0a8e77407a45a00018d728cb170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_0_Cylindre170Mat
+    second: {fileID: 2100000, guid: 857748349aa01784192c307f36221142, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_0_Cylindre171Mat
+    second: {fileID: 2100000, guid: 03e41e4103f63304ab1b61b020f82529, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_0_Cylindre172Mat
+    second: {fileID: 2100000, guid: a9e372e8caccba74f87f1a400e653203, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_0_Cylindre173Mat
+    second: {fileID: 2100000, guid: d74c5caaea62ae34f8ebe063975bc554, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_13_Cylindre100Mat
+    second: {fileID: 2100000, guid: 2ce42ba0e86737d45873bc15114b0418, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_13_Cylindre101Mat
+    second: {fileID: 2100000, guid: 9e4d89adfd657cd46befdc6d8b65a585, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_13_Cylindre97Mat
+    second: {fileID: 2100000, guid: 0ccf783f40602aa4caf220cd683bb185, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_13_Cylindre98Mat
+    second: {fileID: 2100000, guid: 0ccd4442c1e5c6f4c8607aaf2fa9e224, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_13_Cylindre99Mat
+    second: {fileID: 2100000, guid: bca7a41320288f44895eafd24256dfbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_2_Cylindre102Mat
+    second: {fileID: 2100000, guid: 778dfe9d0218e8f4db13b530c5b79b5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_2_Cylindre103Mat
+    second: {fileID: 2100000, guid: 2fcb76fcb14859f4690d5300048fe91f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_2_Cylindre104Mat
+    second: {fileID: 2100000, guid: be12208ab5952374aab9a45e9fbc127e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_2_Cylindre105Mat
+    second: {fileID: 2100000, guid: dbe94c08b0d621d40993eebb5d0dcc06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_2_Cylindre106Mat
+    second: {fileID: 2100000, guid: 368cbdc6bfe002f409d629592b9cf237, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_3_Cylindre107Mat
+    second: {fileID: 2100000, guid: f5aec072d39eeb444905602ad3f315a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_3_Cylindre108Mat
+    second: {fileID: 2100000, guid: e930325d38caa9641bb6cd977c47e563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_3_Cylindre109Mat
+    second: {fileID: 2100000, guid: e655c57901c49c14988a93f0814ffca8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_3_Cylindre110Mat
+    second: {fileID: 2100000, guid: a41afc5e02a13224d93f65b74a176087, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_3_Cylindre111Mat
+    second: {fileID: 2100000, guid: 1421cf42585384b4480fbaefd469a0d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_41_Cylindre112Mat
+    second: {fileID: 2100000, guid: ce52150fda4baa041b45e7e62f84f4cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_41_Cylindre113Mat
+    second: {fileID: 2100000, guid: a7f442d69bd443546a1a0d3a41b32a36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_41_Cylindre114Mat
+    second: {fileID: 2100000, guid: 96417f02a87681449a30f7f0805482dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_41_Cylindre115Mat
+    second: {fileID: 2100000, guid: 4ab2a061ae794f64fb854426117a5a7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_41_Cylindre116Mat
+    second: {fileID: 2100000, guid: 19eee222090ba1042b82c4a6d582dbea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_5_Cylindre117Mat
+    second: {fileID: 2100000, guid: 1e45fb556b415fa488b6b9d175b74bf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_5_Cylindre118Mat
+    second: {fileID: 2100000, guid: d28fec454cf8440418719fc361ba4534, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_5_Cylindre119Mat
+    second: {fileID: 2100000, guid: 441fccc7a60d68246a380d2deb2d2039, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_5_Cylindre120Mat
+    second: {fileID: 2100000, guid: 3e49470ffa84ac94989807407fb8c320, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_5_Cylindre121Mat
+    second: {fileID: 2100000, guid: d9a5c06d1a1ea9e42bb7f52cdb98113f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_6_Cylindre122Mat
+    second: {fileID: 2100000, guid: 663f76608973e4c42b4b0a1e93a9e02d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_6_Cylindre123Mat
+    second: {fileID: 2100000, guid: 1cbdb6a244785b142b2c19dc7075d2c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_6_Cylindre124Mat
+    second: {fileID: 2100000, guid: 84b6095fa8f7742458437f9db7d7e49d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_6_Cylindre125Mat
+    second: {fileID: 2100000, guid: dfaa92394484b0045b57a84107d0991c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_6_Cylindre126Mat
+    second: {fileID: 2100000, guid: 7c0f44b6b1a02c24b8ce5a8749c6d81f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_73_Cylindre127Mat
+    second: {fileID: 2100000, guid: e782c20407122eb46aec9ceeb0446e03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_73_Cylindre128Mat
+    second: {fileID: 2100000, guid: b6d86d6aa04674e4dbd98404de89c24b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_73_Cylindre129Mat
+    second: {fileID: 2100000, guid: 0a981dabb3b171b48a93b864690ab2ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_73_Cylindre130Mat
+    second: {fileID: 2100000, guid: 5514ac4ad04ce5a40bcbca96bf0c15ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Frise_de_tour1_Cloneur2_frise_tour_73_Cylindre131Mat
+    second: {fileID: 2100000, guid: 0ba6ce160e2517f4f83514747e090040, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_11_Cloneur_115Mat
+    second: {fileID: 2100000, guid: f5b7980196d4a6c479dc80cb8e664a02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_11_Palier11Mat
+    second: {fileID: 2100000, guid: eabac3d861e71854e86e5c915708549b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_11_Tube2Mat
+    second: {fileID: 2100000, guid: 705dfb7606eb0e642887ca3c0d353697, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_2_Cloneur_116Mat
+    second: {fileID: 2100000, guid: e01c989a80b6c3a49a86e842d5160652, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_2_Palier9Mat
+    second: {fileID: 2100000, guid: 63d4bcc54bf08284bbbf84a0f1e4dd7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_2_Tube3Mat
+    second: {fileID: 2100000, guid: 6cd64aa9c5195d942882a685c59526ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_32_Cloneur_117Mat
+    second: {fileID: 2100000, guid: 83ecb383785a4144f8b8a6961c6a1980, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_32_Palier5Mat
+    second: {fileID: 2100000, guid: 578cfbc56a5bd2b44bbe080a2d0ad475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Palier_32_Tube4Mat
+    second: {fileID: 2100000, guid: d05ec77a045a4724dbcf9d65b59321c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Base_toitMat
+    second: {fileID: 2100000, guid: 62a741b49a72b4743946c26d1a5960df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Cylindre176Mat
+    second: {fileID: 2100000, guid: 23392d26de53ac14aa0a015127b2e86c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Cylindre177Mat
+    second: {fileID: 2100000, guid: 440e8c40a610d9b4087945046e7d0872, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re77Mat
+    second: {fileID: 2100000, guid: 446b63ea780f3d740b842bf1233c6472, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re78Mat
+    second: {fileID: 2100000, guid: 32e3b33c1667ba64eb69fa13d5c5fa96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re81Mat
+    second: {fileID: 2100000, guid: 99aa8de92e03bf145a63cf3edc61687b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re82Mat
+    second: {fileID: 2100000, guid: 422778864d244cc429e85b283a04246a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re89Mat
+    second: {fileID: 2100000, guid: 562f6022de047d84a8137e9c1952bd47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Capuchon_Sph_re92Mat
+    second: {fileID: 2100000, guid: 512ec48ad1f0acc4999de5c55021934c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Socle5Mat
+    second: {fileID: 2100000, guid: 5e8daddb53c03b2498fd0a9bdbe1f3a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_Sph_re68Mat
+    second: {fileID: 2100000, guid: 8275252aaf4d0af47bc6e2802d73a26c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Rotonde1_arcMat
+    second: {fileID: 2100000, guid: c884ccba07b2e2a4a8018a19eb550abf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_Socle2Mat
+    second: {fileID: 2100000, guid: bb84f226f4b15724b8dfc11a942004b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_3_tour3Mat
+    second: {fileID: 2100000, guid: 837e6e03abc85de419a35927971ab503, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Cercle_toit1Mat
+    second: {fileID: 2100000, guid: cd30c33679bfd2d4a9521b37389898dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_03_Cylindre145Mat
+    second: {fileID: 2100000, guid: 57e5aa9b868b9574a9cad03684b6c468, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_03_Cylindre146Mat
+    second: {fileID: 2100000, guid: 3df64a74cd5745948affc62b86e4acc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_03_Cylindre147Mat
+    second: {fileID: 2100000, guid: a937d769e77826b4fadf2236bfd7721c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_03_Cylindre46Mat
+    second: {fileID: 2100000, guid: d74c0844a89097b48ab367ac32119343, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_03_Cylindre47Mat
+    second: {fileID: 2100000, guid: f70099a0996c10045bd975f624b3cb1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_1_Cylindre148Mat
+    second: {fileID: 2100000, guid: 7f37e7e2e59551e47ba5d169dc9b1a04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_1_Cylindre149Mat
+    second: {fileID: 2100000, guid: 17279e850d1f45543a94778105e549c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_1_Cylindre150Mat
+    second: {fileID: 2100000, guid: 49277ba8faffdb14186d19a95500390f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_1_Cylindre151Mat
+    second: {fileID: 2100000, guid: 291f186dc19581443bee127f1fe8a85e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_1_Cylindre152Mat
+    second: {fileID: 2100000, guid: ddc8cbcccf3149e4b85b8568ac70a4fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_23_Cylindre154Mat
+    second: {fileID: 2100000, guid: 61c278cb304becf4c8121a449d63619d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_23_Cylindre155Mat
+    second: {fileID: 2100000, guid: d740f3ecd67a79740af10f932dd94093, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_23_Cylindre156Mat
+    second: {fileID: 2100000, guid: 15ebb2a12cd19c041821b0634855fd08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_23_Cylindre157Mat
+    second: {fileID: 2100000, guid: ee5cec1b0c070b9459eff84645488541, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_23_Cylindre158Mat
+    second: {fileID: 2100000, guid: 927ed0050685e554db81fe00c4ac67a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_31_Cylindre160Mat
+    second: {fileID: 2100000, guid: bbbe7817a8634e54a90f1c62806205d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_31_Cylindre161Mat
+    second: {fileID: 2100000, guid: 12b4362435f28a84a8e916a60b86bb45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_31_Cylindre162Mat
+    second: {fileID: 2100000, guid: 1e71bb239f2a769469186f1fbccd8fd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_31_Cylindre163Mat
+    second: {fileID: 2100000, guid: e3eee8e936bd7d240bcf4997577ab015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_31_Cylindre164Mat
+    second: {fileID: 2100000, guid: af510ebf664f29344972e587cb5bc238, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_42_Cylindre165Mat
+    second: {fileID: 2100000, guid: eaed71b0d09185a46abb970f6f165913, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_42_Cylindre166Mat
+    second: {fileID: 2100000, guid: 8cb860fdf1d9cd64ca3c05ee8a31198a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_42_Cylindre167Mat
+    second: {fileID: 2100000, guid: a8f4a312dc00f704d952797e2e7090d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_42_Cylindre168Mat
+    second: {fileID: 2100000, guid: 75768f324890d1e4d8c65f3397724553, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_42_Cylindre193Mat
+    second: {fileID: 2100000, guid: d61b55849944ea04c9ba231a97908944, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_52_Cylindre188Mat
+    second: {fileID: 2100000, guid: c1ba9c7da9891f742b348305150a5664, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_52_Cylindre189Mat
+    second: {fileID: 2100000, guid: 8973e458eed637944bcef187c9fe7b03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_52_Cylindre190Mat
+    second: {fileID: 2100000, guid: ff31b621455793740bb1885424be3c02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_52_Cylindre191Mat
+    second: {fileID: 2100000, guid: 05c33e0ea1e78d446bb3442850ce63f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_52_Cylindre192Mat
+    second: {fileID: 2100000, guid: 5ea5b0f7279aa5e43bfe17f15d7036f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_61_Cylindre182Mat
+    second: {fileID: 2100000, guid: 95e7df183f2d1ae478040e2170216cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_61_Cylindre183Mat
+    second: {fileID: 2100000, guid: fd04f1294ed77e24483cf6bc12caa380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_61_Cylindre184Mat
+    second: {fileID: 2100000, guid: 4ac498eb585464444ab3dab365ee95a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_61_Cylindre185Mat
+    second: {fileID: 2100000, guid: 2fe3f955fb5a0254fa758e1bedd65b02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_61_Cylindre186Mat
+    second: {fileID: 2100000, guid: 1772c4a13eaa13048b5dd854131b84b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_7_Cylindre178Mat
+    second: {fileID: 2100000, guid: 3c760853a7ae45f46bc790779d0ca49e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_7_Cylindre179Mat
+    second: {fileID: 2100000, guid: 6c52cf73d70793d4abf4732a6f867b1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_7_Cylindre180Mat
+    second: {fileID: 2100000, guid: 1269fd2cb61306c4a9a5beb1c05318bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_7_Cylindre181Mat
+    second: {fileID: 2100000, guid: cfa7cec7e14289c42ad8d888e96f26d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Frise_de_tour2_Cloneur1_frise_tour_7_Cylindre187Mat
+    second: {fileID: 2100000, guid: 2b197aaca9d833b41a44f0a71aacd3e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_1_Cloneur_111Mat
+    second: {fileID: 2100000, guid: 4f9102794a66993488eb2ed2d81962c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_1_PalierMat
+    second: {fileID: 2100000, guid: 09be1a34747cdc14b8db905d66f43b0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_1_Tube7Mat
+    second: {fileID: 2100000, guid: 0282202270dbd2945844368a69dc785d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_0Mat
+    second: {fileID: 2100000, guid: 4eb67d6876616c44399dc86a23629147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_10Mat
+    second: {fileID: 2100000, guid: 182d6a2539c0a984b9add323f667e20a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_11Mat
+    second: {fileID: 2100000, guid: 62c54811634c17144bc715c4e978efa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_12Mat
+    second: {fileID: 2100000, guid: 4671c1540fd077c4aa2b695f1d252648, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_13Mat
+    second: {fileID: 2100000, guid: ccfcbd35c2e65c64ca6657b6130a783c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_14Mat
+    second: {fileID: 2100000, guid: dff0d4934f32602489025a116c036111, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_15Mat
+    second: {fileID: 2100000, guid: 4732c4b0f7503d14cb24a352b001b1f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_16Mat
+    second: {fileID: 2100000, guid: 202900757c573244499aa0f0c2f56ba1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_17Mat
+    second: {fileID: 2100000, guid: c58756cd48c2fe74482e8efb5e55690d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_18Mat
+    second: {fileID: 2100000, guid: 0499a7b480e93b84086c47676dd8e28a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_19Mat
+    second: {fileID: 2100000, guid: 86d04881303ab21479a654c1cd14f80e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_1Mat
+    second: {fileID: 2100000, guid: 67a5a6adeea09f04889446c6a7a73469, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_20Mat
+    second: {fileID: 2100000, guid: 63c240ae032c45a4b9f3586c549dcd66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_21Mat
+    second: {fileID: 2100000, guid: 838596c5533656b4299e2c93c4718907, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_22Mat
+    second: {fileID: 2100000, guid: 47404f0f0fd812041bd7b1c9d52dcdff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_2Mat
+    second: {fileID: 2100000, guid: 219543ce75d4aa44bb2bb0ce0b8b3111, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_3Mat
+    second: {fileID: 2100000, guid: 17732ae9e7488a54d9847eff92c09c23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_4Mat
+    second: {fileID: 2100000, guid: 61792875f633440458a4e5b946326482, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_5Mat
+    second: {fileID: 2100000, guid: b1c6292add2764844b24e24b91359f28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_6Mat
+    second: {fileID: 2100000, guid: d94398f7ef8a05040bbefa7abc3334c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_7Mat
+    second: {fileID: 2100000, guid: c2332eec007d76c4c936910da7bdc2ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_8Mat
+    second: {fileID: 2100000, guid: 5c56e43f2cee8d44a8f68bf85b9f4d44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Cloneur4_Cube_9Mat
+    second: {fileID: 2100000, guid: 81a8c27f393a8f54bafa9d0c44040d0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Palier8Mat
+    second: {fileID: 2100000, guid: e6b6cec2c11cc884e83b912dc91afcc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_22_Tube6Mat
+    second: {fileID: 2100000, guid: 3326a7391a6c1b945b8d38c72d2ee293, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_31_Cloneur_1Mat
+    second: {fileID: 2100000, guid: c5cbac97eb800834197186635dda836c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_31_Palier6Mat
+    second: {fileID: 2100000, guid: be851d9d0c764884d9a9048dd9aad77e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Palier_31_TubeMat
+    second: {fileID: 2100000, guid: e629c660f6127c3439234a4720cce44f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Base_toit2Mat
+    second: {fileID: 2100000, guid: c8beaa2aad0260149b298f4cfb924cee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Cylindre41Mat
+    second: {fileID: 2100000, guid: c8a549a50631d5644baf56ced63d5f90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Cylindre42Mat
+    second: {fileID: 2100000, guid: de58e13255450fa42b73d679dec5e873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re35Mat
+    second: {fileID: 2100000, guid: b98a78f80bc03c7448e995366c26b0f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re36Mat
+    second: {fileID: 2100000, guid: 0ab4f325ff0b2de4a8eea073185ce7e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re37Mat
+    second: {fileID: 2100000, guid: 14629751dcb2f93488faa0508f411b24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re39Mat
+    second: {fileID: 2100000, guid: 13495e2726859c24e8760eab8a4739ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re41Mat
+    second: {fileID: 2100000, guid: 988106c679c904b45beab193d2423619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Capuchon1_Sph_re48Mat
+    second: {fileID: 2100000, guid: dc33774e760b40b43af6b56523badeb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Socle1Mat
+    second: {fileID: 2100000, guid: bbc40f2d6f9674a4f902b663ddc4f5f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_Sph_re49Mat
+    second: {fileID: 2100000, guid: 85b1cfb713190e141bcf896e638f97e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Rotonde_arc3Mat
+    second: {fileID: 2100000, guid: 62ae675eb2e3f6941bb4a442439037a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_Socle10Mat
+    second: {fileID: 2100000, guid: 83321d50ef577ff4a88a0b122577e979, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_Tour_4_tourMat
+    second: {fileID: 2100000, guid: fc00f22d10bf8544bb8a162ef7c84c01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Facade_1_Mat
+    second: {fileID: 2100000, guid: 0f0a5f2eba4fe6340b233e1ded0e9192, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Facade_2Mat
+    second: {fileID: 2100000, guid: c9727801823c16742b2df888f8a2d7f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Facade_3Mat
+    second: {fileID: 2100000, guid: fa1c06967eeaa6f4390ee850c564ff52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Facade_4_Mat
+    second: {fileID: 2100000, guid: 3c244866b0caf964aa37a0f04fd76aaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier11_Pilier8Mat
+    second: {fileID: 2100000, guid: ba94afa3701c1b849ab5a48272692666, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier11_Sph_re24Mat
+    second: {fileID: 2100000, guid: c5a2f83309d05814d83797fb98e8b662, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier11_Sph_re25Mat
+    second: {fileID: 2100000, guid: 62c4c6db1cd965845b0a277c9772dcaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier12_Pilier9Mat
+    second: {fileID: 2100000, guid: e6d15ed5b04d1d04fb48fe19d0e87fe4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier12_Sph_re87Mat
+    second: {fileID: 2100000, guid: c89aac5b5d874f9479963d591707d513, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier12_Sph_re88Mat
+    second: {fileID: 2100000, guid: b46f275c3338c9d42b9cb2323d73514a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier13_Pilier16Mat
+    second: {fileID: 2100000, guid: 48fe94147e7434240836d0f49e8f2446, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier13_Sph_re66Mat
+    second: {fileID: 2100000, guid: a27951c992e4ed744a30136b608bfb84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier13_Sph_re67Mat
+    second: {fileID: 2100000, guid: 9b521e5658921c546981a16ba3415cee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier14_Pilier15Mat
+    second: {fileID: 2100000, guid: 4c1fc7085f22c204384d18c1ca4eb113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier14_Sph_re38Mat
+    second: {fileID: 2100000, guid: a74df550ed86ea0498c26d0856fa1210, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier14_Sph_re50Mat
+    second: {fileID: 2100000, guid: 185a180d02c552a4f8e18750da2dd8e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier17_Pilier19Mat
+    second: {fileID: 2100000, guid: 5a200f8f4e255dd43a37d1ecd8d43c3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier17_Sph_re70Mat
+    second: {fileID: 2100000, guid: c00eff8d35a7c9642935e82e9ba5010c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier17_Sph_re94Mat
+    second: {fileID: 2100000, guid: fbf4cfe57df50db4cb0de0f954fe0cb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier1_Pilier26Mat
+    second: {fileID: 2100000, guid: 3e980a563c1b02d4981f2edcef5972bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier1_Sph_re79Mat
+    second: {fileID: 2100000, guid: 8eff4a532ef37d345a1e961a502a972a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier1_Sph_re80Mat
+    second: {fileID: 2100000, guid: 417754ecf628d27458dcef0390ca4b67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier20_Pilier18Mat
+    second: {fileID: 2100000, guid: 96d2ae3e2d92c994cbdb767a40d87606, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier20_Sph_re90Mat
+    second: {fileID: 2100000, guid: 1be8d32383384e24ba9a73ed23a35a85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier20_Sph_re91Mat
+    second: {fileID: 2100000, guid: 766d41c8b9b805e46970603db183d542, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier22_Pilier21Mat
+    second: {fileID: 2100000, guid: 4cb6ec4b953a08b4aa10d3e96d84bf8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier22_Sph_re69Mat
+    second: {fileID: 2100000, guid: 9561d952df58ae649a527d6722ff053a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier22_Sph_re93Mat
+    second: {fileID: 2100000, guid: 60efdbe0588b77c439f5b52cfff26ef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier25_Pilier24Mat
+    second: {fileID: 2100000, guid: 99515d0fbed63cf4a975b020d2a122d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier25_Sph_re75Mat
+    second: {fileID: 2100000, guid: fdcea2d3711f8604594c182fb513c8e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier25_Sph_re76Mat
+    second: {fileID: 2100000, guid: 26bbb111741086e479de3748e35ae9f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier27_Pilier23Mat
+    second: {fileID: 2100000, guid: 34b72dd0c683fa04dbb9411a21cb4cc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier27_Sph_re85Mat
+    second: {fileID: 2100000, guid: cbdf4dffd75a1e84b9b3022ca7cd8fde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier27_Sph_re86Mat
+    second: {fileID: 2100000, guid: e971cc8f16b09914389219abd34a8576, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier28_Pilier31Mat
+    second: {fileID: 2100000, guid: 521dd8c4ee0d25e4094c71ed4315709b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier28_Sph_re64Mat
+    second: {fileID: 2100000, guid: 55df04c0fabe45c438de6ca1b43a6eb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier28_Sph_re65Mat
+    second: {fileID: 2100000, guid: 9f3089d0a86ceef47a62e676922b48a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier29_Pilier30Mat
+    second: {fileID: 2100000, guid: e481d6a5c56c4ec48936b9f1ab639dfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier29_Sph_re73Mat
+    second: {fileID: 2100000, guid: 63e528f53dfb9e4429b3d11e8300ae1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier29_Sph_re74Mat
+    second: {fileID: 2100000, guid: ddfc1781d5d256940aee57bf695f3e61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier3_Pilier4Mat
+    second: {fileID: 2100000, guid: c45f1404cf7c43d448552069a1cf6783, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier3_Sph_re59Mat
+    second: {fileID: 2100000, guid: 5e609eedb26934048b22e993539662d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier3_Sph_re60Mat
+    second: {fileID: 2100000, guid: 3459043e5f030304da4121a26a1827cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier6_Pilier5Mat
+    second: {fileID: 2100000, guid: 8ceabe313ecb9294a9e42a685b8f67da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier6_Sph_re83Mat
+    second: {fileID: 2100000, guid: 092b4275ef6466d438c748bba845758f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier6_Sph_re84Mat
+    second: {fileID: 2100000, guid: dbb4fe87e1b36b24598336178271037a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier7_Pilier10Mat
+    second: {fileID: 2100000, guid: 7f27b82186153984c9e2cd5285547728, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier7_Sph_re51Mat
+    second: {fileID: 2100000, guid: 99b6a07105d1fd94bbe5bca8a7de7870, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier7_Sph_re52Mat
+    second: {fileID: 2100000, guid: d0e394b186ea7a34d89d774de46d876a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier_Pilier2Mat
+    second: {fileID: 2100000, guid: ee17717d2355ecf4e960a76302e3119b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier_Sph_re62Mat
+    second: {fileID: 2100000, guid: 26dcd43a5c58b1e43b28be6d1b92c9c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TAJ_MAHAL_facades_Pilier_Sph_re63Mat
+    second: {fileID: 2100000, guid: e9e9939459a5a9043a8fc4414897d694, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
