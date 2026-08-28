@@ -1,69 +1,14 @@
-import React, { useRef } from 'react';
+import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
-import * as THREE from 'three';
 import type { Hotspot } from '@/types/monument';
+import { TajMahalModel } from './TajMahalModel';
 
 interface SceneContainerProps {
   hotspots: Hotspot[];
   activeHotspotId: string | null;
   onSelectHotspot: (hotspot: Hotspot) => void;
 }
-
-/**
- * Procedural architectural placeholder mesh for 3D viewer foundation.
- * This represents the monument structure before final GLB model asset integration in later phases.
- */
-const MonumentMesh: React.FC = () => {
-  const meshRef = useRef<THREE.Group>(null);
-
-  return (
-    <group ref={meshRef} position={[0, -0.5, 0]}>
-      {/* Base Plinth - Sandstone & Marble */}
-      <mesh position={[0, 0.1, 0]}>
-        <boxGeometry args={[4.5, 0.2, 4.5]} />
-        <meshStandardMaterial color="#cbb493" roughness={0.5} metalness={0.05} />
-      </mesh>
-
-      {/* Main Arch Base - White Marble */}
-      <mesh position={[0, 1.0, 0]}>
-        <boxGeometry args={[2.6, 1.6, 2.6]} />
-        <meshStandardMaterial color="#f7f1e7" roughness={0.3} metalness={0.05} />
-      </mesh>
-
-      {/* Central Onion Dome (Amrud) */}
-      <mesh position={[0, 2.3, 0]}>
-        <sphereGeometry args={[0.9, 32, 32]} />
-        <meshStandardMaterial color="#fcf9f2" roughness={0.2} metalness={0.05} />
-      </mesh>
-
-      {/* Finial / Spire - Antique Brass */}
-      <mesh position={[0, 3.4, 0]}>
-        <cylinderGeometry args={[0.04, 0.08, 0.8, 16]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.8} />
-      </mesh>
-
-      {/* 4 Corner Minarets */}
-      {[
-        [-1.8, -1.8],
-        [1.8, -1.8],
-        [-1.8, 1.8],
-        [1.8, 1.8],
-      ].map(([x, z], idx) => (
-        <group key={idx} position={[x, 0.2, z]}>
-          <mesh position={[0, 1.1, 0]}>
-            <cylinderGeometry args={[0.15, 0.2, 2.2, 16]} />
-            <meshStandardMaterial color="#ede2cf" roughness={0.4} />
-          </mesh>
-          <mesh position={[0, 2.3, 0]}>
-            <sphereGeometry args={[0.2, 16, 16]} />
-            <meshStandardMaterial color="#fcf9f2" roughness={0.3} />
-          </mesh>
-        </group>
-      ))}
-    </group>
-  );
-};
 
 export const SceneContainer: React.FC<SceneContainerProps> = ({
   hotspots,
@@ -82,8 +27,10 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
         <directionalLight position={[-10, 10, -10]} intensity={0.4} color="#cbb493" />
         <pointLight position={[0, 4, 0]} intensity={0.7} color="#fef3c7" />
 
-        {/* Monument Geometry */}
-        <MonumentMesh />
+        {/* Real GLB Monument Model — wrapped in Suspense since useGLTF is async */}
+        <Suspense fallback={null}>
+          <TajMahalModel />
+        </Suspense>
 
         {/* Interactive 3D Hotspot Annotations */}
         {hotspots.map((spot, idx) => {
