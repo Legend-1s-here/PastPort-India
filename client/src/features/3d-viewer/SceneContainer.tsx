@@ -75,7 +75,7 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
   const onUpdate = useCallback((pts: ScreenPt[]) => setScreenPts(pts), []);
 
   return (
-    <div className="relative w-full h-[420px] rounded-xl overflow-hidden bg-charcoal-950">
+    <div className="relative w-full h-[360px] sm:h-[450px] rounded-xl overflow-hidden bg-charcoal-950 border border-brass-500/20 shadow-2xl touch-none select-none">
       {/* ── 3D Canvas ─────────────────────────────────────────────────── */}
       <Canvas
         camera={{ position: [0, 0.30, 2.6], fov: 40 }}
@@ -102,10 +102,14 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
           maxPolarAngle={Math.PI / 2 + 0.05}
           zoomSpeed={0.8}
           rotateSpeed={0.6}
+          touches={{
+            ONE: THREE.TOUCH.ROTATE,
+            TWO: THREE.TOUCH.DOLLY_PAN,
+          }}
         />
       </Canvas>
 
-      {/* ── 2D Hotspot Overlays — pixel-perfect projected from 3D ─────── */}
+      {/* ── 2D Hotspot Overlays — mobile touch friendly ─────── */}
       {hotspots.map((spot, idx) => {
         const pt = screenPts[idx];
         if (!pt || !pt.visible) return null;
@@ -122,8 +126,9 @@ export const SceneContainer: React.FC<SceneContainerProps> = ({
               transform: 'translate(-50%, -50%)',
               pointerEvents: 'auto',
             }}
-            className="group focus:outline-none z-20"
+            className="group focus:outline-none z-20 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
             title={spot.title}
+            aria-label={`Hotspot ${idx + 1}: ${spot.title}`}
           >
             <span className="relative flex h-8 w-8 items-center justify-center">
               <span
