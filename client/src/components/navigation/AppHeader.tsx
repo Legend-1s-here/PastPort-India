@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Compass, Sparkles, Menu, X, Landmark } from 'lucide-react';
+import { Compass, Sparkles, Menu, X, Landmark, Camera } from 'lucide-react';
 
 export const AppHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,6 +10,7 @@ export const AppHeader: React.FC = () => {
 
   const isHome = currentPath === '/';
   const isTajMahal = currentPath.startsWith('/monuments/taj-mahal') || currentPath.startsWith('/experience/taj-mahal-3d');
+  const isAR = currentPath.startsWith('/experience/taj-mahal-ar') || currentPath.startsWith('/ar');
 
   // Scroll listener for dynamic glassmorphism header
   useEffect(() => {
@@ -81,13 +82,25 @@ export const AppHeader: React.FC = () => {
           <Link
             to="/monuments/taj-mahal"
             className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
-              isTajMahal
+              isTajMahal && !isAR
                 ? 'bg-brass-500/15 text-brass-300 border border-brass-500/35 shadow-sm'
                 : 'text-sandstone-300 hover:text-parchment-100 hover:bg-charcoal-850/80 border border-transparent'
             }`}
           >
             <Landmark className="w-3.5 h-3.5 text-brass-400" />
-            <span>Taj Mahal (Flagship 3D)</span>
+            <span>Taj Mahal (3D)</span>
+          </Link>
+
+          <Link
+            to="/experience/taj-mahal-ar"
+            className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+              isAR
+                ? 'bg-terracotta-500/20 text-terracotta-300 border border-terracotta-500/40 shadow-sm'
+                : 'text-sandstone-300 hover:text-parchment-100 hover:bg-charcoal-850/80 border border-transparent'
+            }`}
+          >
+            <Camera className="w-3.5 h-3.5 text-terracotta-400 animate-pulse" />
+            <span>AR Experience</span>
           </Link>
         </nav>
 
@@ -126,13 +139,26 @@ export const AppHeader: React.FC = () => {
               to="/monuments/taj-mahal"
               onClick={closeMenu}
               className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all min-h-[48px] ${
-                isTajMahal
+                isTajMahal && !isAR
                   ? 'bg-brass-500/15 text-brass-300 border border-brass-500/35 shadow-sm'
                   : 'text-sandstone-300 hover:text-parchment-100 hover:bg-charcoal-850/80 border border-transparent'
               }`}
             >
-              <Landmark className="w-4 h-4 text-terracotta-400" />
-              <span>Taj Mahal (Flagship 3D)</span>
+              <Landmark className="w-4 h-4 text-brass-400" />
+              <span>Taj Mahal (3D)</span>
+            </Link>
+
+            <Link
+              to="/experience/taj-mahal-ar"
+              onClick={closeMenu}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold tracking-wide transition-all min-h-[48px] ${
+                isAR
+                  ? 'bg-terracotta-500/20 text-terracotta-300 border border-terracotta-500/40 shadow-sm'
+                  : 'text-sandstone-300 hover:text-parchment-100 hover:bg-charcoal-850/80 border border-transparent'
+              }`}
+            >
+              <Camera className="w-4 h-4 text-terracotta-400" />
+              <span>AR Experience</span>
             </Link>
           </nav>
         </div>

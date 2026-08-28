@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Taj Mahal — Augmented Reality Experience</title>
+  <meta name="description" content="Explore the iconic Taj Mahal in interactive 3D and Augmented Reality. Place and view the monument on your floor or table.">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Three.js r128 & Loaders -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- QR Code Generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-content">
+      <div class="luxury-spinner">
+        <div class="spinner-ring"></div>
+        <i class="fa-solid fa-landmark spinner-icon"></i>
+      </div>
+      <h2 class="loading-title">TAJ MAHAL</h2>
+      <p class="loading-subtitle">Preparing 3D Architecture...</p>
+      <div class="progress-track">
+        <div id="progressBar" class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js 3D Background Canvas -->
+  <div id="canvasContainer" class="canvas-container"></div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HOMESCREEN UI (Clean, Luxurious Glassmorphism)
+       ══════════════════════════════════════════════════════════ -->
+
+  <!-- Top Navigation Header -->
+  <header id="webHeader" class="home-header">
+    <div class="brand-group">
+      <div class="brand-badge">
+        <span class="badge-dot"></span>
+        <span>3D & AR EXPERIENCE</span>
+      </div>
+      <h1 class="brand-title">TAJ MAHAL</h1>
+      <p class="brand-subtitle">AGRA, INDIA · UNESCO WORLD HERITAGE</p>
+    </div>
+    <div class="header-actions">
+      <button id="infoBtn" class="action-circle-btn" title="About the Taj Mahal" aria-label="Information">
+        <i class="fa-solid fa-circle-info"></i>
+      </button>
+      <button id="qrBtn" class="action-circle-btn" title="Scan to open on Mobile" aria-label="QR Code">
+        <i class="fa-solid fa-qrcode"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- 3D Interaction Gesture Guide -->
+  <div id="previewHint" class="preview-interaction-hint">
+    <i class="fa-solid fa-hand-pointer"></i>
+    <span>Drag to rotate · Pinch to zoom</span>
+  </div>
+
+  <!-- Primary AR Launch Floating CTA -->
+  <div id="webArLaunchContainer" class="hero-ar-launch-wrapper">
+    <button id="startArCameraBtn" class="hero-ar-btn">
+      <div class="btn-icon-capsule">
+        <i class="fa-solid fa-camera ar-pulse-icon"></i>
+      </div>
+      <div class="btn-text-group">
+        <span class="btn-main-title">VIEW IN AUGMENTED REALITY</span>
+        <span class="btn-sub-desc">Place on your physical floor or table</span>
+      </div>
+      <div class="btn-arrow-badge">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </button>
+  </div>
+
+  <!-- Bottom Interactive Controls Bar -->
+  <footer id="webFooter" class="home-footer-dock">
+    <div class="dock-panel glass-dock">
+      <!-- Lighting Atmosphere Controls -->
+      <div class="dock-section atmosphere-section">
+        <span class="dock-section-label"><i class="fa-solid fa-sun"></i> LIGHTING</span>
+        <div class="atmosphere-pill-group">
+          <button class="atmo-btn active" data-lighting="day">
+            <span class="atmo-icon">☀️</span>
+            <span class="atmo-text">Day</span>
+          </button>
+          <button class="atmo-btn" data-lighting="sunset">
+            <span class="atmo-icon">🌅</span>
+            <span class="atmo-text">Sunset</span>
+          </button>
+          <button class="atmo-btn" data-lighting="night">
+            <span class="atmo-icon">🌙</span>
+            <span class="atmo-text">Night</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dock-divider"></div>
+
+      <!-- Quick 3D View Actions -->
+      <div class="dock-section view-actions-section">
+        <button id="resetCamBtn" class="dock-action-btn" title="Reset View Angle">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <span>Reset</span>
+        </button>
+        <button id="autoRotateToggleBtn" class="dock-action-btn active" title="Toggle 360° Auto-Rotation">
+          <i class="fa-solid fa-rotate"></i>
+          <span>360°</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       IN-CAMERA AR MODE OVERLAY (Active only in WebXR)
+       ══════════════════════════════════════════════════════════ -->
+  <div id="arOverlay" class="ar-camera-overlay">
+
+    <!-- AR Top Bar (Status badge + Exit) -->
+    <div id="arTopBar" class="ar-top-bar">
+      <div class="ar-status-badge">
+        <i class="fa-solid fa-crosshairs ar-status-icon"></i>
+        <span id="arStatusText">Move phone to scan floor...</span>
+      </div>
+      <button id="exitArBtn" class="ar-exit-btn">
+        <i class="fa-solid fa-xmark"></i> Exit AR
+      </button>
+    </div>
+
+    <!-- Surface Reticle Indicator -->
+    <div id="arReticleGuide" class="ar-reticle-guide" style="display:none">
+      <div class="reticle-ring"></div>
+      <span class="reticle-label">Tap floor to place</span>
+    </div>
+
+    <!-- AR Bottom HUD Controls -->
+    <div id="arBottomHud" class="ar-bottom-hud glass-panel">
+
+      <!-- Atmosphere in AR -->
+      <div class="ar-hud-row">
+        <span class="ar-row-label"><i class="fa-solid fa-sun"></i> Atmosphere</span>
+        <div class="ar-pill-group">
+          <button class="ar-light-btn active" data-ar-light="day">☀️ Day</button>
+          <button class="ar-light-btn" data-ar-light="sunset">🌅 Sunset</button>
+          <button class="ar-light-btn" data-ar-light="night">🌙 Night</button>
+        </div>
+      </div>
+
+      <!-- Size Scale Slider -->
+      <div class="ar-hud-row column">
+        <div class="ar-slider-header">
+          <span class="ar-slider-title"><i class="fa-solid fa-maximize"></i> Model Size</span>
+          <span id="arSizeLabel" class="ar-slider-val">Tabletop (0.40m)</span>
+        </div>
+        <div class="ar-slider-row">
+          <span class="slider-cap">Table (0.1m)</span>
+          <input type="range" id="arSizeSlider" min="0.10" max="5.00" step="0.05" value="0.40" class="ar-slider">
+          <span class="slider-cap">Room (5.0m)</span>
+        </div>
+      </div>
+
+      <!-- Rotation & Reset Actions -->
+      <div class="ar-hud-row">
+        <button id="arRotateLeftBtn"  class="ar-hud-btn"><i class="fa-solid fa-rotate-left"></i> −15°</button>
+        <button id="arRotateRightBtn" class="ar-hud-btn"><i class="fa-solid fa-rotate-right"></i> +15°</button>
+        <button id="arResetBtn"       class="ar-hud-btn ar-reset-btn"><i class="fa-solid fa-trash-can"></i> RESET</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       MODALS
+       ══════════════════════════════════════════════════════════ -->
+
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal-backdrop">
+    <div class="modal-card glass-modal">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge"><i class="fa-solid fa-monument"></i> HISTORIC MONUMENT</span>
+          <h2>The Taj Mahal</h2>
+        </div>
+        <button id="closeInfoBtn" class="modal-close-btn" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-intro">Commissioned in <strong>1631</strong> by Mughal Emperor <strong>Shah Jahan</strong> in memory of his beloved wife <strong>Mumtaz Mahal</strong>. Constructed from pristine white Makrana marble inlaid with 28 types of semi-precious gemstones.</p>
+        
+        <div class="facts-grid">
+          <div class="fact-card">
+            <span class="fact-icon"><i class="fa-solid fa-users"></i></span>
+            <span class="fact-num">20,000+</span>
+            <span class="fact-lbl">Master Artisans</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon"><i class="fa-solid fa-calendar-check"></i></span>
+            <span class="fact-num">22 Years</span>
+            <span class="fact-lbl">1632 – 1653</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+            <span class="fact-num">73 Metres</span>
+            <span class="fact-lbl">Total Height</span>
+          </div>
+          <div class="fact-card">
+            <span class="fact-icon"><i class="fa-solid fa-gem"></i></span>
+            <span class="fact-num">28 Gem Types</span>
+            <span class="fact-lbl">Pietra Dura Inlay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code Modal (Mobile Launch) -->
+  <div id="qrModal" class="modal-backdrop">
+    <div class="modal-card glass-modal">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-badge"><i class="fa-solid fa-mobile-screen"></i> MOBILE AR</span>
+          <h2>Scan on Phone</h2>
+        </div>
+        <button id="closeQrBtn" class="modal-close-btn" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body qr-modal-body">
+        <p class="qr-intro-text">Point your phone camera at this QR code to launch the WebAR experience directly in your physical room:</p>
+        <div id="qrcode" class="qr-canvas-wrapper"></div>
+        <div class="qr-platform-tags">
+          <span class="platform-tag"><i class="fa-brands fa-android"></i> Android Chrome</span>
+          <span class="platform-tag"><i class="fa-brands fa-apple"></i> iOS Safari</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
