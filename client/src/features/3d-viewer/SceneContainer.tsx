@@ -12,7 +12,7 @@ import type { Hotspot } from '@/types/monument';
 // 3D positions of each hotspot locked directly onto the GLB model surface
 const HOTSPOT_3D: Array<[number, number, number]> = [
   [0,      0.58,  0   ],   // 1 – Main Dome tip
-  [0.38,   0.38,  0.38],   // 2 – Top of Right Front Minaret pillar
+  [0.46,   0.48,  0.46],   // 2 – Top of Right Front Minaret pillar
   [0,      0.22,  0.30],   // 3 – Grand Pishtaq main entrance arch facade
   [0,      0.02,  0.55],   // 4 – Charbagh Garden terrace plinth
 ];
