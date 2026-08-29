@@ -2,17 +2,16 @@
 
 <div align="center">
 
-![PastPort India Banner](https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop)
+![PastPort India Workflow Poster](./client/public/images/pastport_workflow_diagram.jpg)
 
 ### **SIH Problem Statement: SIH26197 • Theme: Heritage & Culture**  
-*Preserving India's timeless monuments and scriptures through 3D WebGL, WebXR Spatial AR, and Cloud Data Infrastructure.*
+*Preserving India's timeless monuments and ancient scriptures through 3D WebGL, WebXR Spatial AR, and Cloud Data Infrastructure.*
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![WebXR](https://img.shields.io/badge/WebXR-Spatial_AR-FF4400?style=for-the-badge&logo=webxr&logoColor=white)](https://immersiveweb.dev/)
-[![Supabase](https://img.shields.io/badge/Supabase-Database_%26_Auth-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 </div>
@@ -21,47 +20,21 @@
 
 ## 🏗️ End-to-End System Architecture Workflow
 
-PastPort India uses a modular, cloud-native architecture separating client-side 3D/AR rendering, backend database persistence, and edge deployment:
-
 ```text
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 PASSPORT INDIA ARCHITECTURE                                 │
-└─────────────────────────────────────────────────────────────────────────────────────────────┘
-  [1. USER ACCESS] ──► Browser / Device (React 18 + Vite App via HTTPS)
-        │
-  [2. AUTHENTICATION] ──► Supabase Auth (Email / OAuth) ──► JWT Session Token
-        │
-  [3. DATA REQUEST] ──► HTTPS Request with JWT ──► RestAPI (Supabase Edge Functions)
-        │
-  [4. BACKEND PROCESSING] ──► 1. Validate JWT ──► 2. Authorize ──► 3. Business Logic
-                              ──► 4. Database Ops ──► 5. Return JSON Response
-        │
-  [5. DATA RESPONSE] ──► React State / Cache ──► UI Update (Tailwind CSS)
-        │
-  [6. 3D CONTENT LOAD] ──► Load Model (.glb) ──► @react-three/fiber Canvas ──► Three.js Render
-        │
-  [7. AR / VR EXPERIENCE] ──► Enter WebXR Mode ──► WebXR Session ──► Real World Hit Test
-        │
-  [8. DATA PERSISTENCE] ──► Save Favorites, Quiz Scores & Feedback to Supabase PostgreSQL DB
-        │
-  [9. DEPLOYMENT FLOW] ──► GitHub Commit ──► Vercel Build (Vite) ──► Vercel Edge CDN Live App
+  ┌───────────────────────────────────────────────────────────────────────────────────┐
+  │                           PASTPORT INDIA COMPLETE WORKFLOW                        │
+  └───────────────────────────────────────────────────────────────────────────────────┘
+   [1. USER ACCESS]        ──► React 18 + Vite App on browser over HTTPS
+   [2. AUTHENTICATION]     ──► Supabase Auth (JWT Session Token)
+   [3. DATA REQUEST]       ──► HTTPS Request with JWT ──► RestAPI (Supabase Edge Functions)
+   [4. BACKEND PROCESSING] ──► 1. Validate JWT ──► 2. Authorize ──► 3. Business Logic
+                               ──► 4. Database Ops ──► 5. Return JSON Response
+   [5. DATA RESPONSE]      ──► React State / Cache ──► UI Update (Tailwind CSS)
+   [6. 3D CONTENT LOAD]    ──► Load .glb ──► R3F Canvas ──► Three.js Render (WebGL)
+   [7. AR/VR EXPERIENCE]   ──► WebXR API ──► Real World Hit Test ──► Interact & Explore
+   [8. DATA PERSISTENCE]   ──► Save Favorites, Quiz Scores & Feedback to Supabase PostgreSQL DB
+   [9. DEPLOYMENT FLOW]    ──► GitHub Commit ──► Vercel Build (Vite) ──► Vercel Edge CDN Live App
 ```
-
----
-
-## 🔁 Detailed 9-Step Architecture Flow
-
-| Step | Layer | Description |
-|:---|:---|:---|
-| **1. User Access** | **Frontend** | User accesses the application over secure HTTPS (`https://client-lime-delta-43.vercel.app`). |
-| **2. Authentication** | **Supabase Auth** | User signs in / registers. Supabase issues a cryptographically signed **JWT Session Token**. |
-| **3. Data Request** | **Client API** | Frontend passes JWT in Authorization header (`Bearer <token>`) to query RestAPI Edge Functions. |
-| **4. Backend Processing** | **Supabase Edge** | Edge Function validates JWT signature, checks user role, executes SQL on PostgreSQL, and returns JSON. |
-| **5. Data Response** | **React State** | JSON payload populates React state cache (React Query/Zustand) and renders UI via Tailwind CSS. |
-| **6. 3D Content Load** | **3D Engine** | `.glb` 3D model assets are streamed to `@react-three/fiber` canvas and rendered via Three.js WebGL. |
-| **7. AR/VR Experience** | **WebXR API** | Device initializes WebXR session for real-world surface tracking, reticle placement, and 3D hit testing. |
-| **8. Data Persistence** | **PostgreSQL** | User actions (favorite bookmarks, quiz scores, comments) are saved via Row Level Security (RLS) policies. |
-| **9. Deployment Flow** | **Vercel** | Git commits trigger automated Vite builds and instant deployment to Vercel's global Edge CDN. |
 
 ---
 
@@ -107,10 +80,6 @@ PastPort India uses a modular, cloud-native architecture separating client-side 
   <tr>
     <td><b>Augmented Reality</b></td>
     <td>WebXR Device API • Custom WebAR Engine (`/ar/index.html`) • Camera Passthrough</td>
-  </tr>
-  <tr>
-    <td><b>Backend & Auth</b></td>
-    <td>Supabase PostgreSQL Database • Supabase Auth (JWT) • RestAPI / Edge Functions</td>
   </tr>
   <tr>
     <td><b>UI & Design System</b></td>
