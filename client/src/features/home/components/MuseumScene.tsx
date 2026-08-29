@@ -27,11 +27,11 @@ const CAMERA_KEYFRAMES: CameraKeyframe[] = [
   // Scene 1: Wide entrance view down the gallery colonnade
   { progress: 0.0, position: [0, 3.2, 13.0], lookAt: [0, 1.4, 0] },
   // Scene 2: Gliding forward past illuminated wall paintings
-  { progress: 0.35, position: [0, 2.6, 7.2], lookAt: [0, 1.1, 0] },
+  { progress: 0.35, position: [0, 2.7, 7.2], lookAt: [0, 1.1, 0] },
   // Scene 3: Approaching center exhibit table
-  { progress: 0.7, position: [0, 2.2, 3.8], lookAt: [0, 0.95, 0] },
-  // Scene 4: Final Hero position — elegant 45° perspective angle of open manuscript & gallery
-  { progress: 1.0, position: [0, 1.85, 2.3], lookAt: [0, 0.98, 0] },
+  { progress: 0.65, position: [0, 2.4, 3.6], lookAt: [0, 0.95, 0] },
+  // Scene 4: Grand Top-Down Hero View — centered gracefully above the open manuscript inside the gallery
+  { progress: 1.0, position: [0, 4.6, 0.12], lookAt: [0, 0.88, 0] },
 ];
 
 function lerpKeyframes(progress: number): { position: THREE.Vector3; lookAt: THREE.Vector3 } {
@@ -826,13 +826,13 @@ function GrandGallery({ isMobile }: GrandGalleryProps) {
 
       {/* 2. Coffered Timber Ceiling with Beams */}
       <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 6.2, 0]}>
-        <planeGeometry args={[32, 44]} />
-        <meshStandardMaterial color="#120e0a" roughness={0.9} />
+        <planeGeometry args={[40, 56]} />
+        <meshStandardMaterial color="#120e0a" roughness={0.9} side={THREE.DoubleSide} />
       </mesh>
       {/* Transverse Ceiling Beams */}
       {[-8, -4, 0, 4, 8].map((z, idx) => (
         <mesh key={idx} position={[0, 6.05, z]}>
-          <boxGeometry args={[18, 0.3, 0.4]} />
+          <boxGeometry args={[22, 0.3, 0.4]} />
           <meshStandardMaterial color="#221810" roughness={0.75} />
         </mesh>
       ))}
