@@ -87,7 +87,7 @@ export const JourneyThroughTime: React.FC = () => {
 
             <div className="flex items-center justify-between border-b border-sandstone-400/50 pb-3">
               <span className="text-[10px] font-display font-bold uppercase tracking-widest text-charcoal-800">
-                ARCHIVAL METHODOLOGY &bull; SIH26195
+                ARCHIVAL METHODOLOGY &bull; SIH26197
               </span>
               <Badge variant="charcoal" className="text-[9px] py-0.5">
                 VERIFIED ARCHIVE

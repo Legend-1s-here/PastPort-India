@@ -56,7 +56,7 @@ export const HeritagePillars: React.FC = () => {
             <div className="flex items-center space-x-2 text-charcoal-700">
               <BookOpen className="w-4 h-4 text-brass-700" />
               <span className="text-[10px] font-display font-bold uppercase tracking-widest">
-                ARCHIVAL MANIFESTO &bull; SIH26195
+                ARCHIVAL MANIFESTO &bull; SIH26197
               </span>
             </div>
             <p className="font-editorial text-sm sm:text-base text-charcoal-950 leading-relaxed italic">
