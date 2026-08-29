@@ -91,8 +91,8 @@ export const AppHeader: React.FC = () => {
             <span>Taj Mahal (3D)</span>
           </Link>
 
-          <Link
-            to="/experience/taj-mahal-ar"
+          <a
+            href="/ar/index.html"
             className={`flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
               isAR
                 ? 'bg-terracotta-500/20 text-terracotta-300 border border-terracotta-500/40 shadow-sm'
@@ -101,7 +101,7 @@ export const AppHeader: React.FC = () => {
           >
             <Camera className="w-3.5 h-3.5 text-terracotta-400 animate-pulse" />
             <span>AR Experience</span>
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile Menu Toggle Button */}
