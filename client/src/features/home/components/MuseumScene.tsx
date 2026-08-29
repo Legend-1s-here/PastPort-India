@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useEffect, useState, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { AdaptiveDpr, AdaptiveEvents, useGLTF, Center } from '@react-three/drei';
+import { AdaptiveDpr, AdaptiveEvents, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 // ---------------------------------------------------------------------------
@@ -601,14 +601,22 @@ function UploadedAntiqueBookModel() {
         child.receiveShadow = true;
       }
     });
+
+    // Calculate precise bounding box to center X/Z and align bottom to Y=0
+    const box = new THREE.Box3().setFromObject(cloned);
+    const center = new THREE.Vector3();
+    box.getCenter(center);
+
+    cloned.position.x = -center.x;
+    cloned.position.z = -center.z;
+    cloned.position.y = -box.min.y;
+
     return cloned;
   }, [scene]);
 
   return (
-    <group position={[0, 0.89, 0]} scale={0.18}>
-      <Center bottom>
-        <primitive object={clonedScene} />
-      </Center>
+    <group position={[0, 0.90, 0]} scale={0.35} rotation={[0, -0.25, 0]}>
+      <primitive object={clonedScene} />
     </group>
   );
 }
