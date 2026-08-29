@@ -625,6 +625,9 @@ function UploadedAntiqueBookModel() {
 // ---------------------------------------------------------------------------
 // Museum Book Lectern Stand (Supporting the 3D Book on the Table)
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// Museum Book Lectern Stand (Supporting the 3D Book on the Table)
+// ---------------------------------------------------------------------------
 function MuseumBookLecternStand() {
   return (
     <group position={[0, 0.888, 0]}>
@@ -664,6 +667,35 @@ function MuseumBookLecternStand() {
           <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.9} />
         </mesh>
       </group>
+
+      {/* 3. Angled Wooden Easel Backrest Support Board */}
+      <group position={[0, 0.14, -0.22]} rotation={[-0.32, 0, 0]}>
+        {/* Main Mahogany Backboard */}
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={[1.2, 0.32, 0.025]} />
+          <meshStandardMaterial color="#22140a" roughness={0.4} metalness={0.1} />
+        </mesh>
+        {/* Gold Border Trim */}
+        <mesh position={[0, 0, 0.014]}>
+          <boxGeometry args={[1.18, 0.30, 0.004]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
+        </mesh>
+        {/* Decorative Top Gold Finials */}
+        {[-0.56, 0.56].map((x, idx) => (
+          <mesh key={idx} position={[x, 0.16, 0]}>
+            <sphereGeometry args={[0.022, 12, 12]} />
+            <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.95} />
+          </mesh>
+        ))}
+      </group>
+
+      {/* 4. Rear Diagonal Brass Support Struts (Connecting Backrest to Base Plinth) */}
+      {[-0.38, 0.38].map((x, idx) => (
+        <mesh key={idx} position={[x, 0.11, -0.34]} rotation={[0.42, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.014, 0.014, 0.26, 12]} />
+          <meshStandardMaterial color="#d4af37" roughness={0.25} metalness={0.9} />
+        </mesh>
+      ))}
     </group>
   );
 }
