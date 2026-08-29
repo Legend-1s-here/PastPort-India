@@ -623,6 +623,52 @@ function UploadedAntiqueBookModel() {
 }
 
 // ---------------------------------------------------------------------------
+// Museum Book Lectern Stand (Supporting the 3D Book on the Table)
+// ---------------------------------------------------------------------------
+function MuseumBookLecternStand() {
+  return (
+    <group position={[0, 0.888, 0]}>
+      {/* 1. Base Tier Plinth */}
+      <mesh position={[0, 0.015, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.35, 0.03, 0.95]} />
+        <meshStandardMaterial color="#1a0f0a" roughness={0.4} metalness={0.15} />
+      </mesh>
+      {/* Gold Trim Border */}
+      <mesh position={[0, 0.031, 0]}>
+        <boxGeometry args={[1.37, 0.005, 0.97]} />
+        <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.85} />
+      </mesh>
+
+      {/* 2. Slanted Wooden Book Rest Wings (Cradle) */}
+      <group position={[0, 0.035, 0]}>
+        {/* Left Angled Wing */}
+        <mesh position={[-0.34, 0.045, 0]} rotation={[0, 0, -0.14]} castShadow receiveShadow>
+          <boxGeometry args={[0.65, 0.025, 0.88]} />
+          <meshStandardMaterial color="#26160c" roughness={0.45} metalness={0.1} />
+        </mesh>
+        {/* Right Angled Wing */}
+        <mesh position={[0.34, 0.045, 0]} rotation={[0, 0, 0.14]} castShadow receiveShadow>
+          <boxGeometry args={[0.65, 0.025, 0.88]} />
+          <meshStandardMaterial color="#26160c" roughness={0.45} metalness={0.1} />
+        </mesh>
+
+        {/* Center Spine Rest Channel */}
+        <mesh position={[0, 0.012, 0]}>
+          <boxGeometry args={[0.12, 0.025, 0.88]} />
+          <meshStandardMaterial color="#180e08" roughness={0.5} />
+        </mesh>
+
+        {/* Brass Retaining Ledge / Page Rest Bar (Front) */}
+        <mesh position={[0, 0.055, 0.42]}>
+          <boxGeometry args={[1.25, 0.035, 0.035]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.9} />
+        </mesh>
+      </group>
+    </group>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Grand Central Table & Surrounding Museum Exhibition Zone
 // ---------------------------------------------------------------------------
 function CentralTable() {
@@ -700,7 +746,10 @@ function CentralTable() {
         <meshStandardMaterial color="#1c120c" roughness={0.6} />
       </mesh>
 
-      {/* 4. Uploaded 3D Antique Book with Quill & Key Model */}
+      {/* 4. Museum Book Lectern Stand (Resting on Table) */}
+      <MuseumBookLecternStand />
+
+      {/* 5. Uploaded 3D Antique Book with Quill & Key Model */}
       <Suspense fallback={<OpenAntiqueManuscript3D />}>
         <UploadedAntiqueBookModel />
       </Suspense>
