@@ -602,20 +602,21 @@ function UploadedAntiqueBookModel() {
       }
     });
 
-    // Center X and Z so book rests in center of table runner
-    const box = new THREE.Box3().setFromObject(cloned);
-    const center = new THREE.Vector3();
-    box.getCenter(center);
+    // 1. Force world matrix update so Box3 reads true transformed positions
+    cloned.updateMatrixWorld(true);
 
-    cloned.position.x = -center.x;
-    cloned.position.z = -center.z;
-    cloned.position.y = 0; // Book frame bottom is naturally at Y=0
+    // 2. Compute exact bounding box of the whole GLB hierarchy
+    const box = new THREE.Box3().setFromObject(cloned);
+    const center = box.getCenter(new THREE.Vector3());
+
+    // 3. Shift so X & Z are centered at (0,0) and bottom is exactly at local Y=0
+    cloned.position.set(-center.x, -box.min.y, -center.z);
 
     return cloned;
   }, [scene]);
 
   return (
-    <group position={[0, 0.888, 0]} scale={0.11} rotation={[0, -0.15, 0]}>
+    <group position={[0, 0.89, 0]} scale={0.16} rotation={[0, -0.15, 0]}>
       <primitive object={clonedScene} />
     </group>
   );
