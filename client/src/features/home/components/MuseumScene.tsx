@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { AdaptiveDpr, AdaptiveEvents } from '@react-three/drei';
+import { AdaptiveDpr, AdaptiveEvents, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 // ---------------------------------------------------------------------------
@@ -427,135 +427,35 @@ function HangingLantern({ position }: { position: [number, number, number] }) {
 }
 
 // ---------------------------------------------------------------------------
-// Realistic 3D Antique Leather-Bound Codex Model
 // ---------------------------------------------------------------------------
-function AntiqueBook3D() {
+// 3D GLB Models Loaded from User Assets
+// ---------------------------------------------------------------------------
+function TableBookGLB() {
+  const { scene } = useGLTF('/models/paladins_book__ancient_knights_secrets.glb');
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+
   return (
-    <group position={[0, 0.94, 0]}>
-      {/* 1. Main Leather Cover Boards (Top & Bottom Cover) */}
-      <mesh position={[0, 0.01, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1.08, 0.025, 0.78]} />
-        <meshStandardMaterial color="#1a0f0a" roughness={0.35} metalness={0.1} />
-      </mesh>
-      <mesh position={[0, 0.125, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1.08, 0.025, 0.78]} />
-        <meshStandardMaterial color="#1a0f0a" roughness={0.35} metalness={0.1} />
-      </mesh>
-
-      {/* 2. Rounded Leather Spine & Raised Horizontal Ribs */}
-      <mesh position={[-0.54, 0.067, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <cylinderGeometry args={[0.06, 0.06, 0.78, 16, 1, false, 0, Math.PI]} />
-        <meshStandardMaterial color="#160c08" roughness={0.4} metalness={0.15} />
-      </mesh>
-      {/* 5 Raised Spine Ribs (Bands) */}
-      {[-0.30, -0.15, 0, 0.15, 0.30].map((zPos, idx) => (
-        <mesh key={idx} position={[-0.55, 0.067, zPos]} rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[0.064, 0.012, 12, 16, Math.PI]} />
-          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-        </mesh>
-      ))}
-
-      {/* 3. Stacked Parchment Paper Block (Gilded Edges) */}
-      <mesh position={[0.02, 0.067, 0]} castShadow>
-        <boxGeometry args={[1.0, 0.09, 0.72]} />
-        <meshStandardMaterial color="#e8d8b8" roughness={0.7} metalness={0.1} />
-      </mesh>
-      <mesh position={[0.521, 0.067, 0]}>
-        <boxGeometry args={[0.004, 0.088, 0.71]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.4} metalness={0.7} />
-      </mesh>
-      <mesh position={[0.02, 0.067, 0.361]}>
-        <boxGeometry args={[0.99, 0.088, 0.004]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.4} metalness={0.7} />
-      </mesh>
-
-      {/* 4. Ornate Gold Filigree Corner Clasps */}
-      {[
-        [-0.48, 0.138, -0.34],
-        [0.48, 0.138, -0.34],
-        [-0.48, 0.138, 0.34],
-        [0.48, 0.138, 0.34],
-      ].map((pos, idx) => (
-        <group key={idx} position={pos as [number, number, number]}>
-          <mesh>
-            <boxGeometry args={[0.12, 0.006, 0.12]} />
-            <meshStandardMaterial color="#e5c875" roughness={0.25} metalness={0.9} />
-          </mesh>
-          <mesh position={[0, 0.004, 0]}>
-            <sphereGeometry args={[0.02, 8, 8]} />
-            <meshStandardMaterial color="#c9a44c" roughness={0.2} metalness={0.95} />
-          </mesh>
-        </group>
-      ))}
-
-      {/* 5. Embossed Gold Frame & Center Royal Medallion on Cover */}
-      <mesh position={[0.02, 0.138, 0]}>
-        <boxGeometry args={[0.92, 0.003, 0.62]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.85} />
-      </mesh>
-      <mesh position={[0.02, 0.140, 0]}>
-        <cylinderGeometry args={[0.18, 0.18, 0.004, 16]} />
-        <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.9} />
-      </mesh>
-      <mesh position={[0.02, 0.143, 0]}>
-        <octahedronGeometry args={[0.1, 0]} />
-        <meshStandardMaterial color="#d4af37" roughness={0.15} metalness={0.95} />
-      </mesh>
-
-      {/* 6. Crimson Silk Bookmark Ribbon Draped onto the Table */}
-      <mesh position={[0.1, 0.07, 0.37]} rotation={[0.2, 0.1, -0.1]}>
-        <boxGeometry args={[0.08, 0.004, 0.12]} />
-        <meshStandardMaterial color="#990000" roughness={0.3} />
-      </mesh>
-      <mesh position={[0.12, 0.0, 0.44]} rotation={[0.9, 0.05, 0.0]}>
-        <boxGeometry args={[0.08, 0.003, 0.22]} />
-        <meshStandardMaterial color="#990000" roughness={0.3} />
-      </mesh>
-      <mesh position={[0.12, -0.11, 0.52]}>
-        <coneGeometry args={[0.025, 0.06, 12]} />
-        <meshStandardMaterial color="#e5c875" roughness={0.3} metalness={0.85} />
-      </mesh>
-
-      {/* 7. Antique Brass Magnifying Glass on Tabletop */}
-      <group position={[-0.6, 0.01, 0.2]} rotation={[0.1, -0.4, 0]}>
-        {/* Brass Ring */}
-        <mesh castShadow>
-          <torusGeometry args={[0.12, 0.015, 12, 24]} />
-          <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.9} />
-        </mesh>
-        {/* Glass Lens */}
-        <mesh>
-          <cylinderGeometry args={[0.11, 0.11, 0.005, 24]} />
-          <meshStandardMaterial color="#e0f2fe" roughness={0.1} metalness={0.1} transparent opacity={0.35} />
-        </mesh>
-        {/* Carved Wood/Brass Handle */}
-        <mesh position={[-0.22, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.018, 0.024, 0.22, 12]} />
-          <meshStandardMaterial color="#2c1e13" roughness={0.5} />
-        </mesh>
-      </group>
-
-      {/* 8. Carved Brass Incense Censer (Dhoopdani) with Glowing Ember */}
-      <group position={[0.62, 0.01, -0.22]}>
-        {/* Base & Bowl */}
-        <mesh position={[0, 0.02, 0]} castShadow>
-          <cylinderGeometry args={[0.06, 0.09, 0.04, 16]} />
-          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.85} />
-        </mesh>
-        <mesh position={[0, 0.08, 0]} castShadow>
-          <sphereGeometry args={[0.1, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
-          <meshStandardMaterial color="#b89345" roughness={0.35} metalness={0.85} />
-        </mesh>
-        {/* Glowing Soft Incense Ember */}
-        <mesh position={[0, 0.1, 0]}>
-          <sphereGeometry args={[0.035, 12, 12]} />
-          <meshBasicMaterial color="#ff9933" />
-        </mesh>
-        <pointLight position={[0, 0.12, 0]} intensity={3} color="#ff8822" distance={2.5} decay={2} />
-      </group>
+    <group position={[0, 0.89, 0]} rotation={[0, 0.25, 0]} scale={0.75}>
+      <primitive object={clonedScene} castShadow receiveShadow />
     </group>
   );
 }
+useGLTF.preload('/models/paladins_book__ancient_knights_secrets.glb');
+
+function BookcaseGLB({ position, rotationY = 0, scale = 1.0 }: { position: [number, number, number]; rotationY?: number; scale?: number }) {
+  const { scene } = useGLTF('/models/wooden_bookcases_with_books.glb');
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+
+  return (
+    <group position={position} rotation={[0, rotationY, 0]} scale={scale}>
+      <primitive object={clonedScene} castShadow receiveShadow />
+    </group>
+  );
+}
+useGLTF.preload('/models/wooden_bookcases_with_books.glb');
+
+// Legacy export alias for table book
+const AntiqueBook3D = TableBookGLB;
 
 // ---------------------------------------------------------------------------
 // Grand Central Table & Surrounding Museum Exhibition Zone
@@ -833,18 +733,28 @@ function GrandGallery({ isMobile }: GrandGalleryProps) {
       <HangingLantern position={[0, 5.0, 0]} />
       <HangingLantern position={[0, 5.0, -4.2]} />
 
-      {/* 5. Side Wall Gallery Exhibits (Illuminated Paintings & Pedestal Vitrines) */}
-      {/* Left Wall Corridor */}
+      {/* 5. Side Wall Gallery Exhibits & Wooden Bookcases */}
+      {/* Left Wall Corridor Exhibits & Bookcases */}
       <GildedPainting position={[-5.8, 0, 4.2]} rotationY={Math.PI / 2} subject="portrait" />
+      <BookcaseGLB position={[-5.5, 0, 2.1]} rotationY={Math.PI / 2} scale={1.1} />
       <DisplayAlcove position={[-5.8, 0, 0]} rotationY={Math.PI / 2} artifactType="statue" />
+      <BookcaseGLB position={[-5.5, 0, -2.1]} rotationY={Math.PI / 2} scale={1.1} />
       <GildedPainting position={[-5.8, 0, -4.2]} rotationY={Math.PI / 2} subject="apsara" />
+      <BookcaseGLB position={[-5.5, 0, -6.3]} rotationY={Math.PI / 2} scale={1.1} />
       <GildedPainting position={[-5.8, 0, -8.4]} rotationY={Math.PI / 2} subject="court" />
 
-      {/* Right Wall Corridor */}
+      {/* Right Wall Corridor Exhibits & Bookcases */}
       <GildedPainting position={[5.8, 0, 4.2]} rotationY={-Math.PI / 2} subject="court" />
+      <BookcaseGLB position={[5.5, 0, 2.1]} rotationY={-Math.PI / 2} scale={1.1} />
       <DisplayAlcove position={[5.8, 0, 0]} rotationY={-Math.PI / 2} artifactType="urn" />
+      <BookcaseGLB position={[5.5, 0, -2.1]} rotationY={-Math.PI / 2} scale={1.1} />
       <GildedPainting position={[5.8, 0, -4.2]} rotationY={-Math.PI / 2} subject="landscape" />
+      <BookcaseGLB position={[5.5, 0, -6.3]} rotationY={-Math.PI / 2} scale={1.1} />
       <DisplayAlcove position={[5.8, 0, -8.4]} rotationY={-Math.PI / 2} artifactType="tablet" />
+
+      {/* Back Corner Gallery Bookcases */}
+      <BookcaseGLB position={[-7.2, 0, -11.4]} rotationY={0} scale={1.1} />
+      <BookcaseGLB position={[7.2, 0, -11.4]} rotationY={0} scale={1.1} />
 
       {/* Outer Side Walls */}
       <mesh position={[-6.2, 3.1, 0]} rotation={[0, Math.PI / 2, 0]}>
