@@ -5,10 +5,11 @@ import { isReducedMotion } from '@/lib/motion/motion';
 
 export interface HistoricalBookProps {
   /**
-   * Scroll progress from parent (0.0 to 1.0):
-   * 0.00 – 0.20: Closed book on tabletop
-   * 0.20 – 0.65: Book cover smoothly opens (-180°)
-   * 0.65 – 1.00: Opened book moves downwards as user scrolls
+   * Scroll progress from parent (0.0 to 1.0) controlling the book experience:
+   * 0.00 – 0.10: Closed book
+   * 0.10 – 0.40: Front cover opens directly
+   * 0.40 – 0.70: Fully open book displayed
+   * 0.70 – 1.00: Book translates down and fades out
    */
   progress?: number;
   className?: string;
@@ -31,21 +32,28 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
   if (isReduced) {
     openProgress = 1;
     coverAngle = -180;
-  } else if (progress < 0.15) {
+  } else if (progress < 0.10) {
     openProgress = 0;
     coverAngle = 0;
-  } else if (progress < 0.60) {
-    openProgress = (progress - 0.15) / 0.45;
-    const eased = openProgress * openProgress * (3 - 2 * openProgress);
-    coverAngle = -180 * Math.min(1, Math.max(0, eased));
+  } else if (progress < 0.40) {
+    openProgress = (progress - 0.10) / 0.30;
+    // Cubic ease for cover swing
+    const easedOpen = openProgress * openProgress * (3 - 2 * openProgress);
+    coverAngle = -180 * easedOpen;
   } else {
     openProgress = 1;
     coverAngle = -180;
   }
 
-  // --- Move down as scroll completes ---
-  const moveY = progress > 0.65 ? Math.min(140, ((progress - 0.65) / 0.35) * 140) : 0;
-  const moveOpacity = progress > 0.85 ? Math.max(0, 1 - ((progress - 0.85) / 0.15)) : 1;
+  // --- Downward Translation & Fade Out logic ---
+  let moveDownProgress = 0;
+  if (progress > 0.70) {
+    moveDownProgress = (progress - 0.70) / 0.30;
+  }
+  const easedMove = moveDownProgress * moveDownProgress; // smooth acceleration down
+  const translateY = easedMove * 180;
+  const opacity = 1 - easedMove;
+  const scale = 1 - easedMove * 0.08;
 
   const isClosed = openProgress === 0;
 
@@ -87,17 +95,19 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
       className={`relative w-full mx-auto select-none flex items-center justify-center ${className}`}
       style={{
         maxWidth: openProgress === 0 ? '420px' : openProgress >= 0.95 ? '900px' : `${420 + openProgress * 480}px`,
-        transform: `translateY(${moveY}px)`,
-        opacity: moveOpacity,
-        transition: 'max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease-out, opacity 0.2s ease-out',
+        transform: `translateY(${translateY}px) scale(${scale})`,
+        opacity: opacity,
+        transition: isClosed
+          ? 'max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+          : 'max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.1s ease-out, opacity 0.1s ease-out',
       }}
     >
-      {/* Ambient gold glow */}
+      {/* Ambient glow */}
       <div
-        className="absolute -inset-12 bg-brass-500/15 rounded-full blur-3xl pointer-events-none transition-all duration-700"
+        className="absolute -inset-12 bg-brass-500/10 rounded-full blur-3xl pointer-events-none transition-all duration-700"
         style={{
           transform: `translate(${activeTilt.y * 2}px, ${activeTilt.x * -2}px)`,
-          opacity: openProgress > 0.5 ? 0.25 : 0.15,
+          opacity: 0.18,
         }}
       />
       {/* Shadow underneath */}
@@ -177,48 +187,48 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
             {/* Center spine shadow */}
             <div className="absolute left-1/2 inset-y-0 w-6 -translate-x-1/2 bg-gradient-to-r from-charcoal-950/70 via-charcoal-900/90 to-charcoal-950/70 z-35 pointer-events-none shadow-inner" />
 
-            {/* ===== OPEN SPREAD ===== */}
+            {/* ===== BASE INNER SPREAD ===== */}
             <div className="grid md:grid-cols-2 gap-0 min-h-[400px] sm:min-h-[470px] md:min-h-[520px]">
-              {/* Left page — Historical Chronicle */}
-              <div className="surface-parchment p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border-r border-sandstone-400/50">
+              {/* Left page — Taj Mahal content */}
+              <div className="surface-parchment p-5 sm:p-7 flex flex-col justify-center space-y-4 relative overflow-hidden border-r border-sandstone-400/50">
                 {/* Corner decorations */}
                 <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-sandstone-600/40" />
                 <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-sandstone-600/40" />
                 <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-sandstone-600/40" />
                 <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-sandstone-600/40" />
 
-                <div className="space-y-4 relative z-10">
+                <div className="space-y-3 relative z-10">
                   <span className="text-[10px] font-display font-bold uppercase tracking-[0.2em] text-charcoal-700 block">
-                    Archival Survey • Volume I
+                    The Crown Jewel
                   </span>
 
                   <h3 className="font-display text-2xl sm:text-3xl font-black text-charcoal-950 leading-tight">
-                    THE STORY OF INDIA
+                    TAJ MAHAL
                   </h3>
 
                   <p className="font-editorial text-base sm:text-lg text-charcoal-800 leading-relaxed font-semibold italic">
-                    Five Millennia of Architectural Brilliance.
+                    A monument built from love.
                   </p>
 
                   <p className="font-editorial text-xs sm:text-sm text-charcoal-700 leading-relaxed">
-                    From the planned cities of the Indus Valley to the rock-cut caves of Ajanta,
-                    from soaring Dravidian gopurams to the ethereal marble mausoleums of the Mughal Era —
-                    India&apos;s heritage is a living chronicle carved in stone.
+                    Discover the history, architecture and stories behind this timeless wonder.
+                    Walk through the Charbagh gardens, examine the pietra dura inlays, and witness
+                    the genius of Mughal architecture in stunning 3D.
                   </p>
 
                   {/* CTA Button */}
                   <button
                     type="button"
                     onClick={() => navigate('/monuments/taj-mahal')}
-                    className="mt-2 inline-flex items-center space-x-2.5 text-sm font-display font-bold text-parchment-100 bg-charcoal-900 hover:bg-charcoal-800 px-6 py-3.5 rounded-xl border-2 border-brass-500/50 hover:border-brass-400 shadow-lg shadow-charcoal-950/40 transition-all duration-300 cursor-pointer group min-h-[48px] min-w-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment-200"
+                    className="mt-3 inline-flex items-center space-x-2.5 text-sm font-display font-bold text-parchment-100 bg-charcoal-900 hover:bg-charcoal-800 px-6 py-3.5 rounded-xl border-2 border-brass-500/50 hover:border-brass-400 shadow-lg shadow-charcoal-950/40 transition-all duration-300 cursor-pointer group min-h-[48px] min-w-[48px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment-200"
                   >
-                    <span>EXPLORE ARCHIVE</span>
+                    <span>EXPLORE TAJ MAHAL</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 </div>
 
                 <div className="border-t border-sandstone-400/40 pt-2 text-[10px] text-charcoal-600 font-display tracking-wider relative z-10">
-                  PASTPORT INDIA • DIGITAL HERITAGE
+                  PASTPORT INDIA • INTERACTIVE ARCHIVE
                 </div>
               </div>
 
@@ -228,7 +238,7 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
                 <img
                   src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop"
                   alt="The Taj Mahal at golden hour"
-                  className="absolute inset-0 w-full h-full object-cover opacity-75"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70"
                   loading="lazy"
                 />
                 {/* Gradient overlay */}
@@ -238,14 +248,14 @@ export const HistoricalBook: React.FC<HistoricalBookProps> = ({
                 {/* Typography overlay */}
                 <div className="relative z-10 text-center space-y-3 p-6">
                   <span className="text-[10px] font-display tracking-[0.3em] text-brass-400/80 uppercase block">
-                    Featured Heritage Site
+                    Agra, India • 1631–1653 CE
                   </span>
                   <h4 className="font-display text-2xl sm:text-3xl font-black text-parchment-100 text-gold-gradient">
                     The Taj Mahal
                   </h4>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-brass-400/60 to-transparent mx-auto" />
                   <p className="font-editorial text-sm text-sandstone-300 max-w-[240px] mx-auto italic">
-                    Interactive 3D &amp; AR Experience
+                    UNESCO World Heritage Site since 1983
                   </p>
                 </div>
 
