@@ -602,20 +602,20 @@ function UploadedAntiqueBookModel() {
       }
     });
 
-    // Calculate precise bounding box to center X/Z and align bottom to Y=0
+    // Center X and Z so book rests in center of table runner
     const box = new THREE.Box3().setFromObject(cloned);
     const center = new THREE.Vector3();
     box.getCenter(center);
 
     cloned.position.x = -center.x;
     cloned.position.z = -center.z;
-    cloned.position.y = -box.min.y;
+    cloned.position.y = 0; // Book frame bottom is naturally at Y=0
 
     return cloned;
   }, [scene]);
 
   return (
-    <group position={[0, 0.90, 0]} scale={0.35} rotation={[0, -0.25, 0]}>
+    <group position={[0, 0.888, 0]} scale={0.11} rotation={[0, -0.15, 0]}>
       <primitive object={clonedScene} />
     </group>
   );
