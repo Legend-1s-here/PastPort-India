@@ -69,7 +69,13 @@ export const MonumentDetail: React.FC = () => {
       {/* Experience Mode Toggle Buttons (3D / AR / VR) */}
       <ExperienceButtons
         currentMode={experienceMode}
-        onModeChange={setExperienceMode}
+        onModeChange={(mode) => {
+          if (mode === 'ar') {
+            window.location.href = '/ar/index.html';
+          } else {
+            setExperienceMode(mode);
+          }
+        }}
         availability={monument.experience}
       />
 
