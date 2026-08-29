@@ -515,12 +515,50 @@ function AntiqueBook3D() {
         <coneGeometry args={[0.025, 0.06, 12]} />
         <meshStandardMaterial color="#e5c875" roughness={0.3} metalness={0.85} />
       </mesh>
+
+      {/* 7. Antique Brass Magnifying Glass on Tabletop */}
+      <group position={[-0.6, 0.01, 0.2]} rotation={[0.1, -0.4, 0]}>
+        {/* Brass Ring */}
+        <mesh castShadow>
+          <torusGeometry args={[0.12, 0.015, 12, 24]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.9} />
+        </mesh>
+        {/* Glass Lens */}
+        <mesh>
+          <cylinderGeometry args={[0.11, 0.11, 0.005, 24]} />
+          <meshStandardMaterial color="#e0f2fe" roughness={0.1} metalness={0.1} transparent opacity={0.35} />
+        </mesh>
+        {/* Carved Wood/Brass Handle */}
+        <mesh position={[-0.22, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.018, 0.024, 0.22, 12]} />
+          <meshStandardMaterial color="#2c1e13" roughness={0.5} />
+        </mesh>
+      </group>
+
+      {/* 8. Carved Brass Incense Censer (Dhoopdani) with Glowing Ember */}
+      <group position={[0.62, 0.01, -0.22]}>
+        {/* Base & Bowl */}
+        <mesh position={[0, 0.02, 0]} castShadow>
+          <cylinderGeometry args={[0.06, 0.09, 0.04, 16]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.85} />
+        </mesh>
+        <mesh position={[0, 0.08, 0]} castShadow>
+          <sphereGeometry args={[0.1, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
+          <meshStandardMaterial color="#b89345" roughness={0.35} metalness={0.85} />
+        </mesh>
+        {/* Glowing Soft Incense Ember */}
+        <mesh position={[0, 0.1, 0]}>
+          <sphereGeometry args={[0.035, 12, 12]} />
+          <meshBasicMaterial color="#ff9933" />
+        </mesh>
+        <pointLight position={[0, 0.12, 0]} intensity={3} color="#ff8822" distance={2.5} decay={2} />
+      </group>
     </group>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Grand Central Table with Polished Mahogany Finish & Gold Filigree Corner Brackets
+// Grand Central Table & Surrounding Museum Exhibition Zone
 // ---------------------------------------------------------------------------
 function CentralTable() {
   return (
@@ -597,8 +635,109 @@ function CentralTable() {
         <meshStandardMaterial color="#1c120c" roughness={0.6} />
       </mesh>
 
-      {/* 4. Detailed Antique 3D Codex Model Placed Centrally on Tabletop */}
+      {/* 4. Detailed Antique 3D Codex Model & Accessories Placed Centrally */}
       <AntiqueBook3D />
+
+      {/* 5. Angled Brass Exhibition Plaque Stand (Front of Table) */}
+      <group position={[0, 0.45, 1.05]} rotation={[-0.35, 0, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[0.7, 0.32, 0.02]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.85} />
+        </mesh>
+        <mesh position={[0, 0, 0.012]}>
+          <planeGeometry args={[0.64, 0.26]} />
+          <meshStandardMaterial color="#1c1611" roughness={0.7} />
+        </mesh>
+        <mesh position={[0, 0, 0.014]}>
+          <planeGeometry args={[0.54, 0.16]} />
+          <meshStandardMaterial color="#e5c875" roughness={0.3} metalness={0.7} />
+        </mesh>
+      </group>
+
+      {/* 6. Museum Brass Stanchion Barriers & Crimson Velvet Ropes */}
+      {[
+        [-1.8, 0, -1.3],
+        [1.8, 0, -1.3],
+        [-1.8, 0, 1.3],
+        [1.8, 0, 1.3],
+      ].map((pos, idx) => (
+        <group key={idx} position={pos as [number, number, number]}>
+          {/* Stanchion Base */}
+          <mesh position={[0, 0.03, 0]}>
+            <cylinderGeometry args={[0.18, 0.22, 0.06, 16]} />
+            <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.9} />
+          </mesh>
+          {/* Brass Post */}
+          <mesh position={[0, 0.52, 0]} castShadow>
+            <cylinderGeometry args={[0.03, 0.03, 1.0, 12]} />
+            <meshStandardMaterial color="#d4af37" roughness={0.2} metalness={0.9} />
+          </mesh>
+          {/* Decorative Post Top Ball */}
+          <mesh position={[0, 1.05, 0]}>
+            <sphereGeometry args={[0.06, 16, 16]} />
+            <meshStandardMaterial color="#e5c875" roughness={0.15} metalness={0.95} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* Velvet Ropes between Stanchions (Front & Back Barriers) */}
+      <mesh position={[0, 0.88, 1.3]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.02, 0.02, 3.4, 12]} />
+        <meshStandardMaterial color="#800020" roughness={0.3} />
+      </mesh>
+      <mesh position={[0, 0.88, -1.3]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.02, 0.02, 3.4, 12]} />
+        <meshStandardMaterial color="#800020" roughness={0.3} />
+      </mesh>
+
+      {/* 7. Flanking Free-Standing Vitrine Pedestals (Left & Right of Dais) */}
+      {/* Left Pedestal: Chola Bronze Relic */}
+      <group position={[-2.4, 0, 0]}>
+        <mesh position={[0, 0.65, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.7, 1.3, 0.7]} />
+          <meshStandardMaterial color="#261e16" roughness={0.5} metalness={0.15} />
+        </mesh>
+        <mesh position={[0, 1.6, 0]}>
+          <boxGeometry args={[0.64, 0.6, 0.64]} />
+          <meshStandardMaterial color="#d5e2e8" roughness={0.1} metalness={0.1} transparent opacity={0.25} />
+        </mesh>
+        {/* Chola Bronze Idol */}
+        <mesh position={[0, 1.5, 0]} castShadow>
+          <cylinderGeometry args={[0.06, 0.12, 0.4, 12]} />
+          <meshStandardMaterial color="#a6843c" roughness={0.35} metalness={0.8} />
+        </mesh>
+        <mesh position={[0, 1.76, 0]}>
+          <sphereGeometry args={[0.08, 16, 16]} />
+          <meshStandardMaterial color="#a6843c" roughness={0.35} metalness={0.8} />
+        </mesh>
+        <spotLight position={[0, 3.0, 0.2]} target-position={[0, 1.5, 0]} angle={0.4} intensity={12} color="#ffe0b0" distance={5} decay={2} />
+      </group>
+
+      {/* Right Pedestal: Ashoka Lion Capital Emblem Relic */}
+      <group position={[2.4, 0, 0]}>
+        <mesh position={[0, 0.65, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.7, 1.3, 0.7]} />
+          <meshStandardMaterial color="#261e16" roughness={0.5} metalness={0.15} />
+        </mesh>
+        <mesh position={[0, 1.6, 0]}>
+          <boxGeometry args={[0.64, 0.6, 0.64]} />
+          <meshStandardMaterial color="#d5e2e8" roughness={0.1} metalness={0.1} transparent opacity={0.25} />
+        </mesh>
+        {/* Ashoka Lion Capital Golden Relic */}
+        <mesh position={[0, 1.45, 0]} castShadow>
+          <cylinderGeometry args={[0.1, 0.12, 0.15, 16]} />
+          <meshStandardMaterial color="#d4af37" roughness={0.25} metalness={0.85} />
+        </mesh>
+        <mesh position={[0, 1.65, 0]} castShadow>
+          <boxGeometry args={[0.22, 0.25, 0.22]} />
+          <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.9} />
+        </mesh>
+        <mesh position={[0, 1.82, 0]}>
+          <octahedronGeometry args={[0.08, 0]} />
+          <meshStandardMaterial color="#ffd700" roughness={0.15} metalness={0.95} />
+        </mesh>
+        <spotLight position={[0, 3.0, 0.2]} target-position={[0, 1.5, 0]} angle={0.4} intensity={12} color="#ffe0b0" distance={5} decay={2} />
+      </group>
     </group>
   );
 }
