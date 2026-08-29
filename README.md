@@ -4,7 +4,7 @@
 
 ![PastPort India Poster](https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop)
 
-### **SIH Problem Statement: SIH26195 • Theme: Heritage & Culture**  
+### **SIH Problem Statement: SIH26197 • Theme: Heritage & Culture**  
 *Bringing India's timeless monuments and ancient scriptures into immersive 3D and WebXR Augmented Reality.*
 
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)

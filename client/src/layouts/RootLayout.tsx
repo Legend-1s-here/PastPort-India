@@ -103,7 +103,7 @@ export const RootLayout: React.FC = () => {
           <div className="border-t border-charcoal-800/80 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-sandstone-500">
             <p className="flex items-center space-x-1">
               <Sparkles className="w-3 h-3 text-brass-400/80 inline" />
-              <span>SIH26195 Heritage &amp; Culture Prototype</span>
+              <span>SIH26197 Heritage &amp; Culture Prototype</span>
             </p>
             <p>Source-backed historical reconstructions &bull; UNESCO &amp; ASI citations</p>
           </div>
