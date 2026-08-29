@@ -224,43 +224,46 @@ export const TajMahalARViewer: React.FC<TajMahalARViewerProps> = ({ onExitAR }) 
         </button>
       </div>
 
-      {/* 3. Loading State or Camera Error Fallback */}
+      {/* 3. Loading State */}
       {isInitializing && (
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-charcoal-950/90 backdrop-blur-md space-y-4">
           <LoadingSpinner message="Initializing AR camera & spatial tracking..." />
-          <p className="text-xs text-sandstone-400 max-w-xs text-center">
+          <p className="text-xs text-sandstone-400 max-w-xs text-center font-sans">
             Requesting camera permissions to project the Taj Mahal onto your surroundings...
           </p>
         </div>
       )}
 
-      {cameraError && !cameraStream && (
-        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center p-6 bg-charcoal-950/95 backdrop-blur-lg text-center space-y-4">
-          <div className="w-16 h-16 rounded-2xl bg-terracotta-500/15 border border-terracotta-500/30 flex items-center justify-center text-terracotta-400 mx-auto">
-            <AlertTriangle className="w-8 h-8" />
+      {/* Camera HTTP Notice Banner (Non-blocking fallback banner when camera is restricted by browser) */}
+      {cameraError && !cameraStream && !isInitializing && (
+        <div className="absolute top-16 left-4 right-4 z-30 bg-charcoal-900/95 border border-amber-500/40 rounded-2xl p-3.5 backdrop-blur-md shadow-2xl flex flex-wrap items-center justify-between gap-2.5">
+          <div className="flex items-center space-x-2.5">
+            <div className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/40 shrink-0">
+              <AlertTriangle className="w-4 h-4" />
+            </div>
+            <div>
+              <h5 className="font-display text-xs font-bold text-parchment-100">
+                Spatial AR Preview Active
+              </h5>
+              <p className="text-[11px] text-sandstone-300 font-sans">
+                Camera feed requires HTTPS on IP. Tap screen to place & rotate 3D monument!
+              </p>
+            </div>
           </div>
-
-          <div className="space-y-1 max-w-md">
-            <h4 className="font-display text-lg font-bold text-parchment-100">
-              Camera Access Unavailable
-            </h4>
-            <p className="font-editorial text-sm text-sandstone-300 leading-relaxed">
-              {cameraError}. You can still explore the Taj Mahal with full 360° spatial controls in the 3D Viewer.
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={onExitAR}
-            className="px-6 py-3 rounded-xl font-display text-xs font-bold text-charcoal-950 bg-gradient-to-r from-brass-400 via-brass-300 to-brass-400 hover:from-brass-300 hover:to-brass-200 shadow-xl shadow-brass-500/25 transition cursor-pointer"
+          <a
+            href="/ar/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-brass-400 text-charcoal-950 text-[11px] font-bold hover:bg-brass-300 transition cursor-pointer shadow"
           >
-            RETURN TO 3D VIEWER
-          </button>
+            <span>WebXR Engine ↗</span>
+          </a>
         </div>
       )}
 
       {/* 4. Placement Reticle (Animated Target Ring before placement) */}
-      {!isPlaced && !isInitializing && !cameraError && (
+      {!isPlaced && !isInitializing && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
           <div className="relative flex items-center justify-center">
             {/* Pulsing Target Rings */}
