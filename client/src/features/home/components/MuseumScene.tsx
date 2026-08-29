@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useEffect, useState, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { AdaptiveDpr, AdaptiveEvents, useGLTF } from '@react-three/drei';
+import { AdaptiveDpr, AdaptiveEvents, useGLTF, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
 // ---------------------------------------------------------------------------
@@ -605,8 +605,10 @@ function UploadedAntiqueBookModel() {
   }, [scene]);
 
   return (
-    <group position={[0, 0.88, 0]} scale={1.2}>
-      <primitive object={clonedScene} />
+    <group position={[0, 0.89, 0]} scale={0.18}>
+      <Center bottom>
+        <primitive object={clonedScene} />
+      </Center>
     </group>
   );
 }
