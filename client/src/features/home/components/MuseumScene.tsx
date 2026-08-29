@@ -427,6 +427,99 @@ function HangingLantern({ position }: { position: [number, number, number] }) {
 }
 
 // ---------------------------------------------------------------------------
+// Realistic 3D Antique Leather-Bound Codex Model
+// ---------------------------------------------------------------------------
+function AntiqueBook3D() {
+  return (
+    <group position={[0, 0.94, 0]}>
+      {/* 1. Main Leather Cover Boards (Top & Bottom Cover) */}
+      <mesh position={[0, 0.01, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.08, 0.025, 0.78]} />
+        <meshStandardMaterial color="#1a0f0a" roughness={0.35} metalness={0.1} />
+      </mesh>
+      <mesh position={[0, 0.125, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.08, 0.025, 0.78]} />
+        <meshStandardMaterial color="#1a0f0a" roughness={0.35} metalness={0.1} />
+      </mesh>
+
+      {/* 2. Rounded Leather Spine & Raised Horizontal Ribs */}
+      <mesh position={[-0.54, 0.067, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.06, 0.06, 0.78, 16, 1, false, 0, Math.PI]} />
+        <meshStandardMaterial color="#160c08" roughness={0.4} metalness={0.15} />
+      </mesh>
+      {/* 5 Raised Spine Ribs (Bands) */}
+      {[-0.30, -0.15, 0, 0.15, 0.30].map((zPos, idx) => (
+        <mesh key={idx} position={[-0.55, 0.067, zPos]} rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[0.064, 0.012, 12, 16, Math.PI]} />
+          <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
+        </mesh>
+      ))}
+
+      {/* 3. Stacked Parchment Paper Block (Gilded Edges) */}
+      <mesh position={[0.02, 0.067, 0]} castShadow>
+        <boxGeometry args={[1.0, 0.09, 0.72]} />
+        <meshStandardMaterial color="#e8d8b8" roughness={0.7} metalness={0.1} />
+      </mesh>
+      <mesh position={[0.521, 0.067, 0]}>
+        <boxGeometry args={[0.004, 0.088, 0.71]} />
+        <meshStandardMaterial color="#c9a44c" roughness={0.4} metalness={0.7} />
+      </mesh>
+      <mesh position={[0.02, 0.067, 0.361]}>
+        <boxGeometry args={[0.99, 0.088, 0.004]} />
+        <meshStandardMaterial color="#c9a44c" roughness={0.4} metalness={0.7} />
+      </mesh>
+
+      {/* 4. Ornate Gold Filigree Corner Clasps */}
+      {[
+        [-0.48, 0.138, -0.34],
+        [0.48, 0.138, -0.34],
+        [-0.48, 0.138, 0.34],
+        [0.48, 0.138, 0.34],
+      ].map((pos, idx) => (
+        <group key={idx} position={pos as [number, number, number]}>
+          <mesh>
+            <boxGeometry args={[0.12, 0.006, 0.12]} />
+            <meshStandardMaterial color="#e5c875" roughness={0.25} metalness={0.9} />
+          </mesh>
+          <mesh position={[0, 0.004, 0]}>
+            <sphereGeometry args={[0.02, 8, 8]} />
+            <meshStandardMaterial color="#c9a44c" roughness={0.2} metalness={0.95} />
+          </mesh>
+        </group>
+      ))}
+
+      {/* 5. Embossed Gold Frame & Center Royal Medallion on Cover */}
+      <mesh position={[0.02, 0.138, 0]}>
+        <boxGeometry args={[0.92, 0.003, 0.62]} />
+        <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.85} />
+      </mesh>
+      <mesh position={[0.02, 0.140, 0]}>
+        <cylinderGeometry args={[0.18, 0.18, 0.004, 16]} />
+        <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.9} />
+      </mesh>
+      <mesh position={[0.02, 0.143, 0]}>
+        <octahedronGeometry args={[0.1, 0]} />
+        <meshStandardMaterial color="#d4af37" roughness={0.15} metalness={0.95} />
+      </mesh>
+
+      {/* 6. Crimson Silk Bookmark Ribbon Draped onto the Table */}
+      <mesh position={[0.1, 0.07, 0.37]} rotation={[0.2, 0.1, -0.1]}>
+        <boxGeometry args={[0.08, 0.004, 0.12]} />
+        <meshStandardMaterial color="#990000" roughness={0.3} />
+      </mesh>
+      <mesh position={[0.12, 0.0, 0.44]} rotation={[0.9, 0.05, 0.0]}>
+        <boxGeometry args={[0.08, 0.003, 0.22]} />
+        <meshStandardMaterial color="#990000" roughness={0.3} />
+      </mesh>
+      <mesh position={[0.12, -0.11, 0.52]}>
+        <coneGeometry args={[0.025, 0.06, 12]} />
+        <meshStandardMaterial color="#e5c875" roughness={0.3} metalness={0.85} />
+      </mesh>
+    </group>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Grand Central Table with Polished Mahogany Finish & Gold Filigree Corner Brackets
 // ---------------------------------------------------------------------------
 function CentralTable() {
@@ -504,175 +597,8 @@ function CentralTable() {
         <meshStandardMaterial color="#1c120c" roughness={0.6} />
       </mesh>
 
-      {/* 4. Antique Leather-Bound Codex Placed Centrally on Tabletop */}
-      <group position={[0, 0.94, 0]}>
-        {/* Antique Dark Brown Leather Casing */}
-        <mesh castShadow>
-          <boxGeometry args={[0.96, 0.095, 0.68]} />
-          <meshStandardMaterial color="#170d09" roughness={0.35} metalness={0.1} />
-        </mesh>
-        {/* Embossed Outer Gold Border */}
-        <mesh position={[0, 0.049, 0]}>
-          <boxGeometry args={[0.88, 0.002, 0.60]} />
-          <meshStandardMaterial color="#c9a44c" roughness={0.25} metalness={0.85} />
-        </mesh>
-        {/* Inner Gold Medallion Emblem */}
-        <mesh position={[0, 0.05, 0]}>
-          <boxGeometry args={[0.32, 0.002, 0.32]} />
-          <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.9} />
-        </mesh>
-        {/* Stacked Gilded Page Edges */}
-        <mesh position={[0.45, -0.004, 0]}>
-          <boxGeometry args={[0.04, 0.07, 0.62]} />
-          <meshStandardMaterial color="#e6d5b3" roughness={0.65} metalness={0.25} />
-        </mesh>
-        <mesh position={[0, -0.004, 0.31]}>
-          <boxGeometry args={[0.92, 0.07, 0.04]} />
-          <meshStandardMaterial color="#e6d5b3" roughness={0.65} metalness={0.25} />
-        </mesh>
-      </group>
-    </group>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Freestanding Sculpted Heritage Statue Pedestal with Gallery Spotlight
-// ---------------------------------------------------------------------------
-interface HeritageStatuePedestalProps {
-  position: [number, number, number];
-  rotationY: number;
-  type: 'standing_ruler' | 'seated_emperor' | 'apsara_dancer';
-}
-
-function HeritageStatuePedestal({ position, rotationY, type }: HeritageStatuePedestalProps) {
-  return (
-    <group position={position} rotation={[0, rotationY, 0]}>
-      {/* 1. Multi-tier Stepped Base Plinth */}
-      <mesh position={[0, 0.1, 0]} castShadow receiveShadow>
-        <boxGeometry args={[1.1, 0.2, 1.1]} />
-        <meshStandardMaterial color="#1a120b" roughness={0.7} metalness={0.2} />
-      </mesh>
-      <mesh position={[0, 0.21, 0]}>
-        <boxGeometry args={[1.12, 0.02, 1.12]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-      </mesh>
-      <mesh position={[0, 0.7, 0]} castShadow receiveShadow>
-        <boxGeometry args={[0.85, 1.0, 0.85]} />
-        <meshStandardMaterial color="#261b12" roughness={0.5} metalness={0.15} />
-      </mesh>
-      <mesh position={[0, 1.22, 0]}>
-        <boxGeometry args={[0.95, 0.04, 0.95]} />
-        <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-      </mesh>
-
-      {/* 2. Sculpted Heritage Statue Figure */}
-      <group position={[0, 1.24, 0]}>
-        {/* Lotus Base Disc */}
-        <mesh position={[0, 0.06, 0]}>
-          <cylinderGeometry args={[0.38, 0.42, 0.12, 24]} />
-          <meshStandardMaterial color="#3a2b1c" roughness={0.6} />
-        </mesh>
-
-        {type === 'standing_ruler' && (
-          <group position={[0, 0.12, 0]}>
-            {/* Lower Body & Draped Robe */}
-            <mesh position={[0, 0.45, 0]} castShadow>
-              <cylinderGeometry args={[0.22, 0.32, 0.85, 16]} />
-              <meshStandardMaterial color="#b5944d" roughness={0.35} metalness={0.75} />
-            </mesh>
-            {/* Torso & Armor */}
-            <mesh position={[0, 1.05, 0]} castShadow>
-              <cylinderGeometry args={[0.28, 0.22, 0.45, 16]} />
-              <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-            </mesh>
-            {/* Shoulders & Arms */}
-            <mesh position={[-0.32, 1.05, 0]} rotation={[0, 0, 0.2]} castShadow>
-              <cylinderGeometry args={[0.07, 0.08, 0.4, 12]} />
-              <meshStandardMaterial color="#b5944d" roughness={0.35} metalness={0.75} />
-            </mesh>
-            <mesh position={[0.32, 1.05, 0]} rotation={[0, 0, -0.2]} castShadow>
-              <cylinderGeometry args={[0.07, 0.08, 0.4, 12]} />
-              <meshStandardMaterial color="#b5944d" roughness={0.35} metalness={0.75} />
-            </mesh>
-            {/* Sculpted Head & Crown (Mukuta) */}
-            <mesh position={[0, 1.4, 0]} castShadow>
-              <sphereGeometry args={[0.15, 20, 20]} />
-              <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-            </mesh>
-            <mesh position={[0, 1.62, 0]} castShadow>
-              <coneGeometry args={[0.16, 0.35, 16]} />
-              <meshStandardMaterial color="#e5c875" roughness={0.25} metalness={0.9} />
-            </mesh>
-            {/* Golden Prabhamandala Halo Backing Plate */}
-            <mesh position={[0, 1.35, -0.08]} rotation={[Math.PI / 2, 0, 0]}>
-              <cylinderGeometry args={[0.42, 0.42, 0.03, 24]} />
-              <meshStandardMaterial color="#e5c875" roughness={0.2} metalness={0.9} />
-            </mesh>
-          </group>
-        )}
-
-        {type === 'seated_emperor' && (
-          <group position={[0, 0.12, 0]}>
-            {/* Throne Back */}
-            <mesh position={[0, 0.5, -0.15]}>
-              <boxGeometry args={[0.7, 0.8, 0.12]} />
-              <meshStandardMaterial color="#2d1d12" roughness={0.7} />
-            </mesh>
-            {/* Seated Lower Body */}
-            <mesh position={[0, 0.25, 0.05]} castShadow>
-              <boxGeometry args={[0.65, 0.35, 0.5]} />
-              <meshStandardMaterial color="#b5944d" roughness={0.35} metalness={0.75} />
-            </mesh>
-            {/* Upright Torso */}
-            <mesh position={[0, 0.7, 0]} castShadow>
-              <cylinderGeometry args={[0.26, 0.24, 0.55, 16]} />
-              <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-            </mesh>
-            {/* Crown Head */}
-            <mesh position={[0, 1.1, 0]} castShadow>
-              <sphereGeometry args={[0.16, 20, 20]} />
-              <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-            </mesh>
-            <mesh position={[0, 1.32, 0]} castShadow>
-              <coneGeometry args={[0.15, 0.3, 16]} />
-              <meshStandardMaterial color="#e5c875" roughness={0.25} metalness={0.9} />
-            </mesh>
-          </group>
-        )}
-
-        {type === 'apsara_dancer' && (
-          <group position={[0, 0.12, 0]}>
-            {/* Graceful Standing Pose */}
-            <mesh position={[0, 0.5, 0]} rotation={[0, 0, 0.1]} castShadow>
-              <cylinderGeometry args={[0.18, 0.26, 0.9, 16]} />
-              <meshStandardMaterial color="#b5944d" roughness={0.35} metalness={0.75} />
-            </mesh>
-            {/* Torso */}
-            <mesh position={[0, 1.1, 0]} rotation={[0, 0, -0.08]} castShadow>
-              <cylinderGeometry args={[0.22, 0.18, 0.45, 16]} />
-              <meshStandardMaterial color="#c9a44c" roughness={0.3} metalness={0.8} />
-            </mesh>
-            {/* Crown & Jewelry */}
-            <mesh position={[0, 1.45, 0]} castShadow>
-              <sphereGeometry args={[0.14, 20, 20]} />
-              <meshStandardMaterial color="#e5c875" roughness={0.25} metalness={0.9} />
-            </mesh>
-          </group>
-        )}
-      </group>
-
-      {/* 3. Dedicated Spotlight on Statue */}
-      <spotLight
-        position={[0, 4.8, 0.6]}
-        target-position={[0, 1.4, 0]}
-        angle={0.48}
-        penumbra={0.7}
-        intensity={24}
-        color="#ffe2b0"
-        distance={8}
-        decay={2}
-        castShadow
-      />
+      {/* 4. Detailed Antique 3D Codex Model Placed Centrally on Tabletop */}
+      <AntiqueBook3D />
     </group>
   );
 }
@@ -768,18 +694,13 @@ function GrandGallery({ isMobile }: GrandGalleryProps) {
       <HangingLantern position={[0, 5.0, 0]} />
       <HangingLantern position={[0, 5.0, -4.2]} />
 
-      {/* 5. Side Wall & Central Aisle Gallery Exhibits (Statues & Illuminated Paintings) */}
-      {/* Freestanding Sculpted Statues along the Main Walkway Corridor */}
-      <HeritageStatuePedestal position={[-2.8, 0, 2.1]} rotationY={0.4} type="standing_ruler" />
-      <HeritageStatuePedestal position={[2.8, 0, 2.1]} rotationY={-0.4} type="seated_emperor" />
-      <HeritageStatuePedestal position={[-2.8, 0, -2.1]} rotationY={0.3} type="apsara_dancer" />
-      <HeritageStatuePedestal position={[2.8, 0, -2.1]} rotationY={-0.3} type="standing_ruler" />
-
-      {/* Side Wall Gilded Paintings & Vitrines */}
+      {/* 5. Side Wall Gallery Exhibits (Illuminated Paintings & Pedestal Vitrines) */}
+      {/* Left Wall Corridor */}
       <GildedPainting position={[-5.8, 0, 4.2]} rotationY={Math.PI / 2} subject="portrait" />
       <DisplayAlcove position={[-5.8, 0, 0]} rotationY={Math.PI / 2} artifactType="statue" />
       <GildedPainting position={[-5.8, 0, -4.2]} rotationY={Math.PI / 2} subject="apsara" />
 
+      {/* Right Wall Corridor */}
       <GildedPainting position={[5.8, 0, 4.2]} rotationY={-Math.PI / 2} subject="court" />
       <DisplayAlcove position={[5.8, 0, 0]} rotationY={-Math.PI / 2} artifactType="urn" />
       <GildedPainting position={[5.8, 0, -4.2]} rotationY={-Math.PI / 2} subject="landscape" />
